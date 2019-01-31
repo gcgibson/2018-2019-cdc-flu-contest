@@ -15,7 +15,21 @@ library(sarimaTD)
 library(doMC)
 registerDoMC(4)
 
-data(flu_data)
+#data(flu_data)
+flu_data <- read.csv("data/flu_data")
+# for (row in 1:nrow(flu_data)){
+#   if (flu_data[row,]$week >20){
+#       current_year <- flu_data[row,]$year
+#       current_year_1 <- current_year + 1
+#       flu_data[row,"season"] <- paste0(current_year,"/",current_year_1)
+#   }else{
+#     current_year <- flu_data[row,]$year
+#     current_year_1 <- current_year - 1
+#     flu_data[row,"season"] <- paste0(current_year_1,"/",current_year)
+#   }
+# }
+
+
 region_names <- as.character(unique(flu_data$region))
 
 ## Florida and Louisiana: drop completely
@@ -25,7 +39,7 @@ region_names <- as.character(unique(flu_data$region))
 region_seasons <- expand.grid(
   region = region_names,
   #first_test_season = paste0(2011:2018, "/", 2012:2019), 
-  first_test_season = "2018/2019", # uncomment this line if you only want one season as test
+  first_test_season = "2015/2016", # uncomment this line if you only want one season as test
   stringsAsFactors = FALSE
 )
 
