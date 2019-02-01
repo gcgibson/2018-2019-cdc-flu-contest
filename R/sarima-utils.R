@@ -84,10 +84,16 @@ sample_predictive_trajectories_arima_wrapper <- function(
     trajectory_samples <- matrix(NA,ncol=max_prediction_horizon)
     test_week_formatted <- tail(data$week,1)
     if (test_week_formatted >=40){
+    test_season_formatted <- substr(analysis_time_season,1,4)
+    }else{
+      test_season_formatted <- substr(analysis_time_season,6,9)
+    }
+    test_season_formatted <- as.numeric(test_season_formatted)
+    if (test_week_formatted >=40){
       for (samp_idx in 1:100){
         current_observed_data_local <- data
         for (lag_itr in seq(40,test_week_formatted)){
-          current_lag <- test_week_formatted -lag_itr
+          current_lag <- as.numeric(test_week_formatted) -lag_itr
           prop_estimate_sample_data <- lag_df[lag_df$Region == region_str_array_hhs[match(region,region_str_array)] & lag_df$week < 201540 & lag_df$season_week == test_week_formatted , paste0("X",current_lag)]
           prop_estimate_sample_data <- prop_estimate_sample_data[!is.na(prop_estimate_sample_data)]
           if (length(prop_estimate_sample_data) > 0){
@@ -112,7 +118,7 @@ sample_predictive_trajectories_arima_wrapper <- function(
     } else{
       
       for (samp_idx in 1:100){
-        current_observed_data_local <- current_observed_data
+        current_observed_data_local <- data
         for (lag_itr in seq(40,52)){
           current_lag <- 52 -lag_itr
           prop_estimate_sample_data <- lag_df[lag_df$Region == region_str_array_hhs[match(region,region_str_array)] & lag_df$week < 201540 & lag_df$season_week == test_week_formatted , paste0("X",current_lag)]
@@ -122,8 +128,8 @@ sample_predictive_trajectories_arima_wrapper <- function(
           } else{
             prop_estimate_sample <- 1
           }
-          current_observed_data[current_observed_data$epiweek == paste0(test_season_formatted-1,lag_itr),]$wili <-
-            current_observed_data[current_observed_data$epiweek == paste0(test_season_formatted-1,lag_itr),]$wili/prop_estimate_sample
+          current_observed_data_local[current_observed_data_local$epiweek == paste0(test_season_formatted-1,lag_itr),]$wili <-
+            current_observed_data_local[current_observed_data_local$epiweek == paste0(test_season_formatted-1,lag_itr),]$wili/prop_estimate_sample
         }
         for (lag_itr in seq(1,as.numeric(test_week_formatted))){
           current_lag <- as.numeric(test_week_formatted) -lag_itr
@@ -135,8 +141,8 @@ sample_predictive_trajectories_arima_wrapper <- function(
           } else{
             prop_estimate_sample <- 1
           }
-          current_observed_data[current_observed_data$epiweek == paste0(test_season_formatted,lag_itr),]$wili <-
-            current_observed_data[current_observed_data$epiweek == paste0(test_season_formatted,lag_itr),]$wili/prop_estimate_sample
+          current_observed_data_local[current_observed_data_local$epiweek == paste0(test_season_formatted,lag_itr),]$wili <-
+            current_observed_data_local[current_observed_data_local$epiweek == paste0(test_season_formatted,lag_itr),]$wili/prop_estimate_sample
         }
         current_observed_data_local <- as.data.frame(current_observed_data_local)
         
