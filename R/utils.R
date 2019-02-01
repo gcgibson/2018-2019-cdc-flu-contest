@@ -1420,7 +1420,7 @@ get_submission_one_region_via_trajectory_simulation <- function(
     
     ## Onset is defined relative to a baseline and is only available for regions 
     #TODO: SET "COUNTRY" LABEL TO REGION
-    if(regional_switch == "Country"){
+    if(regional_switch == "dsdf"){
       ## Get onset week for each simulated trajectory
       onset_week_by_sim_ind <-
         apply(binned_subset_trajectory_samples, 1, function(trajectory) {
@@ -1453,7 +1453,7 @@ get_submission_one_region_via_trajectory_simulation <- function(
     ))
     
     ## Get bin probabilities and add to region template
-    if(regional_switch == "Country") {
+    if(regional_switch == "sdfsdf") {
       onset_week_bins <- c(as.character(seq(from = 10, to = weeks_in_first_season_year - 10, by = 1)), "none")
       onset_bin_log_probs <- log(sapply(
         onset_week_bins,

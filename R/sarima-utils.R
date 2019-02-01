@@ -76,14 +76,94 @@ sample_predictive_trajectories_arima_wrapper <- function(
   
   sarima_fit <- readRDS(file = fit_filepath)
   
-  inc_trajectory_samples <- sarimaTD:::simulate.sarimaTD(
-    sarima_fit,
-    nsim = n_sims,
-    seed = NULL,
-    newdata = data[, params$prediction_target_var],
-    h = max_prediction_horizon
-  )
+  if (params$do_sampling_lag){
+    lag_df <- read.csv("./data/lag_df")
+    region_str_array <- c("National",paste0("Region ",1:10))
+    region_str_array_hhs <- c("nat",paste0("hhs",1:10))
+    
+    trajectory_samples <- matrix(NA,ncol=max_prediction_horizon)
+    test_week_formatted <- tail(data$week,1)
+    if (test_week_formatted >=40){
+      for (samp_idx in 1:100){
+        current_observed_data_local <- data
+        for (lag_itr in seq(40,test_week_formatted)){
+          current_lag <- test_week_formatted -lag_itr
+          prop_estimate_sample_data <- lag_df[lag_df$Region == region_str_array_hhs[match(region,region_str_array)] & lag_df$week < 201540 & lag_df$season_week == test_week_formatted , paste0("X",current_lag)]
+          prop_estimate_sample_data <- prop_estimate_sample_data[!is.na(prop_estimate_sample_data)]
+          if (length(prop_estimate_sample_data) > 0){
+            prop_estimate_sample <- sample(prop_estimate_sample_data[!is.na(prop_estimate_sample_data)],1)
+          } else{
+            prop_estimate_sample <- 1
+          }
+          
+          current_observed_data_local[current_observed_data_local$epiweek == paste0(test_season_formatted,lag_itr),]$wili <-
+            current_observed_data_local[current_observed_data_local$epiweek == paste0(test_season_formatted,lag_itr),]$wili/prop_estimate_sample
+        }
+        current_observed_data_local <- as.data.frame(current_observed_data_local)
+        inc_trajectory_samples <- sarimaTD:::simulate.sarimaTD(
+          sarima_fit,
+          nsim = 100,
+          seed = NULL,
+          newdata = current_observed_data_local[, params$prediction_target_var],
+          h = max_prediction_horizon
+        )
+        trajectory_samples <- rbind(trajectory_samples,inc_trajectory_samples)
+      }
+    } else{
+      
+      for (samp_idx in 1:100){
+        current_observed_data_local <- current_observed_data
+        for (lag_itr in seq(40,52)){
+          current_lag <- 52 -lag_itr
+          prop_estimate_sample_data <- lag_df[lag_df$Region == region_str_array_hhs[match(region,region_str_array)] & lag_df$week < 201540 & lag_df$season_week == test_week_formatted , paste0("X",current_lag)]
+          prop_estimate_sample_data <- prop_estimate_sample_data[!is.na(prop_estimate_sample_data)]
+          if (length(prop_estimate_sample_data) > 0){
+            prop_estimate_sample <- sample(prop_estimate_sample_data[!is.na(prop_estimate_sample_data)],1)
+          } else{
+            prop_estimate_sample <- 1
+          }
+          current_observed_data[current_observed_data$epiweek == paste0(test_season_formatted-1,lag_itr),]$wili <-
+            current_observed_data[current_observed_data$epiweek == paste0(test_season_formatted-1,lag_itr),]$wili/prop_estimate_sample
+        }
+        for (lag_itr in seq(1,as.numeric(test_week_formatted))){
+          current_lag <- as.numeric(test_week_formatted) -lag_itr
+          prop_estimate_sample_data <- lag_df[lag_df$Region == region_str_array_hhs[match(region,region_str_array)] & lag_df$week < 201540 & lag_df$season_week == test_week_formatted , paste0("X",current_lag)]
+          prop_estimate_sample_data <- prop_estimate_sample_data[!is.na(prop_estimate_sample_data)]
+          
+          if (length(prop_estimate_sample_data) > 0){
+            prop_estimate_sample <- sample(prop_estimate_sample_data[!is.na(prop_estimate_sample_data)],1)
+          } else{
+            prop_estimate_sample <- 1
+          }
+          current_observed_data[current_observed_data$epiweek == paste0(test_season_formatted,lag_itr),]$wili <-
+            current_observed_data[current_observed_data$epiweek == paste0(test_season_formatted,lag_itr),]$wili/prop_estimate_sample
+        }
+        current_observed_data_local <- as.data.frame(current_observed_data_local)
+        
+        inc_trajectory_samples <- sarimaTD:::simulate.sarimaTD(
+          sarima_fit,
+          nsim = 100,
+          seed = NULL,
+          newdata = current_observed_data_local[, params$prediction_target_var],
+          h = max_prediction_horizon
+        )
+        trajectory_samples <- rbind(trajectory_samples,inc_trajectory_samples)
+      }
+    }
+    
+    
+    inc_trajectory_samples <- trajectory_samples[2:nrow(trajectory_samples),]
+    
+  }else{
   
+    inc_trajectory_samples <- sarimaTD:::simulate.sarimaTD(
+      sarima_fit,
+      nsim = n_sims,
+      seed = NULL,
+      newdata = data[, params$prediction_target_var],
+      h = max_prediction_horizon
+    )
+  }
   return(inc_trajectory_samples)
 }
 

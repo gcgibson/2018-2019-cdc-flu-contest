@@ -39,11 +39,13 @@ for (test_region in c("nat") ){
         test_week_formatted <- test_week
       }
       
-      delay_adjusted_forecasts_m2 <- read.csv(paste0("/Users/gcgibson/2018-2019-cdc-flu-contest/inst/submissions/region-sarima_seasonal_difference_TRUE/EW",test_week_formatted,"-",test_season_formatted,"-ReichLab_sarima_seasonal_difference_TRUE-delay-M1.csv"))
-      #delay_adjusted_forecasts_m2 <- read.csv(paste0("/Users/gcgibson/2018-2019-cdc-flu-contest/inst/submissions/region-sarima_seasonal_difference_TRUE/EW",test_region,"-",test_season_formatted,"-",test_week_formatted,"-","M2","-",model_var))
-      non_delay_adjusted_forecasts <- read.csv(paste0("/Users/gcgibson/2018-2019-cdc-flu-contest/inst/submissions/region-sarima_seasonal_difference_TRUE/EW",test_week_formatted,"-",test_season_formatted,"-ReichLab_sarima_seasonal_difference_TRUE-delay-NONE.csv"))
-      #true_forecasts <- read.csv(paste0("output/",test_region,"-",test_season_formatted,"-",test_week_formatted,"-","TRUTH","-",model_var))
       
+      delay_adjusted_forecasts_m2 <- read.csv(paste0("./inst/submissions/region-sarima_seasonal_difference_TRUE/EW",test_week_formatted,"-2018","-ReichLab_sarima_seasonal_difference_TRUE-delay-M1.csv"))
+      #delay_adjusted_forecasts_m2 <- read.csv(paste0("/Users/gcgibson/2018-2019-cdc-flu-contest/inst/submissions/region-sarima_seasonal_difference_TRUE/EW",test_region,"-",test_season_formatted,"-",test_week_formatted,"-","M2","-",model_var))
+      non_delay_adjusted_forecasts <- read.csv(paste0("./inst/submissions/region-sarima_seasonal_difference_TRUE/EW",test_week_formatted,"-2018","-ReichLab_sarima_seasonal_difference_TRUE-delay-NONE.csv"))
+      #true_forecasts <- read.csv(paste0("output/",test_region,"-",test_season_formatted,"-",test_week_formatted,"-","TRUTH","-",model_var))
+      delay_adjusted_forecasts_m1 <- delay_adjusted_forecasts_m2
+      true_forecasts <- delay_adjusted_forecasts_m2
       
       truth_time <- NULL
       
@@ -76,34 +78,31 @@ for (test_region in c("nat") ){
       p <- p + geom_vline(xintercept=as.double(truth)*10,linetype="dotted") + theme_bw()
       print (p)
       
-      prob_delay_adjusted_center_m1 <- delay_adjusted_forecasts_m1[delay_adjusted_forecasts_m1$X == truth,paste0("V",step_ahead)]
-      prob_delay_adjusted_center_m2 <- delay_adjusted_forecasts_m2[delay_adjusted_forecasts_m2$X == truth,paste0("V",step_ahead)]
-      prob_non_delay_adjusted_center <- non_delay_adjusted_forecasts[non_delay_adjusted_forecasts$X == truth,paste0("V",step_ahead)]
+      prob_delay_adjusted_center_m1 <- delay_adjusted_forecasts_m1[delay_adjusted_forecasts_m1$Target=="1 wk ahead" & delay_adjusted_forecasts_m1$Location == "US National" & delay_adjusted_forecasts_m1$Bin_start_incl == truth,]$Value[-1]
+      prob_delay_adjusted_center_m2 <- delay_adjusted_forecasts_m2[delay_adjusted_forecasts_m2$Target=="1 wk ahead" & delay_adjusted_forecasts_m2$Location == "US National" & delay_adjusted_forecasts_m2$Bin_start_incl == truth,]$Value[-1]
+      prob_non_delay_adjusted_center <- non_delay_adjusted_forecasts[non_delay_adjusted_forecasts$Target=="1 wk ahead" & non_delay_adjusted_forecasts$Location == "US National" & non_delay_adjusted_forecasts$Bin_start_incl == truth,]$Value[-1]
       prob_true_center <- true_forecasts[true_forecasts$X == truth,paste0("V",step_ahead)]
       
+      prob_delay_adjusted_l_m1 <- delay_adjusted_forecasts_m1[delay_adjusted_forecasts_m1$Target=="1 wk ahead" & delay_adjusted_forecasts_m1$Location == "US National" & delay_adjusted_forecasts_m1$Bin_start_incl == truth_l,]$Value[-1]
+      prob_delay_adjusted_l_m2 <- delay_adjusted_forecasts_m2[delay_adjusted_forecasts_m2$Target=="1 wk ahead" & delay_adjusted_forecasts_m2$Location == "US National" & delay_adjusted_forecasts_m2$Bin_start_incl == truth_l,]$Value[-1]
+      prob_non_delay_adjusted_l <- non_delay_adjusted_forecasts[non_delay_adjusted_forecasts$Target=="1 wk ahead" & non_delay_adjusted_forecasts$Location == "US National" & non_delay_adjusted_forecasts$Bin_start_incl == truth_l,]$Value[-1]
+      prob_true_l <- true_forecasts[true_forecasts$X == truth,paste0("V",step_ahead)]
       
-      prob_delay_adjusted_l_m1 <- delay_adjusted_forecasts_m1[delay_adjusted_forecasts_m1$X == truth_l,paste0("V",step_ahead)]
-      prob_delay_adjusted_l_m2 <- delay_adjusted_forecasts_m2[delay_adjusted_forecasts_m2$X == truth_l,paste0("V",step_ahead)]
-      prob_non_delay_adjusted_l <- non_delay_adjusted_forecasts[non_delay_adjusted_forecasts$X == truth_l,paste0("V",step_ahead)]
-      prob_true_l <- true_forecasts[true_forecasts$X == truth_l,paste0("V",step_ahead)]
+      prob_delay_adjusted_ll_m1 <- delay_adjusted_forecasts_m1[delay_adjusted_forecasts_m1$Target=="1 wk ahead" & delay_adjusted_forecasts_m1$Location == "US National" & delay_adjusted_forecasts_m1$Bin_start_incl == truth_ll,]$Value[-1]
+      prob_delay_adjusted_ll_m2 <- delay_adjusted_forecasts_m2[delay_adjusted_forecasts_m2$Target=="1 wk ahead" & delay_adjusted_forecasts_m2$Location == "US National" & delay_adjusted_forecasts_m2$Bin_start_incl == truth_ll,]$Value[-1]
+      prob_non_delay_adjusted_ll <- non_delay_adjusted_forecasts[non_delay_adjusted_forecasts$Target=="1 wk ahead" & non_delay_adjusted_forecasts$Location == "US National" & non_delay_adjusted_forecasts$Bin_start_incl == truth_ll,]$Value[-1]
+      prob_true_ll <- true_forecasts[true_forecasts$X == truth,paste0("V",step_ahead)]
       
+      prob_delay_adjusted_r_m1 <- delay_adjusted_forecasts_m1[delay_adjusted_forecasts_m1$Target=="1 wk ahead" & delay_adjusted_forecasts_m1$Location == "US National" & delay_adjusted_forecasts_m1$Bin_start_incl == truth_r,]$Value[-1]
+      prob_delay_adjusted_r_m2 <- delay_adjusted_forecasts_m2[delay_adjusted_forecasts_m2$Target=="1 wk ahead" & delay_adjusted_forecasts_m2$Location == "US National" & delay_adjusted_forecasts_m2$Bin_start_incl == truth_r,]$Value[-1]
+      prob_non_delay_adjusted_r <- non_delay_adjusted_forecasts[non_delay_adjusted_forecasts$Target=="1 wk ahead" & non_delay_adjusted_forecasts$Location == "US National" & non_delay_adjusted_forecasts$Bin_start_incl == truth_r,]$Value[-1]
+      prob_true_r <- true_forecasts[true_forecasts$X == truth,paste0("V",step_ahead)]
       
-      prob_delay_adjusted_ll_m1 <- delay_adjusted_forecasts_m1[delay_adjusted_forecasts_m1$X == truth_ll,paste0("V",step_ahead)]
-      prob_delay_adjusted_ll_m2 <- delay_adjusted_forecasts_m2[delay_adjusted_forecasts_m2$X == truth_ll,paste0("V",step_ahead)]
-      prob_non_delay_adjusted_ll <- non_delay_adjusted_forecasts[non_delay_adjusted_forecasts$X == truth_ll,paste0("V",step_ahead)]
-      prob_true_ll <- true_forecasts[true_forecasts$X == truth_ll,paste0("V",step_ahead)]
+      prob_delay_adjusted_rr_m1 <- delay_adjusted_forecasts_m1[delay_adjusted_forecasts_m1$Target=="1 wk ahead" & delay_adjusted_forecasts_m1$Location == "US National" & delay_adjusted_forecasts_m1$Bin_start_incl == truth_rr,]$Value[-1]
+      prob_delay_adjusted_rr_m2 <- delay_adjusted_forecasts_m2[delay_adjusted_forecasts_m2$Target=="1 wk ahead" & delay_adjusted_forecasts_m2$Location == "US National" & delay_adjusted_forecasts_m2$Bin_start_incl == truth_rr,]$Value[-1]
+      prob_non_delay_adjusted_rr <- non_delay_adjusted_forecasts[non_delay_adjusted_forecasts$Target=="1 wk ahead" & non_delay_adjusted_forecasts$Location == "US National" & non_delay_adjusted_forecasts$Bin_start_incl == truth_rr,]$Value[-1]
+      prob_true_rr <- true_forecasts[true_forecasts$X == truth,paste0("V",step_ahead)]
       
-      prob_delay_adjusted_r_m1 <- delay_adjusted_forecasts_m2[delay_adjusted_forecasts_m1$X == truth_r,paste0("V",step_ahead)]
-      prob_delay_adjusted_r_m2 <- delay_adjusted_forecasts_m2[delay_adjusted_forecasts_m2$X == truth_r,paste0("V",step_ahead)]
-      prob_non_delay_adjusted_r <- non_delay_adjusted_forecasts[non_delay_adjusted_forecasts$X == truth_r,paste0("V",step_ahead)]
-      prob_true_r <- true_forecasts[true_forecasts$X == truth_r,paste0("V",step_ahead)]
-      prob_true_rr <- true_forecasts[true_forecasts$X == truth_rr,paste0("V",step_ahead)]
-      
-      
-      prob_delay_adjusted_rr_m1 <- delay_adjusted_forecasts_m1[delay_adjusted_forecasts_m1$X == truth_rr,paste0("V",step_ahead)]
-      prob_delay_adjusted_rr_m2 <- delay_adjusted_forecasts_m2[delay_adjusted_forecasts_m2$X == truth_rr,paste0("V",step_ahead)]
-      prob_non_delay_adjusted_rr <- non_delay_adjusted_forecasts[non_delay_adjusted_forecasts$X == truth_rr,paste0("V",step_ahead)]
-      prob_true_rr <- true_forecasts[true_forecasts$X == truth_rr,paste0("V",step_ahead)]
       
       if (score == "MULTIBIN"){
         prob_delay_adjusted_m1 <- sum(prob_delay_adjusted_center_m1,prob_delay_adjusted_l_m1,prob_delay_adjusted_ll_m1,prob_delay_adjusted_r_m1,prob_delay_adjusted_rr_m1)
@@ -125,7 +124,7 @@ for (test_region in c("nat") ){
 gm_mean = function(x, na.rm=TRUE){
   exp(sum(log(x[x > 0]), na.rm=na.rm) / length(x))
 }
-print (c(paste0(step_ahead, " step ahead ", " Model Var:",model_var),score))
+print (c(paste0(step_ahead, " step ahead "),score))
 print ("Delay Adjusted - Model 1 (Mean)")
 print (log(gm_mean(delay_adjusted_total_prob_m1 +.000000000000000000001)))
 print ("Delay Adjusted - Model 2 (Sampling)")
@@ -134,3 +133,4 @@ print ("Non-delay Adjusted")
 print (log(gm_mean(non_delay_adjusted_total_prob+.000000000000000000001)))
 print ("True")
 print (log(gm_mean(true_total_prob+.000000000000000000001)))
+
