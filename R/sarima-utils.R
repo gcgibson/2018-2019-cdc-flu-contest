@@ -109,7 +109,7 @@ sample_predictive_trajectories_arima_wrapper <- function(
         current_observed_data_local <- as.data.frame(current_observed_data_local)
         inc_trajectory_samples <- sarimaTD:::simulate.sarimaTD(
           sarima_fit,
-          nsim = 100,
+          nsim = 1000,
           seed = NULL,
           newdata = current_observed_data_local[, params$prediction_target_var],
           h = max_prediction_horizon
@@ -149,7 +149,7 @@ sample_predictive_trajectories_arima_wrapper <- function(
         
         inc_trajectory_samples <- sarimaTD:::simulate.sarimaTD(
           sarima_fit,
-          nsim = 100,
+          nsim = 1000,
           seed = NULL,
           newdata = current_observed_data_local[, params$prediction_target_var],
           h = max_prediction_horizon

@@ -16,7 +16,7 @@ library(foreach)
 library(doMC)
 registerDoMC(cores=4)
 seasonal_difference <- TRUE
-delay_adjustment_list <- c("M2","M1","NONE")
+delay_adjustment_list <- c("M1","NONE", "M2")
 
 
 method <- paste0("sarima_seasonal_difference_", seasonal_difference)
@@ -24,7 +24,7 @@ submissions_save_path <- paste0("inst/submissions/region-", method)
 data <-readRDS("./data/flu_data_with_backfill_edit.rds")
 lag_df <- read.csv("./data/lag_df")
 
-for (analysis_time_season in c("2016/2017")){
+for (analysis_time_season in c("2017/2018")){
   for (delay_adjustment in delay_adjustment_list){
     for (test_week_formatted  in c(seq(40,52),seq(1,20))) {
       if (test_week_formatted < 40){
