@@ -39,7 +39,7 @@ region_names <- as.character(unique(flu_data$region))
 region_seasons <- expand.grid(
   region = region_names,
   #first_test_season = paste0(2011:2018, "/", 2012:2019), 
-  first_test_season = "2015/2016", # uncomment this line if you only want one season as test
+  first_test_season = "2016/2017", # uncomment this line if you only want one season as test
   stringsAsFactors = FALSE
 )
 
