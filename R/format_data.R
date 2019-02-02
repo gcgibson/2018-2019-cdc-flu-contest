@@ -27,7 +27,6 @@ week_to_season_week <- function(w){
 }
 
 data$season_week <- unlist(lapply(data$week,week_to_season_week))
-levels(data$region) <- c("National",paste0("Region ",1:10))
 data$weighted_ili <- data$wili
 data$week <- as.numeric(data$week)
 saveRDS(data,"data/flu_data_with_backfill_edit.rds")

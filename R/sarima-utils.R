@@ -89,6 +89,7 @@ sample_predictive_trajectories_arima_wrapper <- function(
       test_season_formatted <- substr(analysis_time_season,6,9)
     }
     test_season_formatted <- as.numeric(test_season_formatted)
+    
     if (test_week_formatted >=40){
       for (samp_idx in 1:100){
         current_observed_data_local <- data

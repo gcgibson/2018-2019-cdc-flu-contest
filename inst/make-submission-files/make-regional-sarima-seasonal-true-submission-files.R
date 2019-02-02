@@ -16,7 +16,7 @@ library(foreach)
 library(doMC)
 registerDoMC(cores=4)
 seasonal_difference <- TRUE
-delay_adjustment_list <- c("M1","NONE", "M2")
+delay_adjustment_list <- c("M2","M1","NONE")
 
 
 method <- paste0("sarima_seasonal_difference_", seasonal_difference)
@@ -26,7 +26,7 @@ lag_df <- read.csv("./data/lag_df")
 
 for (analysis_time_season in c("2016/2017")){
   for (delay_adjustment in delay_adjustment_list){
-    foreach (test_week_formatted = c(seq(40,52),seq(1,20))) %dopar% {
+    for (test_week_formatted  in c(seq(40,52),seq(1,20))) {
       if (test_week_formatted < 40){
         test_season_formatted <- substr(analysis_time_season,6,9)
       } else{

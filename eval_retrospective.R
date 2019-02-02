@@ -3,7 +3,9 @@ library(ggplot2)
 fully_observed_data <- read.csv("fully_observed_data")
 #model_params <- read.csv("model_params.csv")
 
-
+region_str_array_eval <- unlist(lapply(unique(current_observed_data$region),function(x){as.character(x)}))
+region_str_data_set <- c("US National","HHS Region 1",  "HHS Region 2",  "HHS Region 3",  "HHS Region 4" ,"HHS Region 5",  "HHS Region 6",  "HHS Region 7",  "HHS Region 8",  "HHS Region 9","HHS Region 10")
+region_str_true <- c("nat",paste0("hhs",1:10))
 #test_region <-toString(model_params$region)
 #model_var <- model_params$model_variance
 step_ahead <- 1
@@ -19,8 +21,8 @@ true_total_prob <- c()
 delay_adjusted_total_bias <- c()
 non_delay_adjusted_total_bias <- c()
 true_total_bias <- c()
-for (test_region in c("nat") ){
-  for (test_season in c("2015")){
+for (test_region in region_str_data_set){
+  for (test_season in c("2016")){
     if (test_season == "2017"){
       end_week <- 12
     }else{
@@ -40,11 +42,11 @@ for (test_region in c("nat") ){
       }
       
       
-      delay_adjusted_forecasts_m2 <- read.csv(paste0("./inst/submissions/region-sarima_seasonal_difference_TRUE/EW",test_week_formatted,"-2018","-ReichLab_sarima_seasonal_difference_TRUE-delay-M1.csv"))
-      #delay_adjusted_forecasts_m2 <- read.csv(paste0("/Users/gcgibson/2018-2019-cdc-flu-contest/inst/submissions/region-sarima_seasonal_difference_TRUE/EW",test_region,"-",test_season_formatted,"-",test_week_formatted,"-","M2","-",model_var))
-      non_delay_adjusted_forecasts <- read.csv(paste0("./inst/submissions/region-sarima_seasonal_difference_TRUE/EW",test_week_formatted,"-2018","-ReichLab_sarima_seasonal_difference_TRUE-delay-NONE.csv"))
+      delay_adjusted_forecasts_m2 <- read.csv(paste0("./inst/submissions/region-sarima_seasonal_difference_TRUE/EW",test_week_formatted,"-",test_season_formatted,"-ReichLab_sarima_seasonal_difference_TRUE-delay-M2.csv"))
+      delay_adjusted_forecasts_m1 <- read.csv(paste0("./inst/submissions/region-sarima_seasonal_difference_TRUE/EW",test_week_formatted,"-",test_season_formatted,"-ReichLab_sarima_seasonal_difference_TRUE-delay-M1.csv"))
+      non_delay_adjusted_forecasts <- read.csv(paste0("./inst/submissions/region-sarima_seasonal_difference_TRUE/EW",test_week_formatted,"-",test_season_formatted,"-ReichLab_sarima_seasonal_difference_TRUE-delay-NONE.csv"))
       #true_forecasts <- read.csv(paste0("output/",test_region,"-",test_season_formatted,"-",test_week_formatted,"-","TRUTH","-",model_var))
-      delay_adjusted_forecasts_m1 <- delay_adjusted_forecasts_m2
+      #delay_adjusted_forecasts_m1 <- delay_adjusted_forecasts_m2
       true_forecasts <- delay_adjusted_forecasts_m2
       
       truth_time <- NULL
@@ -66,7 +68,7 @@ for (test_region in c("nat") ){
         }
         truth_time <- paste0(test_season_formatted,tmp_week_formatted)
       }
-      truth <- get_inc_bin(fully_observed_data[fully_observed_data$region == test_region &fully_observed_data$epiweek == truth_time,]$wili)
+      truth <- get_inc_bin(fully_observed_data[fully_observed_data$region == region_str_true[match(test_region,region_str_data_set)] &fully_observed_data$epiweek == truth_time,]$wili)
       truth_l <- max(0,as.numeric(truth)-.1)
       truth_ll <- max(0,as.numeric(truth)-.2)
       truth_r <- min(13,as.numeric(truth)+.1)
@@ -74,9 +76,9 @@ for (test_region in c("nat") ){
       
       
       plot_df <- data.frame(delay=delay_adjusted_forecasts_m2[delay_adjusted_forecasts_m2$Target=="1 wk ahead" &delay_adjusted_forecasts_m2$Location=="US National" ,]$Value[2:25], original=non_delay_adjusted_forecasts[non_delay_adjusted_forecasts$Target=="1 wk ahead" & non_delay_adjusted_forecasts$Location=="US National",]$Value[2:25])
-      p <- ggplot(plot_df,aes(x=1:length(delay),y=delay,col="delay")) + geom_line() + geom_line(aes(x=1:length(original),y=original,col="original",alpha=.1)) + ylab("P(wili in bin i)") + xlab("bin index") + ggtitle(paste0(test_season_formatted,"-",test_week_formatted ,"- ", step_ahead,"  step ahead"))
+      p <- ggplot(plot_df,aes(x=1:length(delay),y=delay,col="delay")) + geom_line() + geom_line(aes(x=1:length(original),y=original,col="original"),alpha=.5) + ylab("P(wili in bin i)") + xlab("bin index") + ggtitle(paste0(test_season_formatted,"-",test_week_formatted ,"- ", step_ahead,"  step ahead"))
       p <- p + geom_vline(xintercept=as.double(truth)*10,linetype="dotted") + theme_bw()
-      print (p)
+      $print (p)
       
       prob_delay_adjusted_center_m1 <- delay_adjusted_forecasts_m1[delay_adjusted_forecasts_m1$Target=="1 wk ahead" & delay_adjusted_forecasts_m1$Location == "US National" & delay_adjusted_forecasts_m1$Bin_start_incl == truth,]$Value[-1]
       prob_delay_adjusted_center_m2 <- delay_adjusted_forecasts_m2[delay_adjusted_forecasts_m2$Target=="1 wk ahead" & delay_adjusted_forecasts_m2$Location == "US National" & delay_adjusted_forecasts_m2$Bin_start_incl == truth,]$Value[-1]
@@ -124,7 +126,7 @@ for (test_region in c("nat") ){
 gm_mean = function(x, na.rm=TRUE){
   exp(sum(log(x[x > 0]), na.rm=na.rm) / length(x))
 }
-print (c(paste0(step_ahead, " step ahead "),score))
+print (c(paste0(test_season, "-" ,step_ahead, " step ahead "),score))
 print ("Delay Adjusted - Model 1 (Mean)")
 print (log(gm_mean(delay_adjusted_total_prob_m1 +.000000000000000000001)))
 print ("Delay Adjusted - Model 2 (Sampling)")
