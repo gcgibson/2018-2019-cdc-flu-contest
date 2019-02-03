@@ -25,11 +25,11 @@ delay_adjusted_total_bias <- c()
 non_delay_adjusted_total_bias <- c()
 true_total_bias <- c()
 for (test_region in region_str_data_set){
-  for (test_season in c("2015")){
+  for (test_season in c("2017")){
     if (test_season == "2017"){
       end_week <- 12
     }else{
-      end_week <- 19
+      end_week <- 20
     }
     for (test_week in c(seq(40,52),seq(end_week))){
       if (test_week < 40){
