@@ -14,7 +14,7 @@ library(FluSight)
 library(gridExtra)
 library(foreach)
 library(doMC)
-registerDoMC(cores=4)
+registerDoMC(cores=8)
 seasonal_difference <- TRUE
 delay_adjustment_list <- c("M1","NONE","TRUE")
 
