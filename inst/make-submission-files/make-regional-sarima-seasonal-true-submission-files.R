@@ -16,7 +16,7 @@ library(foreach)
 library(doMC)
 registerDoMC(cores=8)
 seasonal_difference <- TRUE
-delay_adjustment_list <- c("M1","NONE","TRUE")
+delay_adjustment_list <- c("TRUE")
 
 region_str_array_eval <- c("National",paste0(1:10))
 region_str_true <- c("nat",paste0("hhs",1:10))
@@ -82,7 +82,7 @@ for (analysis_time_season in c( "2015/2016","2016/2017","2017/2018")){
           regional_switch="Country")
   
       } else if (delay_adjustment == "TRUE"){
-        current_observed_data <- fully_observed_data[fully_observed_data$epiweek < paste0(test_season_formatted,test_week_formatted)]
+        current_observed_data <- fully_observed_data[fully_observed_data$epiweek < paste0(test_season_formatted,test_week_formatted),]
         
         simulate_trajectories_sarima_params <- list(
           fits_filepath = paste0("inst/estimation/region-sarima/",
