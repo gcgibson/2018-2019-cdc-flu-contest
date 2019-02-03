@@ -16,7 +16,11 @@ library(foreach)
 library(doMC)
 registerDoMC(cores=4)
 seasonal_difference <- TRUE
-delay_adjustment_list <- c("M1","NONE", "M2")
+delay_adjustment_list <- c("M1")
+
+region_str_array_eval <- c("National",paste0(1:10))
+region_str_true <- c("nat",paste0("hhs",1:10))
+
 
 
 method <- paste0("sarima_seasonal_difference_", seasonal_difference)
