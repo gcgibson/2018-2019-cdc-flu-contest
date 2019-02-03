@@ -3,13 +3,16 @@ library(ggplot2)
 fully_observed_data <- readRDS("./data/fully_observed_data_formatted.rds")
 #model_params <- read.csv("model_params.csv")
 
-region_str_array_eval <- unlist(lapply(unique(current_observed_data$region),function(x){as.character(x)}))
+region_str_array_eval <- c("National",paste0(1:10))
 region_str_data_set <- c("US National","HHS Region 1",  "HHS Region 2",  "HHS Region 3",  "HHS Region 4" ,"HHS Region 5",  "HHS Region 6",  "HHS Region 7",  "HHS Region 8",  "HHS Region 9","HHS Region 10")
 region_str_true <- c("nat",paste0("hhs",1:10))
 #test_region <-toString(model_params$region)
 #model_var <- model_params$model_variance
 step_ahead <- 1
 score <- "MULTIBIN"
+gm_mean = function(x, na.rm=TRUE){
+  exp(sum(log(x[x > 0]), na.rm=na.rm) / length(x))
+}
 
 
 delay_adjusted_total_prob_m1 <- c()
@@ -122,17 +125,15 @@ for (test_region in region_str_data_set){
       true_total_prob <- c(true_total_prob,prob_true)
     }
   }
+  print (c(paste0(test_region,"-",test_season, "-" ,step_ahead, " step ahead "),score))
+  print ("Delay Adjusted - Model 1 (Mean)")
+  print (log(gm_mean(delay_adjusted_total_prob_m1 +.000000000000000000001)))
+  print ("Delay Adjusted - Model 2 (Sampling)")
+  print (log(gm_mean(delay_adjusted_total_prob_m2 +.000000000000000000001)))
+  print ("Non-delay Adjusted")
+  print (log(gm_mean(non_delay_adjusted_total_prob+.000000000000000000001)))
+  print ("True")
+  print (log(gm_mean(true_total_prob+.000000000000000000001)))
+  
 }
-gm_mean = function(x, na.rm=TRUE){
-  exp(sum(log(x[x > 0]), na.rm=na.rm) / length(x))
-}
-print (c(paste0(test_season, "-" ,step_ahead, " step ahead "),score))
-print ("Delay Adjusted - Model 1 (Mean)")
-print (log(gm_mean(delay_adjusted_total_prob_m1 +.000000000000000000001)))
-print ("Delay Adjusted - Model 2 (Sampling)")
-print (log(gm_mean(delay_adjusted_total_prob_m2 +.000000000000000000001)))
-print ("Non-delay Adjusted")
-print (log(gm_mean(non_delay_adjusted_total_prob+.000000000000000000001)))
-print ("True")
-print (log(gm_mean(true_total_prob+.000000000000000000001)))
 
