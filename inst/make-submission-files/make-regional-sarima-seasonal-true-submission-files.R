@@ -84,7 +84,7 @@ for (analysis_time_season in c("2015/2016")){
           for (lag_itr in seq(40,test_week_formatted)){
             current_lag <- as.numeric(test_week_formatted) -lag_itr
             for (test_region in unique(data$region)){
-              prop_estimate <- mean(lag_df[lag_df$Region == test_region & lag_df$week < 201540 , paste0("X",current_lag)],na.rm = T)
+              prop_estimate <- median(lag_df[ lag_df$week < 201540 , paste0("X",current_lag)],na.rm = T)
               current_observed_data[current_observed_data$region == test_region & current_observed_data$epiweek == paste0(test_season_formatted,lag_itr),]$wili <-
                 current_observed_data[current_observed_data$region == test_region &current_observed_data$epiweek == paste0(test_season_formatted,lag_itr),]$wili/prop_estimate
             }
@@ -93,7 +93,7 @@ for (analysis_time_season in c("2015/2016")){
           for (lag_itr in seq(40,52)){
             current_lag <- 52 -lag_itr
             for (test_region in unique(data$region)){
-              prop_estimate <- mean(lag_df[lag_df$Region == test_region & lag_df$week < 201540 , paste0("X",current_lag)],na.rm = T)
+              prop_estimate <- median(lag_df[lag_df$week < 201540 , paste0("X",current_lag)],na.rm = T)
               current_observed_data[current_observed_data$region == test_region & current_observed_data$epiweek == paste0(test_season_formatted,lag_itr),]$wili <-
                 current_observed_data[current_observed_data$region == test_region &current_observed_data$epiweek == paste0(test_season_formatted,lag_itr),]$wili/prop_estimate
             }
@@ -101,7 +101,7 @@ for (analysis_time_season in c("2015/2016")){
           for (lag_itr in seq(1,as.numeric(test_week_formatted))){
             current_lag <- as.numeric(test_week_formatted) -lag_itr
             for (test_region in unique(data$region)){
-              prop_estimate <- mean(lag_df[lag_df$Region == test_region & lag_df$week < 201540 , paste0("X",current_lag)],na.rm = T)
+              prop_estimate <- median(lag_df[ lag_df$week < 201540 , paste0("X",current_lag)],na.rm = T)
               current_observed_data[current_observed_data$region == test_region & current_observed_data$epiweek == paste0(test_season_formatted,lag_itr),]$wili <-
                 current_observed_data[current_observed_data$region == test_region &current_observed_data$epiweek == paste0(test_season_formatted,lag_itr),]$wili/prop_estimate
             }
