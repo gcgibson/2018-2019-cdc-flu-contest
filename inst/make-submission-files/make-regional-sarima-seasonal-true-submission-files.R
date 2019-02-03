@@ -24,7 +24,7 @@ submissions_save_path <- paste0("inst/submissions/region-", method)
 data <-readRDS("./data/flu_data_with_backfill_edit.rds")
 lag_df <- read.csv("./data/lag_df")
 
-for (analysis_time_season in c("2017/2018")){
+for (analysis_time_season in c("2015/2016")){
   for (delay_adjustment in delay_adjustment_list){
     for (test_week_formatted  in c(seq(40,52),seq(1,20))) {
       if (test_week_formatted < 40){

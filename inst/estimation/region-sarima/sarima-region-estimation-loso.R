@@ -16,7 +16,7 @@ library(doMC)
 registerDoMC(4)
 
 #data(flu_data)
-flu_data <- read.csv("data/flu_data")
+flu_data <- as.data.frame(readRDS("data/fully_observed_data_formatted.rds"))
 # for (row in 1:nrow(flu_data)){
 #   if (flu_data[row,]$week >20){
 #       current_year <- flu_data[row,]$year
