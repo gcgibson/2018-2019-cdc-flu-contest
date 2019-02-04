@@ -30,9 +30,9 @@ lag_df <- read.csv("./data/lag_df")
 fully_observed_data <- as.data.frame(readRDS("./data/fully_observed_data_formatted.rds"))
 
 
-for (analysis_time_season in c("2016/2017")){
+for (analysis_time_season in c("2016/2017","2017/2018")){
   for (delay_adjustment in delay_adjustment_list){
-    for (test_week_formatted in c(seq(10))){
+    foreach (test_week_formatted = c(seq(40,52),seq(20))) %dopar% {
       if (test_week_formatted < 40){
         test_season_formatted <- substr(analysis_time_season,6,9)
       } else{
