@@ -32,7 +32,7 @@ fully_observed_data <- as.data.frame(readRDS("./data/fully_observed_data_formatt
 
 for (analysis_time_season in c("2016/2017")){
   for (delay_adjustment in delay_adjustment_list){
-    for (test_week_formatted in c(seq(40,52),seq(20))){
+    for (test_week_formatted in c(seq(10))){
       if (test_week_formatted < 40){
         test_season_formatted <- substr(analysis_time_season,6,9)
       } else{
@@ -89,8 +89,8 @@ for (analysis_time_season in c("2016/2017")){
             } else if (test_week_formatted == "01"){
               lag_before_this_one <- data[data$region == test_region_m3 &data$epiweek == paste0(as.numeric(paste0(as.numeric(test_season_formatted)-1,52))) & data$lag==0,]$weighted_ili/data[data$region == test_region_m3 &data$epiweek == paste0(as.numeric(paste0(as.numeric(test_season_formatted)-1,52))) &
                                                                                                                                                                                                 data$lag==1,]$weighted_ili
-            }else if (test_week_formatted ==10){
-              lag_before_this_one <- data[data$region == test_region_m3 & data$epiweek == paste0(as.numeric(paste0(test_season_formatted,as.numeric(test_week_formatted)-1))) &
+            }else if (test_week_formatted  <=10){
+              lag_before_this_one <- data[data$region == test_region_m3 & data$epiweek == paste0(as.numeric(paste0(test_season_formatted,paste0("0",as.numeric(test_week_formatted)-1)))) &
                                             data$lag==0,]$weighted_ili/data[data$region == test_region_m3 & data$epiweek == paste0(as.numeric(paste0(test_season_formatted,paste0("0",as.numeric(test_week_formatted)-1)))) &
                                                                               data$lag==1,]$weighted_ili
             }else{
