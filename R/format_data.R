@@ -4,7 +4,7 @@ download_and_format_backfill <- function(){
   data$year <- unlist(lapply(data$epiweek,function(x){substr(x,1,4)}))
   data$week<- unlist(lapply(data$epiweek,function(x){substr(x,5,7)}))
   for (row in 1:nrow(data)){
-    if (data[row,]$week >20){
+    if (data[row,]$week > 30){
         current_year <- data[row,]$year
         current_year_1 <- as.numeric(current_year) + 1
         data[row,"season"] <- paste0(current_year,"/",current_year_1)

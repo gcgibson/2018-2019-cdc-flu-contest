@@ -934,7 +934,7 @@ get_log_scores_via_trajectory_simulation <- function(
             weeks_in_first_season_year = weeks_in_first_season_year
           )
         })
-      
+      onset_week_by_sim_ind <- onset_week_by_sim_ind[!onset_week_by_sim_ind=="none" ] 
       ## Get peak incidence for each simulated trajectory
       peak_inc_bin_by_sim_ind <-
         apply(binned_subset_trajectory_samples, 1, function(trajectory) {
@@ -1420,7 +1420,7 @@ get_submission_one_region_via_trajectory_simulation <- function(
     
     ## Onset is defined relative to a baseline and is only available for regions 
     #TODO: SET "COUNTRY" LABEL TO REGION
-    if(regional_switch == "dsdf"){
+    if(regional_switch == "Country"){
       ## Get onset week for each simulated trajectory
       onset_week_by_sim_ind <-
         apply(binned_subset_trajectory_samples, 1, function(trajectory) {
@@ -1453,7 +1453,7 @@ get_submission_one_region_via_trajectory_simulation <- function(
     ))
     
     ## Get bin probabilities and add to region template
-    if(regional_switch == "sdfsdf") {
+    if(regional_switch == "Country") {
       onset_week_bins <- c(as.character(seq(from = 10, to = weeks_in_first_season_year - 10, by = 1)), "none")
       onset_bin_log_probs <- log(sapply(
         onset_week_bins,
@@ -1465,6 +1465,8 @@ get_submission_one_region_via_trajectory_simulation <- function(
       region_results[
         region_results$Target == "Season onset" & region_results$Type == "Bin",
         "Value"] <- exp(onset_bin_log_probs)
+      onset_bin_log_probs <- onset_bin_log_probs[onset_bin_log_probs!= "none"]
+      onset_week_by_sim_ind <- onset_week_by_sim_ind[onset_week_by_sim_ind!="none"]
       if(onset_bin_log_probs[length(onset_bin_log_probs)] >= 0.5) {
         region_results[
           region_results$Target == "Season onset" & region_results$Type == "Point",
