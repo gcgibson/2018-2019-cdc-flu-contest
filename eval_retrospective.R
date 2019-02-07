@@ -8,8 +8,8 @@ region_str_data_set <- c("US National","HHS Region 1",  "HHS Region 2",  "HHS Re
 region_str_true <- c("nat",paste0("hhs",1:10))
 #test_region <-toString(model_params$region)
 #model_var <- model_params$model_variance
-target <- "3 wk ahead"
-step_ahead <- 3
+target <- "1 wk ahead"
+step_ahead <- 1
 score <- "MULTIBIN"
 gm_mean = function(x, na.rm=TRUE){
   exp(sum(log(x[x > 0]), na.rm=na.rm) / length(x))
@@ -26,7 +26,7 @@ delay_adjusted_total_bias <- c()
 non_delay_adjusted_total_bias <- c()
 true_total_bias <- c()
 for (test_region in region_str_data_set){
-  for (test_season in c("2015")){
+  for (test_season in c("2016")){
     if (test_season == "2017"){
       end_week <- 12
     }else{
@@ -47,7 +47,7 @@ for (test_region in region_str_data_set){
       
       
       delay_adjusted_forecasts_m2 <- read.csv(paste0("./inst/submissions/region-sarima_seasonal_difference_TRUE/EW",test_week_formatted,"-",test_season_formatted,"-ReichLab_sarima_seasonal_difference_TRUE-delay-M2.csv"))
-      delay_adjusted_forecasts_m1 <- read.csv(paste0("./inst/submissions/region-sarima_seasonal_difference_TRUE/EW",test_week_formatted,"-",test_season_formatted,"-ReichLab_sarima_seasonal_difference_TRUE-delay-M3.csv"))
+      delay_adjusted_forecasts_m1 <- read.csv(paste0("./inst/submissions/region-sarima_seasonal_difference_TRUE/EW",test_week_formatted,"-",test_season_formatted,"-ReichLab_sarima_seasonal_difference_TRUE-delay-M4.csv"))
       non_delay_adjusted_forecasts <- read.csv(paste0("./inst/submissions/region-sarima_seasonal_difference_TRUE/EW",test_week_formatted,"-",test_season_formatted,"-ReichLab_sarima_seasonal_difference_TRUE-delay-NONE.csv"))
       true_forecasts <- read.csv(paste0("./inst/submissions/region-sarima_seasonal_difference_TRUE/EW",test_week_formatted,"-",test_season_formatted,"-ReichLab_sarima_seasonal_difference_TRUE-delay-TRUE.csv"))
       #delay_adjusted_forecasts_m1 <- delay_adjusted_forecasts_m2
