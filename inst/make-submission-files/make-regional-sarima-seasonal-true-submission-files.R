@@ -37,9 +37,14 @@ loess_fit <- nnet(X0~Incidence +season_week + Region, subset_lag_df, size=12, ma
 fully_observed_data <- as.data.frame(readRDS("./data/fully_observed_data_formatted.rds"))
 
 
-for (analysis_time_season in c("2015/2016","2017/2018", "2017/2018")){
+for (analysis_time_season in c("2017/2018")){
   for (delay_adjustment in delay_adjustment_list){
-    foreach (test_week_formatted = c(seq(40,52),seq(20))) %dopar%{
+    if(analysis_time_season == "2017/2018"){
+      end_week <- 12
+    }else{
+      end_week <- 20
+    }
+    foreach (test_week_formatted = c(seq(40,52),seq(end_week))) %dopar% {
       if (test_week_formatted < 40){
         test_season_formatted <- substr(analysis_time_season,6,9)
       } else{
