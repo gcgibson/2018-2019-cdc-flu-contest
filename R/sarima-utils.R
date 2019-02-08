@@ -91,7 +91,7 @@ sample_predictive_trajectories_arima_wrapper <- function(
     test_season_formatted <- as.numeric(test_season_formatted)
     
     if (test_week_formatted >=40){
-      for (samp_idx in 1:100){
+      for (samp_idx in 1:nrow(lag_df[lag_df$Region == region,])){
         current_observed_data_local <- data
         for (lag_itr in seq(40,test_week_formatted)){
           current_lag <- as.numeric(test_week_formatted) -lag_itr
@@ -109,7 +109,7 @@ sample_predictive_trajectories_arima_wrapper <- function(
         current_observed_data_local <- as.data.frame(current_observed_data_local)
         inc_trajectory_samples <- sarimaTD:::simulate.sarimaTD(
           sarima_fit,
-          nsim = 1000,
+          nsim = 100,
           seed = NULL,
           newdata = current_observed_data_local[, params$prediction_target_var],
           h = max_prediction_horizon
@@ -118,7 +118,7 @@ sample_predictive_trajectories_arima_wrapper <- function(
       }
     } else{
       
-      for (samp_idx in 1:100){
+      for (samp_idx in 1:nrow(lag_df[lag_df$Region == region,])){
         current_observed_data_local <- data
         for (lag_itr in seq(40,52)){
           current_lag <- 52 -lag_itr
@@ -149,7 +149,7 @@ sample_predictive_trajectories_arima_wrapper <- function(
         
         inc_trajectory_samples <- sarimaTD:::simulate.sarimaTD(
           sarima_fit,
-          nsim = 1000,
+          nsim = 100,
           seed = NULL,
           newdata = current_observed_data_local[, params$prediction_target_var],
           h = max_prediction_horizon

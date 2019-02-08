@@ -81,7 +81,7 @@ for (test_region in region_str_data_set ){
         truth_r <- min(13,as.numeric(truth)+.1)
         truth_rr <- min(13,as.numeric(truth)+.2)
       } else{
-        baseline <- get_onset_baseline(region = "National", season = "2016/2017")
+        baseline <- get_onset_baseline(region = region_str_array_eval[match(test_region,region_str_data_set)], season = "2015/2016")
         vec_tru <- fully_observed_data[fully_observed_data$region == region_str_array_eval[match(test_region,region_str_data_set)] &fully_observed_data$season == "2016/2017",]$wili >baseline
         unformatted_week <- min(which(vec_tru==TRUE))
         if (unformatted_week <=21){
