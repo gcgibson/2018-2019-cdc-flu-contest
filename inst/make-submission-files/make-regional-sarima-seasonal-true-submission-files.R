@@ -18,7 +18,7 @@ library(nnet)
 
 registerDoMC(cores=8)
 seasonal_difference <- TRUE
-delay_adjustment_list <- c("M2")
+delay_adjustment_list <- c("M1","M3","NONE","TRUE")
 
 region_str_array_eval <- c("National",paste0(1:10))
 region_str_true <- c("nat",paste0("hhs",1:10))
@@ -37,14 +37,14 @@ loess_fit <- nnet(X0~Incidence +season_week + Region, subset_lag_df, size=12, ma
 fully_observed_data <- as.data.frame(readRDS("./data/fully_observed_data_formatted.rds"))
 
 
-for (analysis_time_season in c("2015/2016", "2016/2017")){
+for (analysis_time_season in c( "2016/2017")){
   for (delay_adjustment in delay_adjustment_list){
     if(analysis_time_season == "2017/2018"){
       end_week <- 12
     }else{
       end_week <- 20
     }
-    for (test_week_formatted in c(seq(40,52),seq(end_week)))  {
+    foreach (test_week_formatted = c(seq(40,52),seq(end_week))) %dopar%  {
       if (test_week_formatted < 40){
         test_season_formatted <- substr(analysis_time_season,6,9)
       } else{

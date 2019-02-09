@@ -91,7 +91,7 @@ sample_predictive_trajectories_arima_wrapper <- function(
     test_season_formatted <- as.numeric(test_season_formatted)
     
     if (test_week_formatted >=40){
-      for (samp_idx in 1:(10*nrow(lag_df[lag_df$Region == region & lag_df$week < 201540 & lag_df$season_week == 41,]))){
+      for (samp_idx in 1:12){
         current_observed_data_local <- data
         for (lag_itr in seq(40,test_week_formatted)){
           current_lag <- as.numeric(test_week_formatted) -lag_itr
@@ -118,7 +118,7 @@ sample_predictive_trajectories_arima_wrapper <- function(
       }
     } else{
       
-      for (samp_idx in 1:(10*nrow(lag_df[lag_df$Region == region & lag_df$week < 201540 & lag_df$season_week == 41,]))){
+      for (samp_idx in 1:12){
         current_observed_data_local <- data
         for (lag_itr in seq(40,52)){
           current_lag <- 52 -lag_itr
