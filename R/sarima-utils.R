@@ -91,11 +91,11 @@ sample_predictive_trajectories_arima_wrapper <- function(
     test_season_formatted <- as.numeric(test_season_formatted)
     
     if (test_week_formatted >=40){
-      for (samp_idx in 1:nrow(lag_df[lag_df$Region == region,])){
+      for (samp_idx in 1:(10*nrow(lag_df[lag_df$Region == region & lag_df$week < 201540 & lag_df$season_week == 41,]))){
         current_observed_data_local <- data
         for (lag_itr in seq(40,test_week_formatted)){
           current_lag <- as.numeric(test_week_formatted) -lag_itr
-          prop_estimate_sample_data <- lag_df[lag_df$Region == region_str_array_hhs[match(region,region_str_array)] & lag_df$week < 201540 & lag_df$season_week == test_week_formatted , paste0("X",current_lag)]
+          prop_estimate_sample_data <- lag_df[lag_df$Region == region & lag_df$week < 201540 & lag_df$season_week == test_week_formatted , paste0("X",current_lag)]
           prop_estimate_sample_data <- prop_estimate_sample_data[!is.na(prop_estimate_sample_data)]
           if (length(prop_estimate_sample_data) > 0){
             prop_estimate_sample <- sample(prop_estimate_sample_data[!is.na(prop_estimate_sample_data)],1)
@@ -109,7 +109,7 @@ sample_predictive_trajectories_arima_wrapper <- function(
         current_observed_data_local <- as.data.frame(current_observed_data_local)
         inc_trajectory_samples <- sarimaTD:::simulate.sarimaTD(
           sarima_fit,
-          nsim = 100,
+          nsim = 1000,
           seed = NULL,
           newdata = current_observed_data_local[, params$prediction_target_var],
           h = max_prediction_horizon
@@ -118,7 +118,7 @@ sample_predictive_trajectories_arima_wrapper <- function(
       }
     } else{
       
-      for (samp_idx in 1:nrow(lag_df[lag_df$Region == region,])){
+      for (samp_idx in 1:(10*nrow(lag_df[lag_df$Region == region & lag_df$week < 201540 & lag_df$season_week == 41,]))){
         current_observed_data_local <- data
         for (lag_itr in seq(40,52)){
           current_lag <- 52 -lag_itr
@@ -149,7 +149,7 @@ sample_predictive_trajectories_arima_wrapper <- function(
         
         inc_trajectory_samples <- sarimaTD:::simulate.sarimaTD(
           sarima_fit,
-          nsim = 100,
+          nsim = 1000,
           seed = NULL,
           newdata = current_observed_data_local[, params$prediction_target_var],
           h = max_prediction_horizon
