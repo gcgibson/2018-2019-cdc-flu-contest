@@ -15,10 +15,11 @@ library(gridExtra)
 library(foreach)
 library(doMC)
 library(nnet)
+library(lme4)
 
-registerDoMC(cores=8)
+registerDoMC(cores=2)
 seasonal_difference <- TRUE
-delay_adjustment_list <- c("M1","M3","NONE","TRUE")
+delay_adjustment_list <- c("M6")
 
 region_str_array_eval <- c("National",paste0(1:10))
 region_str_true <- c("nat",paste0("hhs",1:10))
@@ -33,6 +34,8 @@ lag_df0 <- read.csv("./data/lag_df0")
 subset_lag_df <- lag_df0[lag_df0$week < 201540,]
 
 loess_fit <- nnet(X0~Incidence +season_week + Region, subset_lag_df, size=12, maxit=500, linout=T, decay=0.01)
+lm_fit <- lm(X0~Incidence +season_week + Region, data=subset_lag_df)
+lm_fit_hierarchical <- lmer(X0~Incidence +season_week + (1|Region), data=subset_lag_df)
 
 fully_observed_data <- as.data.frame(readRDS("./data/fully_observed_data_formatted.rds"))
 
@@ -253,6 +256,84 @@ for (analysis_time_season in c( "2016/2017")){
               current_observed_data[current_observed_data$region == test_region & current_observed_data$epiweek == paste0(test_season_formatted,test_week_formatted),]$wili <-                current_observed_data[current_observed_data$region == test_region &current_observed_data$epiweek == paste0(test_season_formatted,test_week_formatted),]$wili/prop_estimate
           }
          
+        current_observed_data <- as.data.frame(current_observed_data)
+        simulate_trajectories_sarima_params <- list(
+          fits_filepath = paste0("inst/estimation/region-sarima/",
+                                 ifelse(seasonal_difference,
+                                        "fits-seasonal-differencing",
+                                        "fits-no-seasonal-differencing")),
+          prediction_target_var = "weighted_ili",
+          seasonal_difference = seasonal_difference,
+          transformation = "box-cox",
+          first_test_season = analysis_time_season,
+          do_sampling_lag=FALSE
+        )
+        
+        weeks_in_first_season_year <-
+          get_num_MMWR_weeks_in_first_season_year(analysis_time_season)
+        
+        res <- get_submission_via_trajectory_simulation(
+          data = current_observed_data,
+          analysis_time_season = analysis_time_season,
+          first_analysis_time_season_week = 10, # == week 40 of year
+          last_analysis_time_season_week = weeks_in_first_season_year - 11, # at week 41, we do prediction for a horizon of one week ahead
+          prediction_target_var = "weighted_ili",
+          incidence_bins = data.frame(
+            lower = c(0, seq(from = 0.05, to = 12.95, by = 0.1)),
+            upper = c(seq(from = 0.05, to = 12.95, by = 0.1), Inf)),
+          incidence_bin_names = as.character(seq(from = 0, to = 13, by = 0.1)),
+          n_trajectory_sims = 10000,
+          #  n_trajectory_sims = 100,
+          simulate_trajectories_function = sample_predictive_trajectories_arima_wrapper,
+          simulate_trajectories_params = simulate_trajectories_sarima_params,
+          regional_switch="Country")
+        
+      }else if (delay_adjustment=="M5"){
+        for (test_region in unique(data$region)){
+          test_dat <- data.frame(Region=test_region,season_week = as.numeric(test_week_formatted),Incidence=current_observed_data[current_observed_data$region == test_region & current_observed_data$epiweek == paste0(test_season_formatted,test_week_formatted),]$weighted_ili)
+          prop_estimate <-predict(lm_fit,newdata=test_dat)
+          current_observed_data[current_observed_data$region == test_region & current_observed_data$epiweek == paste0(test_season_formatted,test_week_formatted),]$wili <-                current_observed_data[current_observed_data$region == test_region &current_observed_data$epiweek == paste0(test_season_formatted,test_week_formatted),]$wili/prop_estimate
+        }
+        
+        current_observed_data <- as.data.frame(current_observed_data)
+        simulate_trajectories_sarima_params <- list(
+          fits_filepath = paste0("inst/estimation/region-sarima/",
+                                 ifelse(seasonal_difference,
+                                        "fits-seasonal-differencing",
+                                        "fits-no-seasonal-differencing")),
+          prediction_target_var = "weighted_ili",
+          seasonal_difference = seasonal_difference,
+          transformation = "box-cox",
+          first_test_season = analysis_time_season,
+          do_sampling_lag=FALSE
+        )
+        
+        weeks_in_first_season_year <-
+          get_num_MMWR_weeks_in_first_season_year(analysis_time_season)
+        
+        res <- get_submission_via_trajectory_simulation(
+          data = current_observed_data,
+          analysis_time_season = analysis_time_season,
+          first_analysis_time_season_week = 10, # == week 40 of year
+          last_analysis_time_season_week = weeks_in_first_season_year - 11, # at week 41, we do prediction for a horizon of one week ahead
+          prediction_target_var = "weighted_ili",
+          incidence_bins = data.frame(
+            lower = c(0, seq(from = 0.05, to = 12.95, by = 0.1)),
+            upper = c(seq(from = 0.05, to = 12.95, by = 0.1), Inf)),
+          incidence_bin_names = as.character(seq(from = 0, to = 13, by = 0.1)),
+          n_trajectory_sims = 10000,
+          #  n_trajectory_sims = 100,
+          simulate_trajectories_function = sample_predictive_trajectories_arima_wrapper,
+          simulate_trajectories_params = simulate_trajectories_sarima_params,
+          regional_switch="Country")
+        
+      }else if (delay_adjustment=="M6"){
+        for (test_region in unique(data$region)){
+          test_dat <- data.frame(Region=test_region,season_week = as.numeric(test_week_formatted),Incidence=current_observed_data[current_observed_data$region == test_region & current_observed_data$epiweek == paste0(test_season_formatted,test_week_formatted),]$weighted_ili)
+          prop_estimate <-predict(lm_fit_hierarchical,newdata=test_dat)
+          current_observed_data[current_observed_data$region == test_region & current_observed_data$epiweek == paste0(test_season_formatted,test_week_formatted),]$wili <-                current_observed_data[current_observed_data$region == test_region &current_observed_data$epiweek == paste0(test_season_formatted,test_week_formatted),]$wili/prop_estimate
+        }
+        
         current_observed_data <- as.data.frame(current_observed_data)
         simulate_trajectories_sarima_params <- list(
           fits_filepath = paste0("inst/estimation/region-sarima/",
