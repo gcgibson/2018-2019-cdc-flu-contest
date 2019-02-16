@@ -19,7 +19,7 @@ library(lme4)
 
 registerDoMC(cores=2)
 seasonal_difference <- TRUE
-delay_adjustment_list <- c("M1","M2","M3","M4","M5","M6")
+delay_adjustment_list <- c("M5")
 
 region_str_array_eval <- c("National",paste0(1:10))
 region_str_true <- c("nat",paste0("hhs",1:10))
@@ -47,7 +47,7 @@ for (analysis_time_season in c("2017/2018")){
     }else{
       end_week <- 20
     }
-    for (test_week_formatted in c(seq(10,end_week)))   {
+    for (test_week_formatted in c(seq(40,52),seq(1,end_week)))   {
       if (test_week_formatted < 40){
         test_season_formatted <- substr(analysis_time_season,6,9)
       } else{

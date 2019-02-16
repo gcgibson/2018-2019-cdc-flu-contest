@@ -16,7 +16,7 @@ data_for_plot <- matrix(NA,ncol=10)
 
 for (target in targets){
   residual_fit <- readRDS(paste0(gsub(" ", "", target),"_week_ahead_residual_fit.rda"))
-  for (top_level_season in c("2015","2016")){
+  for (top_level_season in c("2017")){
     
     step_ahead <- as.numeric(substr(targets[1],1,1))
     score <- "MULTIBIN"
@@ -42,11 +42,11 @@ for (target in targets){
       true_total_prob <- c()
       for (test_season in top_level_season){
         if (test_season == "2017"){
-          end_week <- 12
+          end_week <- 20
         }else{
           end_week <- 20
         }
-        for (test_week in c(seq(40,52),seq(end_week))){
+        for (test_week in c(seq(41,52),seq(end_week))){
           if (test_week < 40){
             test_season_formatted <- as.numeric(test_season) + 1
             if (test_week <= 9){
@@ -58,10 +58,14 @@ for (target in targets){
             test_season_formatted <- test_season
             test_week_formatted <- test_week
           }
-          
-          
-          delay_adjusted_forecasts_m2 <- read.csv(paste0("./inst/submissions/region-sarima_seasonal_difference_TRUE/EW",test_week_formatted,"-",test_season_formatted,"-ReichLab_sarima_seasonal_difference_TRUE-delay-M2.csv"))
           delay_adjusted_forecasts_m1 <- read.csv(paste0("./inst/submissions/region-sarima_seasonal_difference_TRUE/EW",test_week_formatted,"-",test_season_formatted,"-ReichLab_sarima_seasonal_difference_TRUE-delay-M1.csv"))
+          
+          if (test_season_formatted == "2017"){
+            delay_adjusted_forecasts_m2 <-delay_adjusted_forecasts_m1
+          } else{
+            delay_adjusted_forecasts_m2 <- read.csv(paste0("./inst/submissions/region-sarima_seasonal_difference_TRUE/EW",test_week_formatted,"-",test_season_formatted,"-ReichLab_sarima_seasonal_difference_TRUE-delay-M2.csv"))
+            
+          }
           delay_adjusted_forecasts_m3 <- read.csv(paste0("./inst/submissions/region-sarima_seasonal_difference_TRUE/EW",test_week_formatted,"-",test_season_formatted,"-ReichLab_sarima_seasonal_difference_TRUE-delay-M3.csv"))
           delay_adjusted_forecasts_m4 <- read.csv(paste0("./inst/submissions/region-sarima_seasonal_difference_TRUE/EW",test_week_formatted,"-",test_season_formatted,"-ReichLab_sarima_seasonal_difference_TRUE-delay-M4.csv"))
           delay_adjusted_forecasts_m5 <- read.csv(paste0("./inst/submissions/region-sarima_seasonal_difference_TRUE/EW",test_week_formatted,"-",test_season_formatted,"-ReichLab_sarima_seasonal_difference_TRUE-delay-M5.csv"))
@@ -284,5 +288,5 @@ long <- long %>%
   dplyr::summarize(value = mean(value, na.rm=TRUE))
 p <- ggplot(long,aes(x=target,y=value,col=variable)) + geom_point() + theme_bw()+ theme(axis.text.x = element_text(angle = 90, hjust = 1)) + geom_abline(intercept = 1,slope = 0,alpha=.2)  
 p
-  p <- ggplot(long,aes(x=target,y=value,col=variable)) + geom_point() + theme_bw()+ theme(axis.text.x = element_text(angle = 90, hjust = 1)) + geom_abline(intercept = 1,slope = 0,alpha=.2)  + ylim(.9,1.1)
+p <- ggplot(long,aes(x=target,y=value,col=variable)) + geom_point() + theme_bw()+ theme(axis.text.x = element_text(angle = 90, hjust = 1)) + geom_abline(intercept = 1,slope = 0,alpha=.2)  + ylim(.9,1.1)
 p

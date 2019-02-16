@@ -12,7 +12,7 @@ download_backfill_data <- function(){
   # Fetch data
   all_obs <- lapply(c("nat", paste0("hhs", 1:10)),
                     function(region_val) {
-                      lapply(1:51,
+                      lapply(0:51,
                              function(lag_val) {
                                obs_one_lag <- Epidata$fluview(
                                  regions = list(region_val),
