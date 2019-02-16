@@ -29,7 +29,7 @@ flu_data <- flu_data[order(flu_data$epiweek),]
 #     flu_data[row,"season"] <- paste0(current_year_1,"/",current_year)
 #   }
 # }
-for (analysis_time_season in c( "2011/2012","2012/2013","2013/2014")){
+for (analysis_time_season in c( "2014/2015")){
   
 
   region_names <- as.character(unique(flu_data$region))

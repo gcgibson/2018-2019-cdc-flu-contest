@@ -16,7 +16,7 @@ download_backfill_data <- function(){
                              function(lag_val) {
                                obs_one_lag <- Epidata$fluview(
                                  regions = list(region_val),
-                                 epiweeks = list(Epidata$range(199740, 201815)),
+                                 epiweeks = list(Epidata$range(199740, 201840)),
                                  lag = list(lag_val))
                                
                                lapply(obs_one_lag$epidata,

@@ -3,6 +3,8 @@ library(ggplot2)
 fully_observed_data <- readRDS("./data/fully_observed_data_formatted.rds")
 #model_params <- read.csv("model_params.csv")
 
+lag_df0 <- read.csv("lag_df0")
+
 region_str_array_eval <- c("National",paste0("Region ",1:10))
 region_str_data_set <- c("US National","HHS Region 1",  "HHS Region 2",  "HHS Region 3",  "HHS Region 4" ,"HHS Region 5",  "HHS Region 6",  "HHS Region 7",  "HHS Region 8",  "HHS Region 9","HHS Region 10")
 region_str_true <- c("nat",paste0("hhs",1:10))
@@ -10,9 +12,10 @@ region_str_true <- c("nat",paste0("hhs",1:10))
 #model_var <- model_params$model_variance
 
 targets <- c("1 wk ahead","2 wk ahead","3 wk ahead","4 wk ahead","Season onset","Season peak week", "Season peak percentage")
-data_for_plot <- matrix(NA,ncol=9)
+data_for_plot <- matrix(NA,ncol=10)
 
 for (target in targets){
+  residual_fit <- readRDS(paste0(gsub(" ", "", target),"_week_ahead_residual_fit.rda"))
   for (top_level_season in c("2015","2016")){
     
     step_ahead <- as.numeric(substr(targets[1],1,1))
@@ -29,6 +32,7 @@ for (target in targets){
     delay_adjusted_total_prob_m4 <- c()
     delay_adjusted_total_prob_m5 <- c()
     delay_adjusted_total_prob_m6 <- c()
+    delay_adjusted_total_prob_m7 <- c()
     
     
     non_delay_adjusted_total_prob <- c()
@@ -65,13 +69,7 @@ for (target in targets){
           
           non_delay_adjusted_forecasts <- read.csv(paste0("./inst/submissions/region-sarima_seasonal_difference_TRUE/EW",test_week_formatted,"-",test_season_formatted,"-ReichLab_sarima_seasonal_difference_TRUE-delay-NONE.csv"))
           true_forecasts <- read.csv(paste0("./inst/submissions/region-sarima_seasonal_difference_TRUE/EW",test_week_formatted,"-",test_season_formatted,"-ReichLab_sarima_seasonal_difference_TRUE-delay-TRUE.csv"))
-          #delay_adjusted_forecasts_m1 <- delay_adjusted_forecasts_m2
           truth_time <- NULL
-          composite_forecast <- non_delay_adjusted_forecasts
-          
-          #composite_forecast$Value <- .2*delay_adjusted_forecasts_m1$Value + .8*non_delay_adjusted_forecasts$Value
-          
-          #delay_adjusted_forecasts_m2 <- composite_forecast
           
           
           if (target == "1 wk ahead" || target == "2 wk ahead"|| target == "3 wk ahead" || target == "4 wk ahead"  ){
@@ -141,18 +139,23 @@ for (target in targets){
           
           
           
-          plot_df <- data.frame(true =true_forecasts[true_forecasts$Target==target &true_forecasts$Location==test_region ,]$Value[2:40], delay=delay_adjusted_forecasts_m2[delay_adjusted_forecasts_m2$Target==target &delay_adjusted_forecasts_m2$Location==test_region ,]$Value[2:40], original=non_delay_adjusted_forecasts[non_delay_adjusted_forecasts$Target==target & non_delay_adjusted_forecasts$Location==test_region,]$Value[2:40])
-          p <- ggplot(plot_df,aes(x=1:length(delay),y=delay,col="delay")) + geom_line() + geom_line(aes(x=1:length(original),y=original,col="original"),alpha=.5) + ylab("P(wili in bin i)") + xlab("bin index") + ggtitle(paste0(test_season_formatted,"-",test_week_formatted ,"- ", step_ahead,"  step ahead"))
-          p <- p + geom_vline(xintercept=as.double(truth)*10,linetype="dotted") + theme_bw()
-          p <- p + geom_line(aes(x=1:length(true),y=true,col="true"),alpha=.5) 
-          #print (p)
+          pred_df <- data.frame(Region =test_region,week=as.numeric(truth))
+          adjustment_factor <- mean(lag_df[lag_df$Region == region_str_array_eval[match(test_region,region_str_data_set)] &lag_df$season_week ==tmp_week_formatted,]$X0,na.rm = T) #predict(residual_fit,pred_df)
+          if (is.nan(adjustment_factor )){
+            adjustment_factor <- 1
+          } 
+         
           
           prob_delay_adjusted_center_m1 <- delay_adjusted_forecasts_m1[delay_adjusted_forecasts_m1$Target==target & delay_adjusted_forecasts_m1$Location == test_region& delay_adjusted_forecasts_m1$Bin_start_incl == truth,]$Value[-1]
           prob_delay_adjusted_center_m2 <- delay_adjusted_forecasts_m2[delay_adjusted_forecasts_m2$Target==target & delay_adjusted_forecasts_m2$Location == test_region & delay_adjusted_forecasts_m2$Bin_start_incl == truth,]$Value[-1]
           prob_delay_adjusted_center_m3 <- delay_adjusted_forecasts_m3[delay_adjusted_forecasts_m3$Target==target & delay_adjusted_forecasts_m3$Location == test_region & delay_adjusted_forecasts_m3$Bin_start_incl == truth,]$Value[-1]
           prob_delay_adjusted_center_m4 <- delay_adjusted_forecasts_m4[delay_adjusted_forecasts_m4$Target==target & delay_adjusted_forecasts_m4$Location == test_region & delay_adjusted_forecasts_m4$Bin_start_incl == truth,]$Value[-1]
-          prob_delay_adjusted_center_m5 <- delay_adjusted_forecasts_m4[delay_adjusted_forecasts_m5$Target==target & delay_adjusted_forecasts_m5$Location == test_region & delay_adjusted_forecasts_m5$Bin_start_incl == truth,]$Value[-1]
-          prob_delay_adjusted_center_m6 <- delay_adjusted_forecasts_m4[delay_adjusted_forecasts_m6$Target==target & delay_adjusted_forecasts_m6$Location == test_region & delay_adjusted_forecasts_m6$Bin_start_incl == truth,]$Value[-1]
+          prob_delay_adjusted_center_m5 <- delay_adjusted_forecasts_m5[delay_adjusted_forecasts_m5$Target==target & delay_adjusted_forecasts_m5$Location == test_region & delay_adjusted_forecasts_m5$Bin_start_incl == truth,]$Value[-1]
+          prob_delay_adjusted_center_m6 <- delay_adjusted_forecasts_m6[delay_adjusted_forecasts_m6$Target==target & delay_adjusted_forecasts_m6$Location == test_region & delay_adjusted_forecasts_m6$Bin_start_incl == truth,]$Value[-1]
+          
+          
+          prob_delay_adjusted_center_m7 <- non_delay_adjusted_forecasts[non_delay_adjusted_forecasts$Target==target & non_delay_adjusted_forecasts$Location == test_region & non_delay_adjusted_forecasts$Bin_start_incl == min(max(round(as.numeric(truth)*adjustment_factor,1),0),13),]$Value[-1]
+          
           
           prob_non_delay_adjusted_center <- non_delay_adjusted_forecasts[non_delay_adjusted_forecasts$Target==target & non_delay_adjusted_forecasts$Location ==test_region& non_delay_adjusted_forecasts$Bin_start_incl == truth,]$Value[-1]
           prob_true_center <- true_forecasts[true_forecasts$Target==target & true_forecasts$Location ==test_region& true_forecasts$Bin_start_incl == truth,]$Value[-1]
@@ -163,6 +166,8 @@ for (target in targets){
           prob_delay_adjusted_l_m4 <- delay_adjusted_forecasts_m4[delay_adjusted_forecasts_m4$Target==target & delay_adjusted_forecasts_m4$Location == test_region& delay_adjusted_forecasts_m4$Bin_start_incl == truth_l,]$Value[-1]
           prob_delay_adjusted_l_m5 <- delay_adjusted_forecasts_m5[delay_adjusted_forecasts_m5$Target==target & delay_adjusted_forecasts_m5$Location == test_region& delay_adjusted_forecasts_m5$Bin_start_incl == truth_l,]$Value[-1]
           prob_delay_adjusted_l_m6 <- delay_adjusted_forecasts_m6[delay_adjusted_forecasts_m6$Target==target & delay_adjusted_forecasts_m6$Location == test_region& delay_adjusted_forecasts_m6$Bin_start_incl == truth_l,]$Value[-1]
+          prob_delay_adjusted_l_m7 <- non_delay_adjusted_forecasts[non_delay_adjusted_forecasts$Target==target & non_delay_adjusted_forecasts$Location == test_region & non_delay_adjusted_forecasts$Bin_start_incl == min(max(round(as.numeric(truth_l)*adjustment_factor,1),0),13),]$Value[-1]
+          
           
           prob_non_delay_adjusted_l <- non_delay_adjusted_forecasts[non_delay_adjusted_forecasts$Target==target & non_delay_adjusted_forecasts$Location ==test_region& non_delay_adjusted_forecasts$Bin_start_incl == truth_l,]$Value[-1]
           prob_true_l <- true_forecasts[true_forecasts$Target==target & true_forecasts$Location ==test_region& true_forecasts$Bin_start_incl == truth_l,]$Value[-1]
@@ -173,6 +178,7 @@ for (target in targets){
           prob_delay_adjusted_ll_m4 <- delay_adjusted_forecasts_m4[delay_adjusted_forecasts_m4$Target==target & delay_adjusted_forecasts_m4$Location ==test_region& delay_adjusted_forecasts_m4$Bin_start_incl == truth_ll,]$Value[-1]
           prob_delay_adjusted_ll_m5 <- delay_adjusted_forecasts_m5[delay_adjusted_forecasts_m5$Target==target & delay_adjusted_forecasts_m5$Location ==test_region& delay_adjusted_forecasts_m5$Bin_start_incl == truth_ll,]$Value[-1]
           prob_delay_adjusted_ll_m6 <- delay_adjusted_forecasts_m6[delay_adjusted_forecasts_m6$Target==target & delay_adjusted_forecasts_m6$Location ==test_region& delay_adjusted_forecasts_m6$Bin_start_incl == truth_ll,]$Value[-1]
+          prob_delay_adjusted_ll_m7 <- non_delay_adjusted_forecasts[non_delay_adjusted_forecasts$Target==target & non_delay_adjusted_forecasts$Location == test_region & non_delay_adjusted_forecasts$Bin_start_incl == min(max(round(as.numeric(truth_ll)*adjustment_factor,1),0),13),]$Value[-1]
           
           prob_non_delay_adjusted_ll <- non_delay_adjusted_forecasts[non_delay_adjusted_forecasts$Target==target & non_delay_adjusted_forecasts$Location ==test_region & non_delay_adjusted_forecasts$Bin_start_incl == truth_ll,]$Value[-1]
           prob_true_ll <- true_forecasts[true_forecasts$Target==target & true_forecasts$Location ==test_region& true_forecasts$Bin_start_incl == truth_ll,]$Value[-1]
@@ -183,6 +189,8 @@ for (target in targets){
           prob_delay_adjusted_r_m4 <- delay_adjusted_forecasts_m4[delay_adjusted_forecasts_m4$Target==target & delay_adjusted_forecasts_m4$Location == test_region & delay_adjusted_forecasts_m4$Bin_start_incl == truth_r,]$Value[-1]
           prob_delay_adjusted_r_m5 <- delay_adjusted_forecasts_m5[delay_adjusted_forecasts_m5$Target==target & delay_adjusted_forecasts_m5$Location == test_region & delay_adjusted_forecasts_m5$Bin_start_incl == truth_r,]$Value[-1]
           prob_delay_adjusted_r_m6 <- delay_adjusted_forecasts_m6[delay_adjusted_forecasts_m6$Target==target & delay_adjusted_forecasts_m6$Location == test_region & delay_adjusted_forecasts_m6$Bin_start_incl == truth_r,]$Value[-1]
+          prob_delay_adjusted_r_m7 <- non_delay_adjusted_forecasts[non_delay_adjusted_forecasts$Target==target & non_delay_adjusted_forecasts$Location == test_region & non_delay_adjusted_forecasts$Bin_start_incl == min(max(round(as.numeric(truth_r)*adjustment_factor,1),0),13),]$Value[-1]
+          
           
           prob_non_delay_adjusted_r <- non_delay_adjusted_forecasts[non_delay_adjusted_forecasts$Target==target & non_delay_adjusted_forecasts$Location ==test_region & non_delay_adjusted_forecasts$Bin_start_incl == truth_r,]$Value[-1]
           prob_true_r <- true_forecasts[true_forecasts$Target==target & true_forecasts$Location ==test_region& true_forecasts$Bin_start_incl == truth_r,]$Value[-1]
@@ -193,6 +201,7 @@ for (target in targets){
           prob_delay_adjusted_rr_m4 <- delay_adjusted_forecasts_m4[delay_adjusted_forecasts_m4$Target==target & delay_adjusted_forecasts_m4$Location == test_region & delay_adjusted_forecasts_m4$Bin_start_incl == truth_rr,]$Value[-1]
           prob_delay_adjusted_rr_m5 <- delay_adjusted_forecasts_m5[delay_adjusted_forecasts_m5$Target==target & delay_adjusted_forecasts_m5$Location == test_region & delay_adjusted_forecasts_m5$Bin_start_incl == truth_rr,]$Value[-1]
           prob_delay_adjusted_rr_m6 <- delay_adjusted_forecasts_m6[delay_adjusted_forecasts_m6$Target==target & delay_adjusted_forecasts_m6$Location == test_region & delay_adjusted_forecasts_m6$Bin_start_incl == truth_rr,]$Value[-1]
+          prob_delay_adjusted_rr_m7 <- non_delay_adjusted_forecasts[non_delay_adjusted_forecasts$Target==target & non_delay_adjusted_forecasts$Location == test_region & non_delay_adjusted_forecasts$Bin_start_incl == min(max(round(as.numeric(truth_rr)*adjustment_factor,1),0),13),]$Value[-1]
           
           prob_non_delay_adjusted_rr <- non_delay_adjusted_forecasts[non_delay_adjusted_forecasts$Target==target & non_delay_adjusted_forecasts$Location == test_region & non_delay_adjusted_forecasts$Bin_start_incl == truth_rr,]$Value[-1]
           prob_true_rr <- true_forecasts[true_forecasts$Target==target& true_forecasts$Location ==test_region& true_forecasts$Bin_start_incl == truth_rr,]$Value[-1]
@@ -205,8 +214,16 @@ for (target in targets){
             prob_delay_adjusted_m4 <- sum(prob_delay_adjusted_center_m4,prob_delay_adjusted_l_m4,prob_delay_adjusted_ll_m4,prob_delay_adjusted_r_m4,prob_delay_adjusted_rr_m4)
             prob_delay_adjusted_m5 <- sum(prob_delay_adjusted_center_m5,prob_delay_adjusted_l_m5,prob_delay_adjusted_ll_m5,prob_delay_adjusted_r_m5,prob_delay_adjusted_rr_m5)
             prob_delay_adjusted_m6 <- sum(prob_delay_adjusted_center_m6,prob_delay_adjusted_l_m6,prob_delay_adjusted_ll_m6,prob_delay_adjusted_r_m6,prob_delay_adjusted_rr_m6)
+            prob_delay_adjusted_m7 <- sum(prob_delay_adjusted_center_m7,prob_delay_adjusted_l_m7,prob_delay_adjusted_ll_m7,prob_delay_adjusted_r_m7,prob_delay_adjusted_rr_m7)
             
             
+            m7_plot <- c(prob_delay_adjusted_center_m7,prob_delay_adjusted_l_m7,prob_delay_adjusted_ll_m7,prob_delay_adjusted_r_m7,prob_delay_adjusted_rr_m7)
+            non_delay_plot <- c(prob_non_delay_adjusted_center,prob_non_delay_adjusted_l,prob_non_delay_adjusted_ll,prob_non_delay_adjusted_r,prob_non_delay_adjusted_rr)
+            truth_vec <- c(truth,truth_l,truth_ll,truth_r,truth_rr)
+           # plot_df <- data.frame(true = rep(truth_vec,2),estimates = c(m7_plot,non_delay_plot),model=as.factor(c(rep("m7",5),rep("non-delay",5))))
+            
+          #  p <- ggplot(plot_df,aes(x=true,y=estimates,col=model))  + geom_jitter() + theme_bw() + ggtitle(paste0(test_week))
+           # print (p)
             prob_non_delay_adjusted <- sum(prob_non_delay_adjusted_center,prob_non_delay_adjusted_l,prob_non_delay_adjusted_ll,prob_non_delay_adjusted_r,prob_non_delay_adjusted_rr)
             prob_true <- sum(prob_true_center,prob_true_r,prob_true_rr,prob_true_ll,prob_true_l)
           }else{
@@ -223,6 +240,7 @@ for (target in targets){
           delay_adjusted_total_prob_m4 <- c(delay_adjusted_total_prob_m4,prob_delay_adjusted_m4)
           delay_adjusted_total_prob_m5 <- c(delay_adjusted_total_prob_m5,prob_delay_adjusted_m5)
           delay_adjusted_total_prob_m6 <- c(delay_adjusted_total_prob_m6,prob_delay_adjusted_m6)
+          delay_adjusted_total_prob_m7 <- c(delay_adjusted_total_prob_m7,prob_delay_adjusted_m7)
           
           
           
@@ -240,6 +258,7 @@ for (target in targets){
     m4_score <- gm_mean(delay_adjusted_total_prob_m4 )
     m5_score <- gm_mean(delay_adjusted_total_prob_m5 )
     m6_score <- gm_mean(delay_adjusted_total_prob_m6 )
+    m7_score <- gm_mean(delay_adjusted_total_prob_m7 )
     
     non_adjusted_score <- gm_mean(non_delay_adjusted_total_prob)
     true_score <- gm_mean(true_total_prob)
@@ -247,14 +266,14 @@ for (target in targets){
 
 
 
-    data_for_plot <- rbind(data_for_plot, c(m1_score/non_adjusted_score, m2_score/non_adjusted_score,m3_score/non_adjusted_score,m4_score/non_adjusted_score,m5_score/non_adjusted_score,m6_score/non_adjusted_score,true_r=true_score/non_adjusted_score,target,test_season))
+    data_for_plot <- rbind(data_for_plot, c(m1_score/non_adjusted_score, m2_score/non_adjusted_score,m3_score/non_adjusted_score,m4_score/non_adjusted_score,m5_score/non_adjusted_score,m6_score/non_adjusted_score,m7_score/non_adjusted_score,true_r=true_score/non_adjusted_score,target,test_season))
   }
 }
 
 
 library(ggplot2)
 data_for_plot <- as.data.frame(data_for_plot[2:nrow(data_for_plot),])
-colnames(data_for_plot) <- c("Empirical Mean","Sampling","Previous Lag","NN","LM","HLM", "true","target","season")
+colnames(data_for_plot) <- c("Empirical Mean","Sampling","Previous Lag","NN","LM","HLM","post", "true","target","season")
 
 library(reshape2)
 library(dplyr)
@@ -265,5 +284,5 @@ long <- long %>%
   dplyr::summarize(value = mean(value, na.rm=TRUE))
 p <- ggplot(long,aes(x=target,y=value,col=variable)) + geom_point() + theme_bw()+ theme(axis.text.x = element_text(angle = 90, hjust = 1)) + geom_abline(intercept = 1,slope = 0,alpha=.2)  
 p
-p <- ggplot(long,aes(x=target,y=value,col=variable)) + geom_point() + theme_bw()+ theme(axis.text.x = element_text(angle = 90, hjust = 1)) + geom_abline(intercept = 1,slope = 0,alpha=.2)  + ylim(.9,1.1)
+  p <- ggplot(long,aes(x=target,y=value,col=variable)) + geom_point() + theme_bw()+ theme(axis.text.x = element_text(angle = 90, hjust = 1)) + geom_abline(intercept = 1,slope = 0,alpha=.2)  + ylim(.9,1.1)
 p
