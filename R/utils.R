@@ -16,7 +16,7 @@ download_backfill_data <- function(){
                              function(lag_val) {
                                obs_one_lag <- Epidata$fluview(
                                  regions = list(region_val),
-                                 epiweeks = list(Epidata$range(199740, 201840)),
+                                 epiweeks = list(Epidata$range(201807, 201840)),
                                  lag = list(lag_val))
                                
                                lapply(obs_one_lag$epidata,
@@ -1467,10 +1467,12 @@ get_submission_one_region_via_trajectory_simulation <- function(
         "Value"] <- exp(onset_bin_log_probs)
       onset_bin_log_probs <- onset_bin_log_probs[onset_bin_log_probs!= "none"]
       onset_week_by_sim_ind <- onset_week_by_sim_ind[onset_week_by_sim_ind!="none"]
-      if(onset_bin_log_probs[length(onset_bin_log_probs)] >= 0.5) {
+      if(is.nan(onset_bin_log_probs[length(onset_bin_log_probs)])){
         region_results[
           region_results$Target == "Season onset" & region_results$Type == "Point",
           "Value"] <- NA
+      }else if(onset_bin_log_probs[length(onset_bin_log_probs)] >= 0.5) {
+        
       } else {
         region_results[
           region_results$Target == "Season onset" & region_results$Type == "Point",

@@ -38,6 +38,7 @@ format_fully_observed_data <- function(){
   formatted_data <- readRDS("data/flu_data_with_backfill_edit.rds")
   fully_observed_data_formatted <- formatted_data %>% group_by(region,epiweek) %>%
     filter(lag == max(lag))
+  fully_observed_data_formatted <- fully_observed_data_formatted[order(fully_observed_data_formatted$epiweek),]
   saveRDS(fully_observed_data_formatted,"data/fully_observed_data_formatted.rds")
 }
 
