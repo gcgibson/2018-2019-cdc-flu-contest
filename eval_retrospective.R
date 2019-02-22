@@ -97,15 +97,31 @@ result_df <- as.data.frame(result_df)
 result_df$p_c <- as.numeric(as.character(result_df$p_c))
 result_df$p_r <- as.numeric(as.character(result_df$p_r))
 result_df$p_l <- as.numeric(as.character(result_df$p_l))
-
+result_df$week <- as.numeric(as.character(result_df$week))
 result_df$total_prob <- result_df$p_c +result_df$p_r +result_df$p_l
 
 result_df$total_log_prob <- pmax(log(result_df$total_prob),-10)
+result_df$ll <- rep(NA, nrow(result_df))
 
-
-mean(result_df[result_df$model=="TRUE",]$total_log_prob,na.rm = TRUE)
+mean(result_df[result_df$model=="TRUE" & result_df$region=="HHS Region 2" ,]$total_log_prob,na.rm = TRUE)
 mean(result_df[result_df$model=="NONE",]$total_log_prob,na.rm = TRUE)
 mean(result_df[result_df$model=="M1",]$total_log_prob,na.rm = TRUE)
 
 
 
+
+for (region in unique(result_df$region)){
+  for (season in unique(result_df$Season)){
+    for (week in unique(result_df$week)){
+      for (model in unique(result_df$model)){
+        for (target in unique(result_df$target)){
+          
+          formatted_season <- paste0(season,"/",as.numeric(season)+1)
+          l_0 <- data[data$region == region_str_array_eval[match(region,region_str_data_set)] & data$season == formatted_season & data$week == week & data$lag == 0,]$weighted_ili
+          l_infty <- data[data$region == region_str_array_eval[match(region,region_str_data_set)] & data$season == formatted_season & data$week == week & data$lag == max(data[data$region == region_str_array_eval[match(region,region_str_data_set)] & data$season == formatted_season & data$week == week,]$lag),]$weighted_ili
+          result_df[result_df$Season ==season &result_df$target == target & result_df$week == week & result_df$region == region & result_df$model==model,]$ll <-l_0-l_infty 
+        }
+      }
+    }
+  }
+}
