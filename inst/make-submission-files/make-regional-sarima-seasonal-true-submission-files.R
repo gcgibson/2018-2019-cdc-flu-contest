@@ -19,7 +19,11 @@ library(lme4)
 
 registerDoMC(cores=2)
 seasonal_difference <- TRUE
+<<<<<<< HEAD
 delay_adjustment_list <- c("TRUE")#M4","M5","M6")
+=======
+delay_adjustment_list <- c("TRUE")
+>>>>>>> d8abe38cf43d34fbb31bc2e39f64f157cd7b98d4
 
 region_str_array_eval <- c("National",paste0(1:10))
 region_str_true <- c("nat",paste0("hhs",1:10))

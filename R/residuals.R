@@ -71,7 +71,7 @@ for (target in targets){
   data_for_plot$week <- unlist(lapply(data_for_plot$epiweek,function(x){as.numeric(as.character(substr(x,5,7)))}))
   data_for_plot$residual <- as.numeric(as.character(data_for_plot$residual))
   
-  loess_fit <- nnet(residual~ week + Region, data_for_plot,size=20)
+  loess_fit <- lm(residual~ week + Region, data_for_plot)
   predict_df <- data.frame(Region="US National",week = c(seq(40,52),seq(1,20))) 
   predict(loess_fit,predict_df)
   saveRDS(loess_fit, file = paste0(gsub(" ", "", target) ,"_week_ahead_residual_fit.rda"))
