@@ -1467,10 +1467,12 @@ get_submission_one_region_via_trajectory_simulation <- function(
         "Value"] <- exp(onset_bin_log_probs)
       onset_bin_log_probs <- onset_bin_log_probs[onset_bin_log_probs!= "none"]
       onset_week_by_sim_ind <- onset_week_by_sim_ind[onset_week_by_sim_ind!="none"]
-      if(onset_bin_log_probs[length(onset_bin_log_probs)] >= 0.5) {
+      if(is.nan(onset_bin_log_probs[length(onset_bin_log_probs)])){
         region_results[
           region_results$Target == "Season onset" & region_results$Type == "Point",
           "Value"] <- NA
+      }else if(onset_bin_log_probs[length(onset_bin_log_probs)] >= 0.5) {
+        
       } else {
         region_results[
           region_results$Target == "Season onset" & region_results$Type == "Point",
@@ -1618,13 +1620,14 @@ calc_median_from_binned_probs <- function(probs) {
 make_predictions_plots <- function(
   preds_save_file,
   plots_save_file,
-  data
+  data,
+  regional = TRUE
 ) {
   require("grid")
   require("ggplot2")
   
   predictions <- read.csv(preds_save_file)
-  regional <- data$region_type[1] =="HHS Regions"
+  #regional <- data$region_type[1] =="HHS Regions"
   
   if(regional) {
     preds_region_map <- data.frame(

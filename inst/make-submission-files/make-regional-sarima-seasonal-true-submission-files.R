@@ -19,7 +19,7 @@ library(lme4)
 
 registerDoMC(cores=2)
 seasonal_difference <- TRUE
-delay_adjustment_list <- c("M4","M5","M6")
+delay_adjustment_list <- c("TRUE")#M4","M5","M6")
 
 region_str_array_eval <- c("National",paste0(1:10))
 region_str_true <- c("nat",paste0("hhs",1:10))
@@ -40,14 +40,14 @@ lm_fit_hierarchical <- lmer(X0~Incidence +season_week + (1|Region), data=subset_
 fully_observed_data <- as.data.frame(readRDS("./data/fully_observed_data_formatted.rds"))
 
 
-for (analysis_time_season in c("2017/2018")){
+for (analysis_time_season in c("2011/2012","2012/2013","2013/2014")){
   for (delay_adjustment in delay_adjustment_list){
     if(analysis_time_season == "2017/2018"){
       end_week <- 20
     }else{
       end_week <- 20
     }
-    foreach (test_week_formatted = c(seq(40,52),seq(1,end_week))) %dopar%  {
+    foreach (test_week_formatted = c(seq(40,52),seq(1,end_week))) %dopar% {
       if (test_week_formatted < 40){
         test_season_formatted <- substr(analysis_time_season,6,9)
       } else{
@@ -155,7 +155,7 @@ for (analysis_time_season in c("2017/2018")){
         
       }else if (delay_adjustment == "TRUE"){
         current_observed_data <- fully_observed_data[fully_observed_data$epiweek <= paste0(test_season_formatted,test_week_formatted),]
-        
+        current_observed_data <- current_observed_data[order(current_observed_data$epiweek),]
         simulate_trajectories_sarima_params <- list(
           fits_filepath = paste0("inst/estimation/region-sarima/",
                                  ifelse(seasonal_difference,
