@@ -94,7 +94,7 @@ for (analysis_time_season in c("2015/2016","2016/2017","2017/2018")){
         lag_0_by_week <- data.frame(lag_0_by_week)
         
         for (region_local in unique(current_observed_data$region)){
-          weight <- exp(-lag_0_by_week[lag_0_by_week$Region == region_local & lag_0_by_week$season_week == as.numeric(test_week_formatted),]$X0)
+          weight <-1# exp(-lag_0_by_week[lag_0_by_week$Region == region_local & lag_0_by_week$season_week == as.numeric(test_week_formatted),]$X0)
           
          current_observed_data[current_observed_data$epiweek ==paste0(test_season_formatted,test_week_formatted) & current_observed_data$region == region_local,]$weighted_ili <- weight*current_observed_data[current_observed_data$epiweek ==paste0(test_season_formatted,test_week_formatted) & current_observed_data$region == region_local,]$weighted_ili +  (1-weight)*previous_point_forecast_by_region[previous_point_forecast_by_region$Location==region_str[match(region_local,region_str_array_eval)],]$Value
         }
