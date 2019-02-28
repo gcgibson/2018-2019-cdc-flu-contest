@@ -17,17 +17,30 @@ library(doMC)
 library(nnet)
 library(lme4)
 
+
+###UTILITY FUNCTIONS
+
+get_previous_point_forecast <- function(analysis_time_season,test_week_formatted){
+  if (test_week_formatted >= 40){
+    season <- substr(analysis_time_season,1,4)
+  }else{
+    season <- substr(analysis_time_season,6,9)
+  }
+  model_csv <-read.csv(paste0("./inst/submissions/region-sarima_seasonal_difference_TRUE/EW",test_week_formatted,"-",season,"-ReichLab_sarima_seasonal_difference_TRUE-delay-FSMOOTHED.csv"))
+  return (model_csv[model_csv$Target == "1 wk ahead" & model_csv$Type == "Point",])
+}
+
+
+
+
 registerDoMC(cores=2)
 seasonal_difference <- TRUE
-<<<<<<< HEAD
-delay_adjustment_list <- c("TRUE")#M4","M5","M6")
-=======
-delay_adjustment_list <- c("TRUE")
->>>>>>> d8abe38cf43d34fbb31bc2e39f64f157cd7b98d4
+delay_adjustment_list <- c("FSMOOTHED")#M4","M5","M6")
 
-region_str_array_eval <- c("National",paste0(1:10))
+
+region_str_array_eval <- c("National",paste0("Region ",1:10))
 region_str_true <- c("nat",paste0("hhs",1:10))
-
+region_str <- c("US National",paste0("HHS Region ",1:10))
 
 
 method <- paste0("sarima_seasonal_difference_", seasonal_difference)
@@ -44,14 +57,14 @@ lm_fit_hierarchical <- lmer(X0~Incidence +season_week + (1|Region), data=subset_
 fully_observed_data <- as.data.frame(readRDS("./data/fully_observed_data_formatted.rds"))
 
 
-for (analysis_time_season in c("2011/2012","2012/2013","2013/2014")){
+for (analysis_time_season in c("2015/2016","2016/2017","2017/2018")){
   for (delay_adjustment in delay_adjustment_list){
     if(analysis_time_season == "2017/2018"){
       end_week <- 20
     }else{
       end_week <- 20
     }
-    foreach (test_week_formatted = c(seq(40,52),seq(1,end_week))) %dopar% {
+    for (test_week_formatted in c(seq(41,52),seq(1,end_week))){
       if (test_week_formatted < 40){
         test_season_formatted <- substr(analysis_time_season,6,9)
       } else{
@@ -67,7 +80,90 @@ for (analysis_time_season in c("2011/2012","2012/2013","2013/2014")){
       current_observed_data <- current_observed_data_with_lags %>% group_by(region,epiweek) %>%
         filter(lag == max(lag))
       current_observed_data <- current_observed_data[order(current_observed_data$epiweek),]
-      if (delay_adjustment == "NONE") {
+      if (delay_adjustment == "FSMOOTHED" & test_week_formatted >= 41){
+        if (test_week_formatted == "01"){
+          previous_week <- "52"
+        } else if (as.numeric(test_week_formatted )<=9){
+          previous_week <- paste0("0",as.numeric(test_week_formatted )-1)
+        } else {
+          previous_week <- test_week_formatted - 1
+        }
+        current_observed_data <- as.data.frame(current_observed_data)
+        previous_point_forecast_by_region  <- get_previous_point_forecast(analysis_time_season,previous_week)
+        lag_0_by_week <- lag_df %>% group_by(season_week,Region) %>% summarize(X0=var(X0,na.rm = T))
+        lag_0_by_week <- data.frame(lag_0_by_week)
+        
+        for (region_local in unique(current_observed_data$region)){
+          weight <- exp(-lag_0_by_week[lag_0_by_week$Region == region_local & lag_0_by_week$season_week == year_week_to_season_week(as.numeric(test_week_formatted),analysis_time_season),]$X0)
+          
+         current_observed_data[current_observed_data$epiweek ==paste0(test_season_formatted,test_week_formatted) & current_observed_data$region == region_local,]$weighted_ili <- weight*current_observed_data[current_observed_data$epiweek ==paste0(test_season_formatted,test_week_formatted) & current_observed_data$region == region_local,]$weighted_ili +  (1-weight)*previous_point_forecast_by_region[previous_point_forecast_by_region$Location==region_str[match(region_local,region_str_array_eval)],]$Value
+        }
+        
+        simulate_trajectories_sarima_params <- list(
+          fits_filepath = paste0("inst/estimation/region-sarima/",
+                                 ifelse(seasonal_difference,
+                                        "fits-seasonal-differencing",
+                                        "fits-no-seasonal-differencing")),
+          prediction_target_var = "weighted_ili",
+          seasonal_difference = seasonal_difference,
+          transformation = "box-cox",
+          first_test_season = analysis_time_season,
+          do_sampling_lag = FALSE
+        )
+        weeks_in_first_season_year <-
+          get_num_MMWR_weeks_in_first_season_year(analysis_time_season)
+        
+        res <- get_submission_via_trajectory_simulation(
+          data = current_observed_data,
+          analysis_time_season = analysis_time_season,
+          first_analysis_time_season_week = 10, # == week 40 of year
+          last_analysis_time_season_week = weeks_in_first_season_year - 11, # at week 41, we do prediction for a horizon of one week ahead
+          prediction_target_var = "weighted_ili",
+          incidence_bins = data.frame(
+            lower = c(0, seq(from = 0.05, to = 12.95, by = 0.1)),
+            upper = c(seq(from = 0.05, to = 12.95, by = 0.1), Inf)),
+          incidence_bin_names = as.character(seq(from = 0, to = 13, by = 0.1)),
+          n_trajectory_sims = 10000,
+          #  n_trajectory_sims = 100,
+          simulate_trajectories_function = sample_predictive_trajectories_arima_wrapper,
+          simulate_trajectories_params = simulate_trajectories_sarima_params,
+          regional_switch="Country")
+        
+        
+        
+      } else if (delay_adjustment == "FSMOOTHED" & test_week_formatted == 40){
+        current_observed_data <- as.data.frame(current_observed_data)
+        
+        simulate_trajectories_sarima_params <- list(
+          fits_filepath = paste0("inst/estimation/region-sarima/",
+                                 ifelse(seasonal_difference,
+                                        "fits-seasonal-differencing",
+                                        "fits-no-seasonal-differencing")),
+          prediction_target_var = "weighted_ili",
+          seasonal_difference = seasonal_difference,
+          transformation = "box-cox",
+          first_test_season = analysis_time_season,
+          do_sampling_lag = FALSE
+        )
+        weeks_in_first_season_year <-
+          get_num_MMWR_weeks_in_first_season_year(analysis_time_season)
+        
+        res <- get_submission_via_trajectory_simulation(
+          data = current_observed_data,
+          analysis_time_season = analysis_time_season,
+          first_analysis_time_season_week = 10, # == week 40 of year
+          last_analysis_time_season_week = weeks_in_first_season_year - 11, # at week 41, we do prediction for a horizon of one week ahead
+          prediction_target_var = "weighted_ili",
+          incidence_bins = data.frame(
+            lower = c(0, seq(from = 0.05, to = 12.95, by = 0.1)),
+            upper = c(seq(from = 0.05, to = 12.95, by = 0.1), Inf)),
+          incidence_bin_names = as.character(seq(from = 0, to = 13, by = 0.1)),
+          n_trajectory_sims = 10000,
+          #  n_trajectory_sims = 100,
+          simulate_trajectories_function = sample_predictive_trajectories_arima_wrapper,
+          simulate_trajectories_params = simulate_trajectories_sarima_params,
+          regional_switch="Country")
+      }else if (delay_adjustment == "NONE") {
         current_observed_data <- as.data.frame(current_observed_data)
         simulate_trajectories_sarima_params <- list(
           fits_filepath = paste0("inst/estimation/region-sarima/",
