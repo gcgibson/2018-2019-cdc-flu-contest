@@ -64,7 +64,7 @@ for (analysis_time_season in c("2015/2016","2016/2017","2017/2018")){
     }else{
       end_week <- 20
     }
-    foreach (test_week_formatted = c(seq(41,52),seq(1,end_week))) %dopar%{
+    for (test_week_formatted in c(seq(10,end_week))){
       if (test_week_formatted < 40){
         test_season_formatted <- substr(analysis_time_season,6,9)
       } else{
@@ -80,23 +80,36 @@ for (analysis_time_season in c("2015/2016","2016/2017","2017/2018")){
       current_observed_data <- current_observed_data_with_lags %>% group_by(region,epiweek) %>%
         filter(lag == max(lag))
       current_observed_data <- current_observed_data[order(current_observed_data$epiweek),]
-      if (delay_adjustment == "FSMOOTHED" & test_week_formatted != 41 ){
+      if (delay_adjustment == "FSMOOTHED" & (test_week_formatted != 41 |test_week_formatted != 40 ) ){
         current_observed_data <- as.data.frame(current_observed_data)
         if (test_week_formatted == "01"){
           previous_week <- "52"
-        } else if (as.numeric(test_week_formatted )<=9){
+          previous_week_1 <- "51"
+        } else if (as.numeric(test_week_formatted )<=10){
           previous_week <- paste0("0",as.numeric(test_week_formatted )-1)
+          if (previous_week == "01"){
+            previous_week_1 <- "52"
+          }else{
+            previous_week_1 <- paste0("0",as.numeric(previous_week )-1)
+          }
         } else {
           previous_week <- test_week_formatted - 1
+          previous_week_1 <- previous_week -1
         }
+        
+        
         previous_point_forecast_by_region  <- get_previous_point_forecast(analysis_time_season,previous_week)
+
         lag_0_by_week <- lag_df %>% group_by(season_week,Region) %>% summarize(X0=var(X0,na.rm = T))
         lag_0_by_week <- data.frame(lag_0_by_week)
         
         for (region_local in unique(current_observed_data$region)){
-          weight <- exp(-lag_0_by_week[lag_0_by_week$Region == region_local & lag_0_by_week$season_week == as.numeric(test_week_formatted),]$X0)
-          
+          #weight <- exp(-lag_0_by_week[lag_0_by_week$Region == region_local & lag_0_by_week$season_week == as.numeric(test_week_formatted),]$X0)
+        
+         diff_ <- diff(tail(current_observed_data[current_observed_data$region == region_local,]$weighted_ili,2))
+         weight <- exp(-(diff_^2))
          current_observed_data[current_observed_data$epiweek ==paste0(test_season_formatted,test_week_formatted) & current_observed_data$region == region_local,]$weighted_ili <- weight*current_observed_data[current_observed_data$epiweek ==paste0(test_season_formatted,test_week_formatted) & current_observed_data$region == region_local,]$weighted_ili +  (1-weight)*previous_point_forecast_by_region[previous_point_forecast_by_region$Location==region_str[match(region_local,region_str_array_eval)],]$Value
+          
         }
         
         simulate_trajectories_sarima_params <- list(
@@ -131,7 +144,7 @@ for (analysis_time_season in c("2015/2016","2016/2017","2017/2018")){
         
         
         
-      } else if (delay_adjustment == "FSMOOTHED" & test_week_formatted == 40){
+      } else if (delay_adjustment == "FSMOOTHED" & (test_week_formatted == 40 |test_week_formatted == 41)){
         current_observed_data <- as.data.frame(current_observed_data)
         
         simulate_trajectories_sarima_params <- list(
