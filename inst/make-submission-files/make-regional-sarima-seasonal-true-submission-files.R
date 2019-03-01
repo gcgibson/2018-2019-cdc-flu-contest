@@ -57,14 +57,14 @@ lm_fit_hierarchical <- lmer(X0~Incidence +season_week + (1|Region), data=subset_
 fully_observed_data <- as.data.frame(readRDS("./data/fully_observed_data_formatted.rds"))
 
 
-for (analysis_time_season in c("2015/2016","2016/2017","2017/2018")){
+for (analysis_time_season in c("2016/2017","2017/2018")){
   for (delay_adjustment in delay_adjustment_list){
     if(analysis_time_season == "2017/2018"){
       end_week <- 20
     }else{
       end_week <- 20
     }
-    for (test_week_formatted in c(seq(10,end_week))){
+    for (test_week_formatted in c(seq(41,52),seq(1,end_week))){
       if (test_week_formatted < 40){
         test_season_formatted <- substr(analysis_time_season,6,9)
       } else{
