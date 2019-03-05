@@ -1312,6 +1312,9 @@ get_submission_one_region_via_trajectory_simulation <- function(
   max_prediction_horizon <- max(4L,
                                 last_analysis_time_season_week + 1 - analysis_time_season_week)
   first_season_obs_ind <- min(which(data$season == analysis_time_season))
+  simulate_trajectories_params$first_season_obs_ind <- first_season_obs_ind
+  simulate_trajectories_params$analysis_time_ind <- analysis_time_ind
+  
   
     trajectory_samples <- simulate_trajectories_function(
       n_sims = n_trajectory_sims,
@@ -1383,14 +1386,15 @@ get_submission_one_region_via_trajectory_simulation <- function(
     # to get a random sample from previous seasons with the same 
     # week and lag value
     
-    
-    subset_trajectory_samples <- cbind(
-      matrix(
-        rep(data[seq(from = first_season_obs_ind, to = analysis_time_ind), prediction_target_var], each = nrow(subset_trajectory_samples)),
-        nrow = nrow(subset_trajectory_samples)
-      ),
-      subset_trajectory_samples
-    )
+    if (simulate_trajectories_params$do_sampling_lag == FALSE){
+      subset_trajectory_samples <- cbind(
+        matrix(
+          rep(data[seq(from = first_season_obs_ind, to = analysis_time_ind), prediction_target_var], each = nrow(subset_trajectory_samples)),
+          nrow = nrow(subset_trajectory_samples)
+        ),
+        subset_trajectory_samples
+      )
+    }
     
     ## If first observation for the season was not at season week 1,
     ## augment with leading NAs

@@ -35,7 +35,7 @@ get_previous_point_forecast <- function(analysis_time_season,test_week_formatted
 
 registerDoMC(cores=2)
 seasonal_difference <- TRUE
-delay_adjustment_list <- c("FSMOOTHED")#M4","M5","M6")
+delay_adjustment_list <- c("M2")#M4","M5","M6")
 
 
 region_str_array_eval <- c("National",paste0("Region ",1:10))
@@ -144,7 +144,7 @@ for (analysis_time_season in c("2016/2017","2017/2018")){
         
         
         
-      } else if (delay_adjustment == "FSMOOTHED" & (test_week_formatted == 40 |test_week_formatted == 41)){
+      }  else if (delay_adjustment == "FSMOOTHED" & (test_week_formatted == 40 |test_week_formatted == 41)){
         current_observed_data <- as.data.frame(current_observed_data)
         
         simulate_trajectories_sarima_params <- list(

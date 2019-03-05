@@ -81,7 +81,9 @@ sample_predictive_trajectories_arima_wrapper <- function(
     region_str_array <- c("National",paste0("Region ",1:10))
     region_str_array_hhs <- c("nat",paste0("hhs",1:10))
     
-    trajectory_samples <- matrix(NA,ncol=max_prediction_horizon)
+    trajectory_samples <- matrix(NA,ncol=max_prediction_horizon + length(data[seq(from = params$first_season_obs_ind, to = params$analysis_time_ind),params$prediction_target_var]))
+    current_observed_data_total <- matrix(NA,ncol=ncol(data))
+    
     test_week_formatted <- tail(data$week,1)
     if (test_week_formatted >=40){
     test_season_formatted <- substr(analysis_time_season,1,4)
@@ -91,7 +93,7 @@ sample_predictive_trajectories_arima_wrapper <- function(
     test_season_formatted <- as.numeric(test_season_formatted)
     
     if (test_week_formatted >=40){
-      for (samp_idx in 1:12){
+      for (samp_idx in 1:100){
         current_observed_data_local <- data
         for (lag_itr in seq(40,test_week_formatted)){
           current_lag <- as.numeric(test_week_formatted) -lag_itr
@@ -107,18 +109,19 @@ sample_predictive_trajectories_arima_wrapper <- function(
             current_observed_data_local[current_observed_data_local$epiweek == paste0(test_season_formatted,lag_itr),]$wili/prop_estimate_sample
         }
         current_observed_data_local <- as.data.frame(current_observed_data_local)
+        current_observed_data_total <- rbind(current_observed_data_total,as.matrix(current_observed_data_local))
         inc_trajectory_samples <- sarimaTD:::simulate.sarimaTD(
           sarima_fit,
-          nsim = 1000,
+          nsim = 1,
           seed = NULL,
           newdata = current_observed_data_local[, params$prediction_target_var],
           h = max_prediction_horizon
         )
-        trajectory_samples <- rbind(trajectory_samples,inc_trajectory_samples)
+        trajectory_samples <- rbind(trajectory_samples,c(current_observed_data_local[seq(from = params$first_season_obs_ind, to = params$analysis_time_ind),params$prediction_target_var],inc_trajectory_samples))
       }
     } else{
       
-      for (samp_idx in 1:12){
+      for (samp_idx in 1:100){
         current_observed_data_local <- data
         for (lag_itr in seq(40,52)){
           current_lag <- 52 -lag_itr
@@ -146,21 +149,21 @@ sample_predictive_trajectories_arima_wrapper <- function(
             current_observed_data_local[current_observed_data_local$epiweek == paste0(test_season_formatted,lag_itr),]$wili/prop_estimate_sample
         }
         current_observed_data_local <- as.data.frame(current_observed_data_local)
-        
+
         inc_trajectory_samples <- sarimaTD:::simulate.sarimaTD(
           sarima_fit,
-          nsim = 1000,
+          nsim = 1,
           seed = NULL,
           newdata = current_observed_data_local[, params$prediction_target_var],
           h = max_prediction_horizon
         )
-        trajectory_samples <- rbind(trajectory_samples,inc_trajectory_samples)
+        trajectory_samples <- rbind(trajectory_samples,c(current_observed_data_local[seq(from = params$first_season_obs_ind, to = params$analysis_time_ind),params$prediction_target_var],inc_trajectory_samples))
       }
     }
     
     
     inc_trajectory_samples <- trajectory_samples[2:nrow(trajectory_samples),]
-    
+    return (inc_trajectory_samples)
   }else{
   
     inc_trajectory_samples <- sarimaTD:::simulate.sarimaTD(
@@ -170,8 +173,9 @@ sample_predictive_trajectories_arima_wrapper <- function(
       newdata = data[, params$prediction_target_var],
       h = max_prediction_horizon
     )
+    return(inc_trajectory_samples)
+    
   }
-  return(inc_trajectory_samples)
 }
 
 
