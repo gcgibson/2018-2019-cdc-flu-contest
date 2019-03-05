@@ -64,7 +64,7 @@ for (analysis_time_season in c("2016/2017","2017/2018")){
     }else{
       end_week <- 20
     }
-    for (test_week_formatted in c(seq(41,52),seq(1,end_week))){
+    foreach (test_week_formatted = c(seq(41,52),seq(1,end_week))) %dopar%{
       if (test_week_formatted < 40){
         test_season_formatted <- substr(analysis_time_season,6,9)
       } else{
