@@ -33,7 +33,7 @@ get_previous_point_forecast <- function(analysis_time_season,test_week_formatted
 
 
 
-registerDoMC(cores=2)
+registerDoMC(cores=8)
 seasonal_difference <- TRUE
 delay_adjustment_list <- c("M2")#M4","M5","M6")
 
@@ -64,7 +64,7 @@ for (analysis_time_season in c("2015/2016")){
     }else{
       end_week <- 20
     }
-    foreach (test_week_formatted = c(seq(41,52),seq(1,end_week))) %dopar%{
+    foreach (test_week_formatted = c(seq(6,end_week))) %dopar%{
       if (test_week_formatted < 40){
         test_season_formatted <- substr(analysis_time_season,6,9)
       } else{
@@ -480,37 +480,71 @@ for (analysis_time_season in c("2015/2016")){
           regional_switch="Country")
         
       } else if (delay_adjustment == "M2"){
-        simulate_trajectories_sarima_params <- list(
-          fits_filepath = paste0("inst/estimation/region-sarima/",
-                                 ifelse(seasonal_difference,
-                                        "fits-seasonal-differencing",
-                                        "fits-no-seasonal-differencing")),
-          prediction_target_var = "weighted_ili",
-          seasonal_difference = seasonal_difference,
-          transformation = "box-cox",
-          first_test_season = analysis_time_season,
-          do_sampling_lag=TRUE
-        )
-        
-        weeks_in_first_season_year <-
-          get_num_MMWR_weeks_in_first_season_year(analysis_time_season)
-        current_observed_data <- as.data.frame(current_observed_data)
-        
-        res <- get_submission_via_trajectory_simulation(
-          data = current_observed_data,
-          analysis_time_season = analysis_time_season,
-          first_analysis_time_season_week = 10, # == week 40 of year
-          last_analysis_time_season_week = weeks_in_first_season_year - 11, # at week 41, we do prediction for a horizon of one week ahead
-          prediction_target_var = "weighted_ili",
-          incidence_bins = data.frame(
-            lower = c(0, seq(from = 0.05, to = 12.95, by = 0.1)),
-            upper = c(seq(from = 0.05, to = 12.95, by = 0.1), Inf)),
-          incidence_bin_names = as.character(seq(from = 0, to = 13, by = 0.1)),
-          n_trajectory_sims = 10000,
-          #  n_trajectory_sims = 100,
-          simulate_trajectories_function = sample_predictive_trajectories_arima_wrapper,
-          simulate_trajectories_params = simulate_trajectories_sarima_params,
-          regional_switch="Country")
+        if (as.numeric(test_week_formatted) <= 20 & as.numeric(test_week_formatted) >= 10){
+          simulate_trajectories_sarima_params <- list(
+            fits_filepath = paste0("inst/estimation/region-sarima/",
+                                   ifelse(seasonal_difference,
+                                          "fits-seasonal-differencing",
+                                          "fits-no-seasonal-differencing")),
+            prediction_target_var = "weighted_ili",
+            seasonal_difference = seasonal_difference,
+            transformation = "box-cox",
+            first_test_season = analysis_time_season,
+            do_sampling_lag=TRUE
+          )
+          
+          weeks_in_first_season_year <-
+            get_num_MMWR_weeks_in_first_season_year(analysis_time_season)
+          current_observed_data <- as.data.frame(current_observed_data)
+          
+          res <- get_submission_via_trajectory_simulation(
+            data = current_observed_data,
+            analysis_time_season = analysis_time_season,
+            first_analysis_time_season_week = 10, # == week 40 of year
+            last_analysis_time_season_week = weeks_in_first_season_year - 11, # at week 41, we do prediction for a horizon of one week ahead
+            prediction_target_var = "weighted_ili",
+            incidence_bins = data.frame(
+              lower = c(0, seq(from = 0.05, to = 12.95, by = 0.1)),
+              upper = c(seq(from = 0.05, to = 12.95, by = 0.1), Inf)),
+            incidence_bin_names = as.character(seq(from = 0, to = 13, by = 0.1)),
+            n_trajectory_sims = 10000,
+            #  n_trajectory_sims = 100,
+            simulate_trajectories_function = sample_predictive_trajectories_arima_wrapper,
+            simulate_trajectories_params = simulate_trajectories_sarima_params,
+            regional_switch="Country")
+        } else{
+          current_observed_data <- as.data.frame(current_observed_data)
+          simulate_trajectories_sarima_params <- list(
+            fits_filepath = paste0("inst/estimation/region-sarima/",
+                                   ifelse(seasonal_difference,
+                                          "fits-seasonal-differencing",
+                                          "fits-no-seasonal-differencing")),
+            prediction_target_var = "weighted_ili",
+            seasonal_difference = seasonal_difference,
+            transformation = "box-cox",
+            first_test_season = analysis_time_season,
+            do_sampling_lag = FALSE
+          )
+          
+          weeks_in_first_season_year <-
+            get_num_MMWR_weeks_in_first_season_year(analysis_time_season)
+          
+          res <- get_submission_via_trajectory_simulation(
+            data = current_observed_data,
+            analysis_time_season = analysis_time_season,
+            first_analysis_time_season_week = 10, # == week 40 of year
+            last_analysis_time_season_week = weeks_in_first_season_year - 11, # at week 41, we do prediction for a horizon of one week ahead
+            prediction_target_var = "weighted_ili",
+            incidence_bins = data.frame(
+              lower = c(0, seq(from = 0.05, to = 12.95, by = 0.1)),
+              upper = c(seq(from = 0.05, to = 12.95, by = 0.1), Inf)),
+            incidence_bin_names = as.character(seq(from = 0, to = 13, by = 0.1)),
+            n_trajectory_sims = 10000,
+            #  n_trajectory_sims = 100,
+            simulate_trajectories_function = sample_predictive_trajectories_arima_wrapper,
+            simulate_trajectories_params = simulate_trajectories_sarima_params,
+            regional_switch="Country")
+        }
         
       }
       

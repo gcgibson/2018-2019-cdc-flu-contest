@@ -93,14 +93,14 @@ sample_predictive_trajectories_arima_wrapper <- function(
     test_season_formatted <- as.numeric(test_season_formatted)
     
     if (test_week_formatted >=40){
-      for (samp_idx in 1:1000){
+      for (samp_idx in 1:100){
         current_observed_data_local <- data
         for (lag_itr in seq(40,test_week_formatted)){
           current_lag <- as.numeric(test_week_formatted) -lag_itr
-          prop_estimate_sample_data <- lag_df[lag_df$Region == region & lag_df$week < 201540 & lag_df$season_week == test_week_formatted , paste0("X",0)]
+          prop_estimate_sample_data <- lag_df[lag_df$Region == region & lag_df$week < 201540, paste0("X",0)]
           prop_estimate_sample_data <- prop_estimate_sample_data[!is.na(prop_estimate_sample_data)]
           if (length(prop_estimate_sample_data) > 0){
-            prop_estimate_sample <- sample(prop_estimate_sample_data[!is.na(prop_estimate_sample_data)],1)
+            prop_estimate_sample <- sample(quantile(prop_estimate_sample_data[!is.na(prop_estimate_sample_data)],.1,.9),1)
           } else{
             prop_estimate_sample <- 1
           }
@@ -121,14 +121,14 @@ sample_predictive_trajectories_arima_wrapper <- function(
       }
     } else{
       
-      for (samp_idx in 1:1000){
+      for (samp_idx in 1:100){
         current_observed_data_local <- data
         for (lag_itr in seq(40,52)){
           current_lag <- 52 -lag_itr
-          prop_estimate_sample_data <- lag_df[lag_df$Region == region & lag_df$week < 201540 & lag_df$season_week == test_week_formatted , paste0("X",0)]
+          prop_estimate_sample_data <- lag_df[lag_df$Region == region & lag_df$week < 201540, paste0("X",0)]
           prop_estimate_sample_data <- prop_estimate_sample_data[!is.na(prop_estimate_sample_data)]
           if (length(prop_estimate_sample_data) > 0){
-            prop_estimate_sample <- sample(prop_estimate_sample_data[!is.na(prop_estimate_sample_data)],1)
+            prop_estimate_sample <- sample(quantile(prop_estimate_sample_data[!is.na(prop_estimate_sample_data)],.1,.9),1)
           } else{
             prop_estimate_sample <- 1
           }
@@ -137,11 +137,11 @@ sample_predictive_trajectories_arima_wrapper <- function(
         }
         for (lag_itr in seq(1,as.numeric(test_week_formatted))){
           current_lag <- as.numeric(test_week_formatted) -lag_itr
-          prop_estimate_sample_data <- lag_df[lag_df$Region == region & lag_df$week < 201540 & lag_df$season_week == test_week_formatted , paste0("X",0)]
+          prop_estimate_sample_data <- lag_df[lag_df$Region == region & lag_df$week < 201540  , paste0("X",0)]
           prop_estimate_sample_data <- prop_estimate_sample_data[!is.na(prop_estimate_sample_data)]
           
           if (length(prop_estimate_sample_data) > 0){
-            prop_estimate_sample <- sample(prop_estimate_sample_data[!is.na(prop_estimate_sample_data)],1)
+            prop_estimate_sample <- sample(quantile(prop_estimate_sample_data[!is.na(prop_estimate_sample_data)],.1,.9),1)
           } else{
             prop_estimate_sample <- 1
           }
