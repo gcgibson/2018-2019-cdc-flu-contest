@@ -480,7 +480,7 @@ for (analysis_time_season in c("2016/2017")){
           regional_switch="Country")
         
       } else if (delay_adjustment == "M2"){
-        if (as.numeric(test_week_formatted) <= 20 & as.numeric(test_week_formatted) >= 10){
+        if (as.numeric(test_week_formatted) <= 20 & as.numeric(test_week_formatted) >= 1){
           simulate_trajectories_sarima_params <- list(
             fits_filepath = paste0("inst/estimation/region-sarima/",
                                    ifelse(seasonal_difference,
