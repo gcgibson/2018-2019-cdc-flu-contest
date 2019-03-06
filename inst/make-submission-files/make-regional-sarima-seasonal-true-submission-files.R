@@ -35,7 +35,7 @@ get_previous_point_forecast <- function(analysis_time_season,test_week_formatted
 
 registerDoMC(cores=8)
 seasonal_difference <- TRUE
-delay_adjustment_list <- c("M2")#M4","M5","M6")
+delay_adjustment_list <- c("FSMOOTHED")#M4","M5","M6")
 
 
 region_str_array_eval <- c("National",paste0("Region ",1:10))
@@ -64,7 +64,7 @@ for (analysis_time_season in c("2016/2017")){
     }else{
       end_week <- 20
     }
-    foreach (test_week_formatted = c(seq(40,52),seq(1,end_week))) %dopar%{
+    for (test_week_formatted in c(seq(41,52),seq(1,end_week))) {
       if (test_week_formatted < 40){
         test_season_formatted <- substr(analysis_time_season,6,9)
       } else{
@@ -103,14 +103,6 @@ for (analysis_time_season in c("2016/2017")){
         lag_0_by_week <- lag_df %>% group_by(season_week,Region) %>% summarize(X0=var(X0,na.rm = T))
         lag_0_by_week <- data.frame(lag_0_by_week)
         
-        for (region_local in unique(current_observed_data$region)){
-          #weight <- exp(-lag_0_by_week[lag_0_by_week$Region == region_local & lag_0_by_week$season_week == as.numeric(test_week_formatted),]$X0)
-        
-         diff_ <- diff(tail(current_observed_data[current_observed_data$region == region_local,]$weighted_ili,2))
-         weight <- exp(-(diff_^2))
-         current_observed_data[current_observed_data$epiweek ==paste0(test_season_formatted,test_week_formatted) & current_observed_data$region == region_local,]$weighted_ili <- weight*current_observed_data[current_observed_data$epiweek ==paste0(test_season_formatted,test_week_formatted) & current_observed_data$region == region_local,]$weighted_ili +  (1-weight)*previous_point_forecast_by_region[previous_point_forecast_by_region$Location==region_str[match(region_local,region_str_array_eval)],]$Value
-          
-        }
         
         simulate_trajectories_sarima_params <- list(
           fits_filepath = paste0("inst/estimation/region-sarima/",
@@ -123,6 +115,30 @@ for (analysis_time_season in c("2016/2017")){
           first_test_season = analysis_time_season,
           do_sampling_lag = FALSE
         )
+        
+        
+        for (region_local in unique(current_observed_data$region)){
+          fit_filepath <- file.path(
+            simulate_trajectories_sarima_params$fits_filepath,
+            paste0(
+              "sarima-",
+              gsub(" ","_",region_local),
+              "-seasonal_difference_", simulate_trajectories_sarima_params$seasonal_difference,
+              "-transformation_", simulate_trajectories_sarima_params$transformation,
+              "-first_test_season_",
+              gsub("/", "_", simulate_trajectories_sarima_params$first_test_season),
+              ".rds"))
+          
+          sarima_fit <- readRDS(file = fit_filepath)
+         var_scale_up <- var(lag_0_by_week$X0,na.rm = T)
+         var_process_model <- sarima_fit$sigma2
+         diff_ <- var_scale_up - var_process_model
+         weight <-var_process_model/(var_process_model +var_scale_up) #exp(-(diff_^2))
+         current_observed_data[current_observed_data$epiweek ==paste0(test_season_formatted,test_week_formatted) & current_observed_data$region == region_local,]$weighted_ili <- weight*current_observed_data[current_observed_data$epiweek ==paste0(test_season_formatted,test_week_formatted) & current_observed_data$region == region_local,]$weighted_ili +  (1-weight)*previous_point_forecast_by_region[previous_point_forecast_by_region$Location==region_str[match(region_local,region_str_array_eval)],]$Value
+          
+        }
+        
+        
         weeks_in_first_season_year <-
           get_num_MMWR_weeks_in_first_season_year(analysis_time_season)
         
