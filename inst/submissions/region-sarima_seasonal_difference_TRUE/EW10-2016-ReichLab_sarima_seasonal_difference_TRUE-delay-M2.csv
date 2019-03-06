@@ -57,18 +57,18 @@
 "US National","Season peak week","Bin","week","7","8",0
 "US National","Season peak week","Bin","week","8","9",0
 "US National","Season peak week","Bin","week","9","10",0
-"US National","Season peak week","Bin","week","10","11",0.163461538461538
-"US National","Season peak week","Bin","week","11","12",0.201923076923077
-"US National","Season peak week","Bin","week","12","13",0.173076923076923
-"US National","Season peak week","Bin","week","13","14",0.144230769230769
-"US National","Season peak week","Bin","week","14","15",0.134615384615385
-"US National","Season peak week","Bin","week","15","16",0.0288461538461539
-"US National","Season peak week","Bin","week","16","17",0.0576923076923077
-"US National","Season peak week","Bin","week","17","18",0.0480769230769231
-"US National","Season peak week","Bin","week","18","19",0.0192307692307692
-"US National","Season peak week","Bin","week","19","20",0.00961538461538462
-"US National","Season peak week","Bin","week","20","21",0.0192307692307692
-"US National","Season peak percentage","Point","percent",NA,NA,5.85
+"US National","Season peak week","Bin","week","10","11",0.222862632084534
+"US National","Season peak week","Bin","week","11","12",0.162343900096061
+"US National","Season peak week","Bin","week","12","13",0.132564841498559
+"US National","Season peak week","Bin","week","13","14",0.115273775216138
+"US National","Season peak week","Bin","week","14","15",0.0835734870317003
+"US National","Season peak week","Bin","week","15","16",0.069164265129683
+"US National","Season peak week","Bin","week","16","17",0.0422670509125841
+"US National","Season peak week","Bin","week","17","18",0.0537944284341979
+"US National","Season peak week","Bin","week","18","19",0.0518731988472623
+"US National","Season peak week","Bin","week","19","20",0.0365033621517771
+"US National","Season peak week","Bin","week","20","21",0.0297790585975024
+"US National","Season peak percentage","Point","percent",NA,NA,5.4
 "US National","Season peak percentage","Bin","percent","0","0.1",0
 "US National","Season peak percentage","Bin","percent","0.1","0.2",0
 "US National","Season peak percentage","Bin","percent","0.2","0.3",0
@@ -106,100 +106,100 @@
 "US National","Season peak percentage","Bin","percent","3.4","3.5",0
 "US National","Season peak percentage","Bin","percent","3.5","3.6",0
 "US National","Season peak percentage","Bin","percent","3.6","3.7",0
-"US National","Season peak percentage","Bin","percent","3.7","3.8",0.17
-"US National","Season peak percentage","Bin","percent","3.8","3.9",0.03
-"US National","Season peak percentage","Bin","percent","3.9","4",0.02
-"US National","Season peak percentage","Bin","percent","4","4.1",0.03
-"US National","Season peak percentage","Bin","percent","4.1","4.2",0.01
-"US National","Season peak percentage","Bin","percent","4.2","4.3",0.02
-"US National","Season peak percentage","Bin","percent","4.3","4.4",0.03
-"US National","Season peak percentage","Bin","percent","4.4","4.5",0
-"US National","Season peak percentage","Bin","percent","4.5","4.6",0.01
-"US National","Season peak percentage","Bin","percent","4.6","4.7",0.03
-"US National","Season peak percentage","Bin","percent","4.7","4.8",0.01
-"US National","Season peak percentage","Bin","percent","4.8","4.9",0.02
-"US National","Season peak percentage","Bin","percent","4.9","5",0.02
-"US National","Season peak percentage","Bin","percent","5","5.1",0.03
-"US National","Season peak percentage","Bin","percent","5.1","5.2",0.01
-"US National","Season peak percentage","Bin","percent","5.2","5.3",0.01
-"US National","Season peak percentage","Bin","percent","5.3","5.4",0.03
-"US National","Season peak percentage","Bin","percent","5.4","5.5",0
-"US National","Season peak percentage","Bin","percent","5.5","5.6",0.01
-"US National","Season peak percentage","Bin","percent","5.6","5.7",0
+"US National","Season peak percentage","Bin","percent","3.7","3.8",0.232
+"US National","Season peak percentage","Bin","percent","3.8","3.9",0.012
+"US National","Season peak percentage","Bin","percent","3.9","4",0.024
+"US National","Season peak percentage","Bin","percent","4","4.1",0.021
+"US National","Season peak percentage","Bin","percent","4.1","4.2",0.028
+"US National","Season peak percentage","Bin","percent","4.2","4.3",0.016
+"US National","Season peak percentage","Bin","percent","4.3","4.4",0.013
+"US National","Season peak percentage","Bin","percent","4.4","4.5",0.011
+"US National","Season peak percentage","Bin","percent","4.5","4.6",0.015
+"US National","Season peak percentage","Bin","percent","4.6","4.7",0.018
+"US National","Season peak percentage","Bin","percent","4.7","4.8",0.021
+"US National","Season peak percentage","Bin","percent","4.8","4.9",0.018
+"US National","Season peak percentage","Bin","percent","4.9","5",0.011
+"US National","Season peak percentage","Bin","percent","5","5.1",0.016
+"US National","Season peak percentage","Bin","percent","5.1","5.2",0.015
+"US National","Season peak percentage","Bin","percent","5.2","5.3",0.00900000000000001
+"US National","Season peak percentage","Bin","percent","5.3","5.4",0.011
+"US National","Season peak percentage","Bin","percent","5.4","5.5",0.011
+"US National","Season peak percentage","Bin","percent","5.5","5.6",0.006
+"US National","Season peak percentage","Bin","percent","5.6","5.7",0.005
 "US National","Season peak percentage","Bin","percent","5.7","5.8",0.01
-"US National","Season peak percentage","Bin","percent","5.8","5.9",0
-"US National","Season peak percentage","Bin","percent","5.9","6",0
-"US National","Season peak percentage","Bin","percent","6","6.1",0.02
-"US National","Season peak percentage","Bin","percent","6.1","6.2",0.01
-"US National","Season peak percentage","Bin","percent","6.2","6.3",0
-"US National","Season peak percentage","Bin","percent","6.3","6.4",0.02
-"US National","Season peak percentage","Bin","percent","6.4","6.5",0
-"US National","Season peak percentage","Bin","percent","6.5","6.6",0.01
+"US National","Season peak percentage","Bin","percent","5.8","5.9",0.015
+"US National","Season peak percentage","Bin","percent","5.9","6",0.008
+"US National","Season peak percentage","Bin","percent","6","6.1",0.00900000000000001
+"US National","Season peak percentage","Bin","percent","6.1","6.2",0.006
+"US National","Season peak percentage","Bin","percent","6.2","6.3",0.012
+"US National","Season peak percentage","Bin","percent","6.3","6.4",0.008
+"US National","Season peak percentage","Bin","percent","6.4","6.5",0.012
+"US National","Season peak percentage","Bin","percent","6.5","6.6",0.00900000000000001
 "US National","Season peak percentage","Bin","percent","6.6","6.7",0.01
-"US National","Season peak percentage","Bin","percent","6.7","6.8",0.03
-"US National","Season peak percentage","Bin","percent","6.8","6.9",0.03
-"US National","Season peak percentage","Bin","percent","6.9","7",0
-"US National","Season peak percentage","Bin","percent","7","7.1",0
-"US National","Season peak percentage","Bin","percent","7.1","7.2",0
-"US National","Season peak percentage","Bin","percent","7.2","7.3",0.02
-"US National","Season peak percentage","Bin","percent","7.3","7.4",0
-"US National","Season peak percentage","Bin","percent","7.4","7.5",0
-"US National","Season peak percentage","Bin","percent","7.5","7.6",0
-"US National","Season peak percentage","Bin","percent","7.6","7.7",0.03
-"US National","Season peak percentage","Bin","percent","7.7","7.8",0
-"US National","Season peak percentage","Bin","percent","7.8","7.9",0.02
-"US National","Season peak percentage","Bin","percent","7.9","8",0.01
-"US National","Season peak percentage","Bin","percent","8","8.1",0.01
-"US National","Season peak percentage","Bin","percent","8.1","8.2",0
-"US National","Season peak percentage","Bin","percent","8.2","8.3",0.01
-"US National","Season peak percentage","Bin","percent","8.3","8.4",0
-"US National","Season peak percentage","Bin","percent","8.4","8.5",0
-"US National","Season peak percentage","Bin","percent","8.5","8.6",0
-"US National","Season peak percentage","Bin","percent","8.6","8.7",0.01
-"US National","Season peak percentage","Bin","percent","8.7","8.8",0
-"US National","Season peak percentage","Bin","percent","8.8","8.9",0.01
-"US National","Season peak percentage","Bin","percent","8.9","9",0
-"US National","Season peak percentage","Bin","percent","9","9.1",0
-"US National","Season peak percentage","Bin","percent","9.1","9.2",0.01
-"US National","Season peak percentage","Bin","percent","9.2","9.3",0
-"US National","Season peak percentage","Bin","percent","9.3","9.4",0.01
-"US National","Season peak percentage","Bin","percent","9.4","9.5",0.01
-"US National","Season peak percentage","Bin","percent","9.5","9.6",0.01
-"US National","Season peak percentage","Bin","percent","9.6","9.7",0.01
-"US National","Season peak percentage","Bin","percent","9.7","9.8",0.01
-"US National","Season peak percentage","Bin","percent","9.8","9.9",0
-"US National","Season peak percentage","Bin","percent","9.9","10",0.01
-"US National","Season peak percentage","Bin","percent","10","10.1",0
-"US National","Season peak percentage","Bin","percent","10.1","10.2",0
-"US National","Season peak percentage","Bin","percent","10.2","10.3",0
+"US National","Season peak percentage","Bin","percent","6.7","6.8",0.012
+"US National","Season peak percentage","Bin","percent","6.8","6.9",0.005
+"US National","Season peak percentage","Bin","percent","6.9","7",0.01
+"US National","Season peak percentage","Bin","percent","7","7.1",0.00900000000000001
+"US National","Season peak percentage","Bin","percent","7.1","7.2",0.013
+"US National","Season peak percentage","Bin","percent","7.2","7.3",0.007
+"US National","Season peak percentage","Bin","percent","7.3","7.4",0.003
+"US National","Season peak percentage","Bin","percent","7.4","7.5",0.007
+"US National","Season peak percentage","Bin","percent","7.5","7.6",0.005
+"US National","Season peak percentage","Bin","percent","7.6","7.7",0.007
+"US National","Season peak percentage","Bin","percent","7.7","7.8",0.007
+"US National","Season peak percentage","Bin","percent","7.8","7.9",0.007
+"US National","Season peak percentage","Bin","percent","7.9","8",0.004
+"US National","Season peak percentage","Bin","percent","8","8.1",0.005
+"US National","Season peak percentage","Bin","percent","8.1","8.2",0.007
+"US National","Season peak percentage","Bin","percent","8.2","8.3",0.006
+"US National","Season peak percentage","Bin","percent","8.3","8.4",0.002
+"US National","Season peak percentage","Bin","percent","8.4","8.5",0.001
+"US National","Season peak percentage","Bin","percent","8.5","8.6",0.004
+"US National","Season peak percentage","Bin","percent","8.6","8.7",0.004
+"US National","Season peak percentage","Bin","percent","8.7","8.8",0.003
+"US National","Season peak percentage","Bin","percent","8.8","8.9",0.005
+"US National","Season peak percentage","Bin","percent","8.9","9",0.003
+"US National","Season peak percentage","Bin","percent","9","9.1",0.006
+"US National","Season peak percentage","Bin","percent","9.1","9.2",0.003
+"US National","Season peak percentage","Bin","percent","9.2","9.3",0.001
+"US National","Season peak percentage","Bin","percent","9.3","9.4",0.002
+"US National","Season peak percentage","Bin","percent","9.4","9.5",0.002
+"US National","Season peak percentage","Bin","percent","9.5","9.6",0.002
+"US National","Season peak percentage","Bin","percent","9.6","9.7",0.003
+"US National","Season peak percentage","Bin","percent","9.7","9.8",0.004
+"US National","Season peak percentage","Bin","percent","9.8","9.9",0.002
+"US National","Season peak percentage","Bin","percent","9.9","10",0.004
+"US National","Season peak percentage","Bin","percent","10","10.1",0.005
+"US National","Season peak percentage","Bin","percent","10.1","10.2",0.002
+"US National","Season peak percentage","Bin","percent","10.2","10.3",0.001
 "US National","Season peak percentage","Bin","percent","10.3","10.4",0
-"US National","Season peak percentage","Bin","percent","10.4","10.5",0
-"US National","Season peak percentage","Bin","percent","10.5","10.6",0
-"US National","Season peak percentage","Bin","percent","10.6","10.7",0.01
-"US National","Season peak percentage","Bin","percent","10.7","10.8",0
-"US National","Season peak percentage","Bin","percent","10.8","10.9",0
+"US National","Season peak percentage","Bin","percent","10.4","10.5",0.003
+"US National","Season peak percentage","Bin","percent","10.5","10.6",0.003
+"US National","Season peak percentage","Bin","percent","10.6","10.7",0.003
+"US National","Season peak percentage","Bin","percent","10.7","10.8",0.001
+"US National","Season peak percentage","Bin","percent","10.8","10.9",0.002
 "US National","Season peak percentage","Bin","percent","10.9","11",0
-"US National","Season peak percentage","Bin","percent","11","11.1",0
+"US National","Season peak percentage","Bin","percent","11","11.1",0.001
 "US National","Season peak percentage","Bin","percent","11.1","11.2",0
-"US National","Season peak percentage","Bin","percent","11.2","11.3",0
-"US National","Season peak percentage","Bin","percent","11.3","11.4",0
-"US National","Season peak percentage","Bin","percent","11.4","11.5",0
-"US National","Season peak percentage","Bin","percent","11.5","11.6",0
-"US National","Season peak percentage","Bin","percent","11.6","11.7",0
-"US National","Season peak percentage","Bin","percent","11.7","11.8",0
+"US National","Season peak percentage","Bin","percent","11.2","11.3",0.003
+"US National","Season peak percentage","Bin","percent","11.3","11.4",0.003
+"US National","Season peak percentage","Bin","percent","11.4","11.5",0.001
+"US National","Season peak percentage","Bin","percent","11.5","11.6",0.005
+"US National","Season peak percentage","Bin","percent","11.6","11.7",0.001
+"US National","Season peak percentage","Bin","percent","11.7","11.8",0.002
 "US National","Season peak percentage","Bin","percent","11.8","11.9",0
-"US National","Season peak percentage","Bin","percent","11.9","12",0
-"US National","Season peak percentage","Bin","percent","12","12.1",0
-"US National","Season peak percentage","Bin","percent","12.1","12.2",0
-"US National","Season peak percentage","Bin","percent","12.2","12.3",0.01
-"US National","Season peak percentage","Bin","percent","12.3","12.4",0
-"US National","Season peak percentage","Bin","percent","12.4","12.5",0
-"US National","Season peak percentage","Bin","percent","12.5","12.6",0
-"US National","Season peak percentage","Bin","percent","12.6","12.7",0
-"US National","Season peak percentage","Bin","percent","12.7","12.8",0
-"US National","Season peak percentage","Bin","percent","12.8","12.9",0
-"US National","Season peak percentage","Bin","percent","12.9","13",0.01
-"US National","Season peak percentage","Bin","percent","13","100",0.15
+"US National","Season peak percentage","Bin","percent","11.9","12",0.002
+"US National","Season peak percentage","Bin","percent","12","12.1",0.002
+"US National","Season peak percentage","Bin","percent","12.1","12.2",0.001
+"US National","Season peak percentage","Bin","percent","12.2","12.3",0.001
+"US National","Season peak percentage","Bin","percent","12.3","12.4",0.002
+"US National","Season peak percentage","Bin","percent","12.4","12.5",0.003
+"US National","Season peak percentage","Bin","percent","12.5","12.6",0.002
+"US National","Season peak percentage","Bin","percent","12.6","12.7",0.002
+"US National","Season peak percentage","Bin","percent","12.7","12.8",0.002
+"US National","Season peak percentage","Bin","percent","12.8","12.9",0.002
+"US National","Season peak percentage","Bin","percent","12.9","13",0.001
+"US National","Season peak percentage","Bin","percent","13","100",0.167
 "US National","1 wk ahead","Point","percent",NA,NA,0.8
 "US National","1 wk ahead","Bin","percent","0","0.1",0
 "US National","1 wk ahead","Bin","percent","0.1","0.2",0
@@ -786,18 +786,18 @@
 "HHS Region 1","Season peak week","Bin","week","7","8",0
 "HHS Region 1","Season peak week","Bin","week","8","9",0
 "HHS Region 1","Season peak week","Bin","week","9","10",0
-"HHS Region 1","Season peak week","Bin","week","10","11",0.162162162162162
-"HHS Region 1","Season peak week","Bin","week","11","12",0.126126126126126
-"HHS Region 1","Season peak week","Bin","week","12","13",0.0990990990990991
-"HHS Region 1","Season peak week","Bin","week","13","14",0.189189189189189
-"HHS Region 1","Season peak week","Bin","week","14","15",0.216216216216216
-"HHS Region 1","Season peak week","Bin","week","15","16",0.108108108108108
-"HHS Region 1","Season peak week","Bin","week","16","17",0.0810810810810811
-"HHS Region 1","Season peak week","Bin","week","17","18",0
-"HHS Region 1","Season peak week","Bin","week","18","19",0.018018018018018
-"HHS Region 1","Season peak week","Bin","week","19","20",0
+"HHS Region 1","Season peak week","Bin","week","10","11",0.18346957311535
+"HHS Region 1","Season peak week","Bin","week","11","12",0.115349682107175
+"HHS Region 1","Season peak week","Bin","week","12","13",0.119891008174387
+"HHS Region 1","Season peak week","Bin","week","13","14",0.197093551316985
+"HHS Region 1","Season peak week","Bin","week","14","15",0.187102633969119
+"HHS Region 1","Season peak week","Bin","week","15","16",0.0881017257039055
+"HHS Region 1","Season peak week","Bin","week","16","17",0.0653950953678474
+"HHS Region 1","Season peak week","Bin","week","17","18",0.0118074477747502
+"HHS Region 1","Season peak week","Bin","week","18","19",0.0263396911898274
+"HHS Region 1","Season peak week","Bin","week","19","20",0.00544959128065395
 "HHS Region 1","Season peak week","Bin","week","20","21",0
-"HHS Region 1","Season peak percentage","Point","percent",NA,NA,3
+"HHS Region 1","Season peak percentage","Point","percent",NA,NA,3.1
 "HHS Region 1","Season peak percentage","Bin","percent","0","0.1",0
 "HHS Region 1","Season peak percentage","Bin","percent","0.1","0.2",0
 "HHS Region 1","Season peak percentage","Bin","percent","0.2","0.3",0
@@ -819,116 +819,116 @@
 "HHS Region 1","Season peak percentage","Bin","percent","1.8","1.9",0
 "HHS Region 1","Season peak percentage","Bin","percent","1.9","2",0
 "HHS Region 1","Season peak percentage","Bin","percent","2","2.1",0
-"HHS Region 1","Season peak percentage","Bin","percent","2.1","2.2",0.18
-"HHS Region 1","Season peak percentage","Bin","percent","2.2","2.3",0.04
-"HHS Region 1","Season peak percentage","Bin","percent","2.3","2.4",0.03
-"HHS Region 1","Season peak percentage","Bin","percent","2.4","2.5",0.04
-"HHS Region 1","Season peak percentage","Bin","percent","2.5","2.6",0.01
-"HHS Region 1","Season peak percentage","Bin","percent","2.6","2.7",0.04
-"HHS Region 1","Season peak percentage","Bin","percent","2.7","2.8",0.02
-"HHS Region 1","Season peak percentage","Bin","percent","2.8","2.9",0.04
-"HHS Region 1","Season peak percentage","Bin","percent","2.9","3",0.05
-"HHS Region 1","Season peak percentage","Bin","percent","3","3.1",0.06
-"HHS Region 1","Season peak percentage","Bin","percent","3.1","3.2",0.02
-"HHS Region 1","Season peak percentage","Bin","percent","3.2","3.3",0.02
-"HHS Region 1","Season peak percentage","Bin","percent","3.3","3.4",0.03
-"HHS Region 1","Season peak percentage","Bin","percent","3.4","3.5",0.02
-"HHS Region 1","Season peak percentage","Bin","percent","3.5","3.6",0.03
-"HHS Region 1","Season peak percentage","Bin","percent","3.6","3.7",0
-"HHS Region 1","Season peak percentage","Bin","percent","3.7","3.8",0.03
-"HHS Region 1","Season peak percentage","Bin","percent","3.8","3.9",0.02
-"HHS Region 1","Season peak percentage","Bin","percent","3.9","4",0
-"HHS Region 1","Season peak percentage","Bin","percent","4","4.1",0.01
-"HHS Region 1","Season peak percentage","Bin","percent","4.1","4.2",0.01
-"HHS Region 1","Season peak percentage","Bin","percent","4.2","4.3",0.01
-"HHS Region 1","Season peak percentage","Bin","percent","4.3","4.4",0.01
-"HHS Region 1","Season peak percentage","Bin","percent","4.4","4.5",0.01
-"HHS Region 1","Season peak percentage","Bin","percent","4.5","4.6",0.01
-"HHS Region 1","Season peak percentage","Bin","percent","4.6","4.7",0
-"HHS Region 1","Season peak percentage","Bin","percent","4.7","4.8",0.02
-"HHS Region 1","Season peak percentage","Bin","percent","4.8","4.9",0.01
-"HHS Region 1","Season peak percentage","Bin","percent","4.9","5",0
-"HHS Region 1","Season peak percentage","Bin","percent","5","5.1",0.01
-"HHS Region 1","Season peak percentage","Bin","percent","5.1","5.2",0.01
-"HHS Region 1","Season peak percentage","Bin","percent","5.2","5.3",0
-"HHS Region 1","Season peak percentage","Bin","percent","5.3","5.4",0.01
-"HHS Region 1","Season peak percentage","Bin","percent","5.4","5.5",0
+"HHS Region 1","Season peak percentage","Bin","percent","2.1","2.2",0.202
+"HHS Region 1","Season peak percentage","Bin","percent","2.2","2.3",0.039
+"HHS Region 1","Season peak percentage","Bin","percent","2.3","2.4",0.043
+"HHS Region 1","Season peak percentage","Bin","percent","2.4","2.5",0.039
+"HHS Region 1","Season peak percentage","Bin","percent","2.5","2.6",0.032
+"HHS Region 1","Season peak percentage","Bin","percent","2.6","2.7",0.035
+"HHS Region 1","Season peak percentage","Bin","percent","2.7","2.8",0.03
+"HHS Region 1","Season peak percentage","Bin","percent","2.8","2.9",0.023
+"HHS Region 1","Season peak percentage","Bin","percent","2.9","3",0.027
+"HHS Region 1","Season peak percentage","Bin","percent","3","3.1",0.02
+"HHS Region 1","Season peak percentage","Bin","percent","3.1","3.2",0.023
+"HHS Region 1","Season peak percentage","Bin","percent","3.2","3.3",0.029
+"HHS Region 1","Season peak percentage","Bin","percent","3.3","3.4",0.027
+"HHS Region 1","Season peak percentage","Bin","percent","3.4","3.5",0.024
+"HHS Region 1","Season peak percentage","Bin","percent","3.5","3.6",0.023
+"HHS Region 1","Season peak percentage","Bin","percent","3.6","3.7",0.019
+"HHS Region 1","Season peak percentage","Bin","percent","3.7","3.8",0.013
+"HHS Region 1","Season peak percentage","Bin","percent","3.8","3.9",0.016
+"HHS Region 1","Season peak percentage","Bin","percent","3.9","4",0.013
+"HHS Region 1","Season peak percentage","Bin","percent","4","4.1",0.008
+"HHS Region 1","Season peak percentage","Bin","percent","4.1","4.2",0.014
+"HHS Region 1","Season peak percentage","Bin","percent","4.2","4.3",0.008
+"HHS Region 1","Season peak percentage","Bin","percent","4.3","4.4",0.013
+"HHS Region 1","Season peak percentage","Bin","percent","4.4","4.5",0.008
+"HHS Region 1","Season peak percentage","Bin","percent","4.5","4.6",0.008
+"HHS Region 1","Season peak percentage","Bin","percent","4.6","4.7",0.007
+"HHS Region 1","Season peak percentage","Bin","percent","4.7","4.8",0.005
+"HHS Region 1","Season peak percentage","Bin","percent","4.8","4.9",0.00900000000000001
+"HHS Region 1","Season peak percentage","Bin","percent","4.9","5",0.008
+"HHS Region 1","Season peak percentage","Bin","percent","5","5.1",0.004
+"HHS Region 1","Season peak percentage","Bin","percent","5.1","5.2",0.00900000000000001
+"HHS Region 1","Season peak percentage","Bin","percent","5.2","5.3",0.004
+"HHS Region 1","Season peak percentage","Bin","percent","5.3","5.4",0.006
+"HHS Region 1","Season peak percentage","Bin","percent","5.4","5.5",0.008
 "HHS Region 1","Season peak percentage","Bin","percent","5.5","5.6",0.01
-"HHS Region 1","Season peak percentage","Bin","percent","5.6","5.7",0
-"HHS Region 1","Season peak percentage","Bin","percent","5.7","5.8",0
-"HHS Region 1","Season peak percentage","Bin","percent","5.8","5.9",0.02
-"HHS Region 1","Season peak percentage","Bin","percent","5.9","6",0
-"HHS Region 1","Season peak percentage","Bin","percent","6","6.1",0
-"HHS Region 1","Season peak percentage","Bin","percent","6.1","6.2",0
-"HHS Region 1","Season peak percentage","Bin","percent","6.2","6.3",0
-"HHS Region 1","Season peak percentage","Bin","percent","6.3","6.4",0.01
-"HHS Region 1","Season peak percentage","Bin","percent","6.4","6.5",0
-"HHS Region 1","Season peak percentage","Bin","percent","6.5","6.6",0.01
-"HHS Region 1","Season peak percentage","Bin","percent","6.6","6.7",0
-"HHS Region 1","Season peak percentage","Bin","percent","6.7","6.8",0.01
-"HHS Region 1","Season peak percentage","Bin","percent","6.8","6.9",0
-"HHS Region 1","Season peak percentage","Bin","percent","6.9","7",0.01
-"HHS Region 1","Season peak percentage","Bin","percent","7","7.1",0
-"HHS Region 1","Season peak percentage","Bin","percent","7.1","7.2",0
-"HHS Region 1","Season peak percentage","Bin","percent","7.2","7.3",0
-"HHS Region 1","Season peak percentage","Bin","percent","7.3","7.4",0
-"HHS Region 1","Season peak percentage","Bin","percent","7.4","7.5",0
-"HHS Region 1","Season peak percentage","Bin","percent","7.5","7.6",0
-"HHS Region 1","Season peak percentage","Bin","percent","7.6","7.7",0.03
+"HHS Region 1","Season peak percentage","Bin","percent","5.6","5.7",0.006
+"HHS Region 1","Season peak percentage","Bin","percent","5.7","5.8",0.007
+"HHS Region 1","Season peak percentage","Bin","percent","5.8","5.9",0.003
+"HHS Region 1","Season peak percentage","Bin","percent","5.9","6",0.00900000000000001
+"HHS Region 1","Season peak percentage","Bin","percent","6","6.1",0.002
+"HHS Region 1","Season peak percentage","Bin","percent","6.1","6.2",0.003
+"HHS Region 1","Season peak percentage","Bin","percent","6.2","6.3",0.003
+"HHS Region 1","Season peak percentage","Bin","percent","6.3","6.4",0.003
+"HHS Region 1","Season peak percentage","Bin","percent","6.4","6.5",0.007
+"HHS Region 1","Season peak percentage","Bin","percent","6.5","6.6",0.005
+"HHS Region 1","Season peak percentage","Bin","percent","6.6","6.7",0.001
+"HHS Region 1","Season peak percentage","Bin","percent","6.7","6.8",0.002
+"HHS Region 1","Season peak percentage","Bin","percent","6.8","6.9",0.004
+"HHS Region 1","Season peak percentage","Bin","percent","6.9","7",0.001
+"HHS Region 1","Season peak percentage","Bin","percent","7","7.1",0.001
+"HHS Region 1","Season peak percentage","Bin","percent","7.1","7.2",0.004
+"HHS Region 1","Season peak percentage","Bin","percent","7.2","7.3",0.004
+"HHS Region 1","Season peak percentage","Bin","percent","7.3","7.4",0.003
+"HHS Region 1","Season peak percentage","Bin","percent","7.4","7.5",0.001
+"HHS Region 1","Season peak percentage","Bin","percent","7.5","7.6",0.003
+"HHS Region 1","Season peak percentage","Bin","percent","7.6","7.7",0.002
 "HHS Region 1","Season peak percentage","Bin","percent","7.7","7.8",0
-"HHS Region 1","Season peak percentage","Bin","percent","7.8","7.9",0.01
-"HHS Region 1","Season peak percentage","Bin","percent","7.9","8",0
-"HHS Region 1","Season peak percentage","Bin","percent","8","8.1",0
-"HHS Region 1","Season peak percentage","Bin","percent","8.1","8.2",0
+"HHS Region 1","Season peak percentage","Bin","percent","7.8","7.9",0.005
+"HHS Region 1","Season peak percentage","Bin","percent","7.9","8",0.005
+"HHS Region 1","Season peak percentage","Bin","percent","8","8.1",0.001
+"HHS Region 1","Season peak percentage","Bin","percent","8.1","8.2",0.002
 "HHS Region 1","Season peak percentage","Bin","percent","8.2","8.3",0
-"HHS Region 1","Season peak percentage","Bin","percent","8.3","8.4",0
-"HHS Region 1","Season peak percentage","Bin","percent","8.4","8.5",0
-"HHS Region 1","Season peak percentage","Bin","percent","8.5","8.6",0
-"HHS Region 1","Season peak percentage","Bin","percent","8.6","8.7",0
-"HHS Region 1","Season peak percentage","Bin","percent","8.7","8.8",0
-"HHS Region 1","Season peak percentage","Bin","percent","8.8","8.9",0
-"HHS Region 1","Season peak percentage","Bin","percent","8.9","9",0.01
-"HHS Region 1","Season peak percentage","Bin","percent","9","9.1",0.01
-"HHS Region 1","Season peak percentage","Bin","percent","9.1","9.2",0
-"HHS Region 1","Season peak percentage","Bin","percent","9.2","9.3",0
-"HHS Region 1","Season peak percentage","Bin","percent","9.3","9.4",0
-"HHS Region 1","Season peak percentage","Bin","percent","9.4","9.5",0
-"HHS Region 1","Season peak percentage","Bin","percent","9.5","9.6",0
+"HHS Region 1","Season peak percentage","Bin","percent","8.3","8.4",0.004
+"HHS Region 1","Season peak percentage","Bin","percent","8.4","8.5",0.002
+"HHS Region 1","Season peak percentage","Bin","percent","8.5","8.6",0.003
+"HHS Region 1","Season peak percentage","Bin","percent","8.6","8.7",0.006
+"HHS Region 1","Season peak percentage","Bin","percent","8.7","8.8",0.001
+"HHS Region 1","Season peak percentage","Bin","percent","8.8","8.9",0.001
+"HHS Region 1","Season peak percentage","Bin","percent","8.9","9",0.003
+"HHS Region 1","Season peak percentage","Bin","percent","9","9.1",0.002
+"HHS Region 1","Season peak percentage","Bin","percent","9.1","9.2",0.001
+"HHS Region 1","Season peak percentage","Bin","percent","9.2","9.3",0.001
+"HHS Region 1","Season peak percentage","Bin","percent","9.3","9.4",0.003
+"HHS Region 1","Season peak percentage","Bin","percent","9.4","9.5",0.003
+"HHS Region 1","Season peak percentage","Bin","percent","9.5","9.6",0.002
 "HHS Region 1","Season peak percentage","Bin","percent","9.6","9.7",0
 "HHS Region 1","Season peak percentage","Bin","percent","9.7","9.8",0
-"HHS Region 1","Season peak percentage","Bin","percent","9.8","9.9",0
-"HHS Region 1","Season peak percentage","Bin","percent","9.9","10",0
-"HHS Region 1","Season peak percentage","Bin","percent","10","10.1",0
-"HHS Region 1","Season peak percentage","Bin","percent","10.1","10.2",0
+"HHS Region 1","Season peak percentage","Bin","percent","9.8","9.9",0.001
+"HHS Region 1","Season peak percentage","Bin","percent","9.9","10",0.003
+"HHS Region 1","Season peak percentage","Bin","percent","10","10.1",0.003
+"HHS Region 1","Season peak percentage","Bin","percent","10.1","10.2",0.002
 "HHS Region 1","Season peak percentage","Bin","percent","10.2","10.3",0
-"HHS Region 1","Season peak percentage","Bin","percent","10.3","10.4",0
-"HHS Region 1","Season peak percentage","Bin","percent","10.4","10.5",0
-"HHS Region 1","Season peak percentage","Bin","percent","10.5","10.6",0
-"HHS Region 1","Season peak percentage","Bin","percent","10.6","10.7",0
+"HHS Region 1","Season peak percentage","Bin","percent","10.3","10.4",0.001
+"HHS Region 1","Season peak percentage","Bin","percent","10.4","10.5",0.001
+"HHS Region 1","Season peak percentage","Bin","percent","10.5","10.6",0.001
+"HHS Region 1","Season peak percentage","Bin","percent","10.6","10.7",0.001
 "HHS Region 1","Season peak percentage","Bin","percent","10.7","10.8",0
 "HHS Region 1","Season peak percentage","Bin","percent","10.8","10.9",0
 "HHS Region 1","Season peak percentage","Bin","percent","10.9","11",0
-"HHS Region 1","Season peak percentage","Bin","percent","11","11.1",0
+"HHS Region 1","Season peak percentage","Bin","percent","11","11.1",0.001
 "HHS Region 1","Season peak percentage","Bin","percent","11.1","11.2",0
-"HHS Region 1","Season peak percentage","Bin","percent","11.2","11.3",0
-"HHS Region 1","Season peak percentage","Bin","percent","11.3","11.4",0
+"HHS Region 1","Season peak percentage","Bin","percent","11.2","11.3",0.001
+"HHS Region 1","Season peak percentage","Bin","percent","11.3","11.4",0.001
 "HHS Region 1","Season peak percentage","Bin","percent","11.4","11.5",0
-"HHS Region 1","Season peak percentage","Bin","percent","11.5","11.6",0.01
-"HHS Region 1","Season peak percentage","Bin","percent","11.6","11.7",0
-"HHS Region 1","Season peak percentage","Bin","percent","11.7","11.8",0
-"HHS Region 1","Season peak percentage","Bin","percent","11.8","11.9",0.01
-"HHS Region 1","Season peak percentage","Bin","percent","11.9","12",0
+"HHS Region 1","Season peak percentage","Bin","percent","11.5","11.6",0.002
+"HHS Region 1","Season peak percentage","Bin","percent","11.6","11.7",0.002
+"HHS Region 1","Season peak percentage","Bin","percent","11.7","11.8",0.002
+"HHS Region 1","Season peak percentage","Bin","percent","11.8","11.9",0.002
+"HHS Region 1","Season peak percentage","Bin","percent","11.9","12",0.001
 "HHS Region 1","Season peak percentage","Bin","percent","12","12.1",0
 "HHS Region 1","Season peak percentage","Bin","percent","12.1","12.2",0
-"HHS Region 1","Season peak percentage","Bin","percent","12.2","12.3",0
-"HHS Region 1","Season peak percentage","Bin","percent","12.3","12.4",0
+"HHS Region 1","Season peak percentage","Bin","percent","12.2","12.3",0.001
+"HHS Region 1","Season peak percentage","Bin","percent","12.3","12.4",0.001
 "HHS Region 1","Season peak percentage","Bin","percent","12.4","12.5",0
-"HHS Region 1","Season peak percentage","Bin","percent","12.5","12.6",0
+"HHS Region 1","Season peak percentage","Bin","percent","12.5","12.6",0.002
 "HHS Region 1","Season peak percentage","Bin","percent","12.6","12.7",0
 "HHS Region 1","Season peak percentage","Bin","percent","12.7","12.8",0
 "HHS Region 1","Season peak percentage","Bin","percent","12.8","12.9",0
-"HHS Region 1","Season peak percentage","Bin","percent","12.9","13",0.01
-"HHS Region 1","Season peak percentage","Bin","percent","13","100",0.04
+"HHS Region 1","Season peak percentage","Bin","percent","12.9","13",0
+"HHS Region 1","Season peak percentage","Bin","percent","13","100",0.046
 "HHS Region 1","1 wk ahead","Point","percent",NA,NA,0.4
 "HHS Region 1","1 wk ahead","Bin","percent","0","0.1",0
 "HHS Region 1","1 wk ahead","Bin","percent","0.1","0.2",0
@@ -1515,17 +1515,17 @@
 "HHS Region 2","Season peak week","Bin","week","7","8",0
 "HHS Region 2","Season peak week","Bin","week","8","9",0
 "HHS Region 2","Season peak week","Bin","week","9","10",0
-"HHS Region 2","Season peak week","Bin","week","10","11",0.184210526315789
-"HHS Region 2","Season peak week","Bin","week","11","12",0.184210526315789
-"HHS Region 2","Season peak week","Bin","week","12","13",0.175438596491228
-"HHS Region 2","Season peak week","Bin","week","13","14",0.175438596491228
-"HHS Region 2","Season peak week","Bin","week","14","15",0.0789473684210526
-"HHS Region 2","Season peak week","Bin","week","15","16",0.0614035087719298
-"HHS Region 2","Season peak week","Bin","week","16","17",0.0350877192982456
-"HHS Region 2","Season peak week","Bin","week","17","18",0.0350877192982456
-"HHS Region 2","Season peak week","Bin","week","18","19",0.0350877192982456
-"HHS Region 2","Season peak week","Bin","week","19","20",0.0175438596491228
-"HHS Region 2","Season peak week","Bin","week","20","21",0.0175438596491228
+"HHS Region 2","Season peak week","Bin","week","10","11",0.14888718342287
+"HHS Region 2","Season peak week","Bin","week","11","12",0.194167306216424
+"HHS Region 2","Season peak week","Bin","week","12","13",0.178818112049117
+"HHS Region 2","Season peak week","Bin","week","13","14",0.130468150422103
+"HHS Region 2","Season peak week","Bin","week","14","15",0.113584036838066
+"HHS Region 2","Season peak week","Bin","week","15","16",0.0514198004604758
+"HHS Region 2","Season peak week","Bin","week","16","17",0.0460475825019186
+"HHS Region 2","Season peak week","Bin","week","17","18",0.0230237912509593
+"HHS Region 2","Season peak week","Bin","week","18","19",0.0475825019186493
+"HHS Region 2","Season peak week","Bin","week","19","20",0.0353031465848043
+"HHS Region 2","Season peak week","Bin","week","20","21",0.0306983883346124
 "HHS Region 2","Season peak percentage","Point","percent",NA,NA,7.9
 "HHS Region 2","Season peak percentage","Bin","percent","0","0.1",0
 "HHS Region 2","Season peak percentage","Bin","percent","0.1","0.2",0
@@ -1581,83 +1581,83 @@
 "HHS Region 2","Season peak percentage","Bin","percent","5.1","5.2",0
 "HHS Region 2","Season peak percentage","Bin","percent","5.2","5.3",0
 "HHS Region 2","Season peak percentage","Bin","percent","5.3","5.4",0
-"HHS Region 2","Season peak percentage","Bin","percent","5.4","5.5",0.21
-"HHS Region 2","Season peak percentage","Bin","percent","5.5","5.6",0.01
-"HHS Region 2","Season peak percentage","Bin","percent","5.6","5.7",0
-"HHS Region 2","Season peak percentage","Bin","percent","5.7","5.8",0
-"HHS Region 2","Season peak percentage","Bin","percent","5.8","5.9",0
-"HHS Region 2","Season peak percentage","Bin","percent","5.9","6",0.05
-"HHS Region 2","Season peak percentage","Bin","percent","6","6.1",0
-"HHS Region 2","Season peak percentage","Bin","percent","6.1","6.2",0.01
-"HHS Region 2","Season peak percentage","Bin","percent","6.2","6.3",0.02
+"HHS Region 2","Season peak percentage","Bin","percent","5.4","5.5",0.194
+"HHS Region 2","Season peak percentage","Bin","percent","5.5","5.6",0.014
+"HHS Region 2","Season peak percentage","Bin","percent","5.6","5.7",0.014
+"HHS Region 2","Season peak percentage","Bin","percent","5.7","5.8",0.012
+"HHS Region 2","Season peak percentage","Bin","percent","5.8","5.9",0.008
+"HHS Region 2","Season peak percentage","Bin","percent","5.9","6",0.00900000000000001
+"HHS Region 2","Season peak percentage","Bin","percent","6","6.1",0.01
+"HHS Region 2","Season peak percentage","Bin","percent","6.1","6.2",0.006
+"HHS Region 2","Season peak percentage","Bin","percent","6.2","6.3",0.018
 "HHS Region 2","Season peak percentage","Bin","percent","6.3","6.4",0.01
-"HHS Region 2","Season peak percentage","Bin","percent","6.4","6.5",0.01
-"HHS Region 2","Season peak percentage","Bin","percent","6.5","6.6",0.02
-"HHS Region 2","Season peak percentage","Bin","percent","6.6","6.7",0
-"HHS Region 2","Season peak percentage","Bin","percent","6.7","6.8",0
-"HHS Region 2","Season peak percentage","Bin","percent","6.8","6.9",0.03
-"HHS Region 2","Season peak percentage","Bin","percent","6.9","7",0
-"HHS Region 2","Season peak percentage","Bin","percent","7","7.1",0
-"HHS Region 2","Season peak percentage","Bin","percent","7.1","7.2",0.01
-"HHS Region 2","Season peak percentage","Bin","percent","7.2","7.3",0.03
-"HHS Region 2","Season peak percentage","Bin","percent","7.3","7.4",0.02
-"HHS Region 2","Season peak percentage","Bin","percent","7.4","7.5",0
-"HHS Region 2","Season peak percentage","Bin","percent","7.5","7.6",0.03
-"HHS Region 2","Season peak percentage","Bin","percent","7.6","7.7",0
-"HHS Region 2","Season peak percentage","Bin","percent","7.7","7.8",0.03
-"HHS Region 2","Season peak percentage","Bin","percent","7.8","7.9",0.01
-"HHS Region 2","Season peak percentage","Bin","percent","7.9","8",0
-"HHS Region 2","Season peak percentage","Bin","percent","8","8.1",0.01
-"HHS Region 2","Season peak percentage","Bin","percent","8.1","8.2",0.03
-"HHS Region 2","Season peak percentage","Bin","percent","8.2","8.3",0.01
-"HHS Region 2","Season peak percentage","Bin","percent","8.3","8.4",0.02
-"HHS Region 2","Season peak percentage","Bin","percent","8.4","8.5",0.02
-"HHS Region 2","Season peak percentage","Bin","percent","8.5","8.6",0.02
-"HHS Region 2","Season peak percentage","Bin","percent","8.6","8.7",0
-"HHS Region 2","Season peak percentage","Bin","percent","8.7","8.8",0
-"HHS Region 2","Season peak percentage","Bin","percent","8.8","8.9",0.01
-"HHS Region 2","Season peak percentage","Bin","percent","8.9","9",0
-"HHS Region 2","Season peak percentage","Bin","percent","9","9.1",0.02
-"HHS Region 2","Season peak percentage","Bin","percent","9.1","9.2",0.01
-"HHS Region 2","Season peak percentage","Bin","percent","9.2","9.3",0.01
-"HHS Region 2","Season peak percentage","Bin","percent","9.3","9.4",0.01
-"HHS Region 2","Season peak percentage","Bin","percent","9.4","9.5",0.01
-"HHS Region 2","Season peak percentage","Bin","percent","9.5","9.6",0
-"HHS Region 2","Season peak percentage","Bin","percent","9.6","9.7",0
-"HHS Region 2","Season peak percentage","Bin","percent","9.7","9.8",0
-"HHS Region 2","Season peak percentage","Bin","percent","9.8","9.9",0.01
-"HHS Region 2","Season peak percentage","Bin","percent","9.9","10",0
-"HHS Region 2","Season peak percentage","Bin","percent","10","10.1",0.01
-"HHS Region 2","Season peak percentage","Bin","percent","10.1","10.2",0
-"HHS Region 2","Season peak percentage","Bin","percent","10.2","10.3",0.01
-"HHS Region 2","Season peak percentage","Bin","percent","10.3","10.4",0
-"HHS Region 2","Season peak percentage","Bin","percent","10.4","10.5",0.01
-"HHS Region 2","Season peak percentage","Bin","percent","10.5","10.6",0
-"HHS Region 2","Season peak percentage","Bin","percent","10.6","10.7",0
-"HHS Region 2","Season peak percentage","Bin","percent","10.7","10.8",0
+"HHS Region 2","Season peak percentage","Bin","percent","6.4","6.5",0.022
+"HHS Region 2","Season peak percentage","Bin","percent","6.5","6.6",0.012
+"HHS Region 2","Season peak percentage","Bin","percent","6.6","6.7",0.015
+"HHS Region 2","Season peak percentage","Bin","percent","6.7","6.8",0.013
+"HHS Region 2","Season peak percentage","Bin","percent","6.8","6.9",0.013
+"HHS Region 2","Season peak percentage","Bin","percent","6.9","7",0.011
+"HHS Region 2","Season peak percentage","Bin","percent","7","7.1",0.011
+"HHS Region 2","Season peak percentage","Bin","percent","7.1","7.2",0.015
+"HHS Region 2","Season peak percentage","Bin","percent","7.2","7.3",0.017
+"HHS Region 2","Season peak percentage","Bin","percent","7.3","7.4",0.014
+"HHS Region 2","Season peak percentage","Bin","percent","7.4","7.5",0.017
+"HHS Region 2","Season peak percentage","Bin","percent","7.5","7.6",0.00900000000000001
+"HHS Region 2","Season peak percentage","Bin","percent","7.6","7.7",0.014
+"HHS Region 2","Season peak percentage","Bin","percent","7.7","7.8",0.007
+"HHS Region 2","Season peak percentage","Bin","percent","7.8","7.9",0.012
+"HHS Region 2","Season peak percentage","Bin","percent","7.9","8",0.013
+"HHS Region 2","Season peak percentage","Bin","percent","8","8.1",0.004
+"HHS Region 2","Season peak percentage","Bin","percent","8.1","8.2",0.014
+"HHS Region 2","Season peak percentage","Bin","percent","8.2","8.3",0.005
+"HHS Region 2","Season peak percentage","Bin","percent","8.3","8.4",0.006
+"HHS Region 2","Season peak percentage","Bin","percent","8.4","8.5",0.00900000000000001
+"HHS Region 2","Season peak percentage","Bin","percent","8.5","8.6",0.007
+"HHS Region 2","Season peak percentage","Bin","percent","8.6","8.7",0.002
+"HHS Region 2","Season peak percentage","Bin","percent","8.7","8.8",0.007
+"HHS Region 2","Season peak percentage","Bin","percent","8.8","8.9",0.007
+"HHS Region 2","Season peak percentage","Bin","percent","8.9","9",0.005
+"HHS Region 2","Season peak percentage","Bin","percent","9","9.1",0.006
+"HHS Region 2","Season peak percentage","Bin","percent","9.1","9.2",0.008
+"HHS Region 2","Season peak percentage","Bin","percent","9.2","9.3",0.007
+"HHS Region 2","Season peak percentage","Bin","percent","9.3","9.4",0.007
+"HHS Region 2","Season peak percentage","Bin","percent","9.4","9.5",0.013
+"HHS Region 2","Season peak percentage","Bin","percent","9.5","9.6",0.005
+"HHS Region 2","Season peak percentage","Bin","percent","9.6","9.7",0.004
+"HHS Region 2","Season peak percentage","Bin","percent","9.7","9.8",0.005
+"HHS Region 2","Season peak percentage","Bin","percent","9.8","9.9",0.004
+"HHS Region 2","Season peak percentage","Bin","percent","9.9","10",0.006
+"HHS Region 2","Season peak percentage","Bin","percent","10","10.1",0.007
+"HHS Region 2","Season peak percentage","Bin","percent","10.1","10.2",0.006
+"HHS Region 2","Season peak percentage","Bin","percent","10.2","10.3",0.00900000000000001
+"HHS Region 2","Season peak percentage","Bin","percent","10.3","10.4",0.005
+"HHS Region 2","Season peak percentage","Bin","percent","10.4","10.5",0.006
+"HHS Region 2","Season peak percentage","Bin","percent","10.5","10.6",0.01
+"HHS Region 2","Season peak percentage","Bin","percent","10.6","10.7",0.008
+"HHS Region 2","Season peak percentage","Bin","percent","10.7","10.8",0.004
 "HHS Region 2","Season peak percentage","Bin","percent","10.8","10.9",0
-"HHS Region 2","Season peak percentage","Bin","percent","10.9","11",0
-"HHS Region 2","Season peak percentage","Bin","percent","11","11.1",0
-"HHS Region 2","Season peak percentage","Bin","percent","11.1","11.2",0.01
-"HHS Region 2","Season peak percentage","Bin","percent","11.2","11.3",0.01
-"HHS Region 2","Season peak percentage","Bin","percent","11.3","11.4",0
-"HHS Region 2","Season peak percentage","Bin","percent","11.4","11.5",0.01
-"HHS Region 2","Season peak percentage","Bin","percent","11.5","11.6",0
-"HHS Region 2","Season peak percentage","Bin","percent","11.6","11.7",0
-"HHS Region 2","Season peak percentage","Bin","percent","11.7","11.8",0.01
-"HHS Region 2","Season peak percentage","Bin","percent","11.8","11.9",0.01
-"HHS Region 2","Season peak percentage","Bin","percent","11.9","12",0
-"HHS Region 2","Season peak percentage","Bin","percent","12","12.1",0.01
-"HHS Region 2","Season peak percentage","Bin","percent","12.1","12.2",0
-"HHS Region 2","Season peak percentage","Bin","percent","12.2","12.3",0
-"HHS Region 2","Season peak percentage","Bin","percent","12.3","12.4",0.01
-"HHS Region 2","Season peak percentage","Bin","percent","12.4","12.5",0
-"HHS Region 2","Season peak percentage","Bin","percent","12.5","12.6",0.02
-"HHS Region 2","Season peak percentage","Bin","percent","12.6","12.7",0.01
-"HHS Region 2","Season peak percentage","Bin","percent","12.7","12.8",0.01
-"HHS Region 2","Season peak percentage","Bin","percent","12.8","12.9",0
-"HHS Region 2","Season peak percentage","Bin","percent","12.9","13",0
-"HHS Region 2","Season peak percentage","Bin","percent","13","100",0.17
+"HHS Region 2","Season peak percentage","Bin","percent","10.9","11",0.003
+"HHS Region 2","Season peak percentage","Bin","percent","11","11.1",0.006
+"HHS Region 2","Season peak percentage","Bin","percent","11.1","11.2",0.003
+"HHS Region 2","Season peak percentage","Bin","percent","11.2","11.3",0.002
+"HHS Region 2","Season peak percentage","Bin","percent","11.3","11.4",0.008
+"HHS Region 2","Season peak percentage","Bin","percent","11.4","11.5",0.004
+"HHS Region 2","Season peak percentage","Bin","percent","11.5","11.6",0.004
+"HHS Region 2","Season peak percentage","Bin","percent","11.6","11.7",0.004
+"HHS Region 2","Season peak percentage","Bin","percent","11.7","11.8",0.008
+"HHS Region 2","Season peak percentage","Bin","percent","11.8","11.9",0.005
+"HHS Region 2","Season peak percentage","Bin","percent","11.9","12",0.003
+"HHS Region 2","Season peak percentage","Bin","percent","12","12.1",0.007
+"HHS Region 2","Season peak percentage","Bin","percent","12.1","12.2",0.006
+"HHS Region 2","Season peak percentage","Bin","percent","12.2","12.3",0.00900000000000001
+"HHS Region 2","Season peak percentage","Bin","percent","12.3","12.4",0.004
+"HHS Region 2","Season peak percentage","Bin","percent","12.4","12.5",0.003
+"HHS Region 2","Season peak percentage","Bin","percent","12.5","12.6",0
+"HHS Region 2","Season peak percentage","Bin","percent","12.6","12.7",0.004
+"HHS Region 2","Season peak percentage","Bin","percent","12.7","12.8",0.006
+"HHS Region 2","Season peak percentage","Bin","percent","12.8","12.9",0.002
+"HHS Region 2","Season peak percentage","Bin","percent","12.9","13",0.003
+"HHS Region 2","Season peak percentage","Bin","percent","13","100",0.21
 "HHS Region 2","1 wk ahead","Point","percent",NA,NA,1.6
 "HHS Region 2","1 wk ahead","Bin","percent","0","0.1",0
 "HHS Region 2","1 wk ahead","Bin","percent","0.1","0.2",0
@@ -2221,7 +2221,7 @@
 "HHS Region 3","Season onset","Bin","week","19","20",0
 "HHS Region 3","Season onset","Bin","week","20","21",0
 "HHS Region 3","Season onset","Bin","week","none","none",0
-"HHS Region 3","Season peak week","Point","week",NA,NA,11
+"HHS Region 3","Season peak week","Point","week",NA,NA,12
 "HHS Region 3","Season peak week","Bin","week","40","41",0
 "HHS Region 3","Season peak week","Bin","week","41","42",0
 "HHS Region 3","Season peak week","Bin","week","42","43",0
@@ -2244,18 +2244,18 @@
 "HHS Region 3","Season peak week","Bin","week","7","8",0
 "HHS Region 3","Season peak week","Bin","week","8","9",0
 "HHS Region 3","Season peak week","Bin","week","9","10",0
-"HHS Region 3","Season peak week","Bin","week","10","11",0.39622641509434
-"HHS Region 3","Season peak week","Bin","week","11","12",0.141509433962264
-"HHS Region 3","Season peak week","Bin","week","12","13",0.19811320754717
-"HHS Region 3","Season peak week","Bin","week","13","14",0.0754716981132075
-"HHS Region 3","Season peak week","Bin","week","14","15",0.10377358490566
-"HHS Region 3","Season peak week","Bin","week","15","16",0.0283018867924528
-"HHS Region 3","Season peak week","Bin","week","16","17",0.00943396226415094
-"HHS Region 3","Season peak week","Bin","week","17","18",0.0188679245283019
-"HHS Region 3","Season peak week","Bin","week","18","19",0.0188679245283019
-"HHS Region 3","Season peak week","Bin","week","19","20",0.00943396226415094
-"HHS Region 3","Season peak week","Bin","week","20","21",0
-"HHS Region 3","Season peak percentage","Point","percent",NA,NA,3.7
+"HHS Region 3","Season peak week","Bin","week","10","11",0.347234814143246
+"HHS Region 3","Season peak week","Bin","week","11","12",0.124206708975521
+"HHS Region 3","Season peak week","Bin","week","12","13",0.211242067089755
+"HHS Region 3","Season peak week","Bin","week","13","14",0.186763372620127
+"HHS Region 3","Season peak week","Bin","week","14","15",0.0752493200362648
+"HHS Region 3","Season peak week","Bin","week","15","16",0.0108794197642792
+"HHS Region 3","Season peak week","Bin","week","16","17",0.00453309156844969
+"HHS Region 3","Season peak week","Bin","week","17","18",0.00725294650951949
+"HHS Region 3","Season peak week","Bin","week","18","19",0.00997280145058931
+"HHS Region 3","Season peak week","Bin","week","19","20",0.0117860380779692
+"HHS Region 3","Season peak week","Bin","week","20","21",0.0108794197642792
+"HHS Region 3","Season peak percentage","Point","percent",NA,NA,3.8
 "HHS Region 3","Season peak percentage","Bin","percent","0","0.1",0
 "HHS Region 3","Season peak percentage","Bin","percent","0.1","0.2",0
 "HHS Region 3","Season peak percentage","Bin","percent","0.2","0.3",0
@@ -2291,75 +2291,75 @@
 "HHS Region 3","Season peak percentage","Bin","percent","3.2","3.3",0
 "HHS Region 3","Season peak percentage","Bin","percent","3.3","3.4",0
 "HHS Region 3","Season peak percentage","Bin","percent","3.4","3.5",0
-"HHS Region 3","Season peak percentage","Bin","percent","3.5","3.6",0.42
-"HHS Region 3","Season peak percentage","Bin","percent","3.6","3.7",0.05
-"HHS Region 3","Season peak percentage","Bin","percent","3.7","3.8",0.05
-"HHS Region 3","Season peak percentage","Bin","percent","3.8","3.9",0
-"HHS Region 3","Season peak percentage","Bin","percent","3.9","4",0
-"HHS Region 3","Season peak percentage","Bin","percent","4","4.1",0.07
-"HHS Region 3","Season peak percentage","Bin","percent","4.1","4.2",0.03
-"HHS Region 3","Season peak percentage","Bin","percent","4.2","4.3",0.04
-"HHS Region 3","Season peak percentage","Bin","percent","4.3","4.4",0.04
-"HHS Region 3","Season peak percentage","Bin","percent","4.4","4.5",0.02
-"HHS Region 3","Season peak percentage","Bin","percent","4.5","4.6",0.02
-"HHS Region 3","Season peak percentage","Bin","percent","4.6","4.7",0.02
-"HHS Region 3","Season peak percentage","Bin","percent","4.7","4.8",0
-"HHS Region 3","Season peak percentage","Bin","percent","4.8","4.9",0.03
-"HHS Region 3","Season peak percentage","Bin","percent","4.9","5",0.01
-"HHS Region 3","Season peak percentage","Bin","percent","5","5.1",0.05
-"HHS Region 3","Season peak percentage","Bin","percent","5.1","5.2",0
-"HHS Region 3","Season peak percentage","Bin","percent","5.2","5.3",0.03
-"HHS Region 3","Season peak percentage","Bin","percent","5.3","5.4",0.01
-"HHS Region 3","Season peak percentage","Bin","percent","5.4","5.5",0
-"HHS Region 3","Season peak percentage","Bin","percent","5.5","5.6",0.03
-"HHS Region 3","Season peak percentage","Bin","percent","5.6","5.7",0.01
-"HHS Region 3","Season peak percentage","Bin","percent","5.7","5.8",0.01
-"HHS Region 3","Season peak percentage","Bin","percent","5.8","5.9",0
-"HHS Region 3","Season peak percentage","Bin","percent","5.9","6",0.01
-"HHS Region 3","Season peak percentage","Bin","percent","6","6.1",0.01
-"HHS Region 3","Season peak percentage","Bin","percent","6.1","6.2",0
-"HHS Region 3","Season peak percentage","Bin","percent","6.2","6.3",0
-"HHS Region 3","Season peak percentage","Bin","percent","6.3","6.4",0
-"HHS Region 3","Season peak percentage","Bin","percent","6.4","6.5",0
-"HHS Region 3","Season peak percentage","Bin","percent","6.5","6.6",0
-"HHS Region 3","Season peak percentage","Bin","percent","6.6","6.7",0
-"HHS Region 3","Season peak percentage","Bin","percent","6.7","6.8",0.01
-"HHS Region 3","Season peak percentage","Bin","percent","6.8","6.9",0.01
-"HHS Region 3","Season peak percentage","Bin","percent","6.9","7",0
-"HHS Region 3","Season peak percentage","Bin","percent","7","7.1",0
-"HHS Region 3","Season peak percentage","Bin","percent","7.1","7.2",0
-"HHS Region 3","Season peak percentage","Bin","percent","7.2","7.3",0
+"HHS Region 3","Season peak percentage","Bin","percent","3.5","3.6",0.383
+"HHS Region 3","Season peak percentage","Bin","percent","3.6","3.7",0.049
+"HHS Region 3","Season peak percentage","Bin","percent","3.7","3.8",0.044
+"HHS Region 3","Season peak percentage","Bin","percent","3.8","3.9",0.054
+"HHS Region 3","Season peak percentage","Bin","percent","3.9","4",0.037
+"HHS Region 3","Season peak percentage","Bin","percent","4","4.1",0.035
+"HHS Region 3","Season peak percentage","Bin","percent","4.1","4.2",0.036
+"HHS Region 3","Season peak percentage","Bin","percent","4.2","4.3",0.028
+"HHS Region 3","Season peak percentage","Bin","percent","4.3","4.4",0.023
+"HHS Region 3","Season peak percentage","Bin","percent","4.4","4.5",0.031
+"HHS Region 3","Season peak percentage","Bin","percent","4.5","4.6",0.027
+"HHS Region 3","Season peak percentage","Bin","percent","4.6","4.7",0.025
+"HHS Region 3","Season peak percentage","Bin","percent","4.7","4.8",0.02
+"HHS Region 3","Season peak percentage","Bin","percent","4.8","4.9",0.017
+"HHS Region 3","Season peak percentage","Bin","percent","4.9","5",0.026
+"HHS Region 3","Season peak percentage","Bin","percent","5","5.1",0.00900000000000001
+"HHS Region 3","Season peak percentage","Bin","percent","5.1","5.2",0.016
+"HHS Region 3","Season peak percentage","Bin","percent","5.2","5.3",0.01
+"HHS Region 3","Season peak percentage","Bin","percent","5.3","5.4",0.00900000000000001
+"HHS Region 3","Season peak percentage","Bin","percent","5.4","5.5",0.011
+"HHS Region 3","Season peak percentage","Bin","percent","5.5","5.6",0.006
+"HHS Region 3","Season peak percentage","Bin","percent","5.6","5.7",0.006
+"HHS Region 3","Season peak percentage","Bin","percent","5.7","5.8",0.004
+"HHS Region 3","Season peak percentage","Bin","percent","5.8","5.9",0.004
+"HHS Region 3","Season peak percentage","Bin","percent","5.9","6",0.012
+"HHS Region 3","Season peak percentage","Bin","percent","6","6.1",0.004
+"HHS Region 3","Season peak percentage","Bin","percent","6.1","6.2",0.01
+"HHS Region 3","Season peak percentage","Bin","percent","6.2","6.3",0.001
+"HHS Region 3","Season peak percentage","Bin","percent","6.3","6.4",0.005
+"HHS Region 3","Season peak percentage","Bin","percent","6.4","6.5",0.00900000000000001
+"HHS Region 3","Season peak percentage","Bin","percent","6.5","6.6",0.004
+"HHS Region 3","Season peak percentage","Bin","percent","6.6","6.7",0.004
+"HHS Region 3","Season peak percentage","Bin","percent","6.7","6.8",0.004
+"HHS Region 3","Season peak percentage","Bin","percent","6.8","6.9",0.002
+"HHS Region 3","Season peak percentage","Bin","percent","6.9","7",0.004
+"HHS Region 3","Season peak percentage","Bin","percent","7","7.1",0.003
+"HHS Region 3","Season peak percentage","Bin","percent","7.1","7.2",0.002
+"HHS Region 3","Season peak percentage","Bin","percent","7.2","7.3",0.004
 "HHS Region 3","Season peak percentage","Bin","percent","7.3","7.4",0
-"HHS Region 3","Season peak percentage","Bin","percent","7.4","7.5",0
-"HHS Region 3","Season peak percentage","Bin","percent","7.5","7.6",0.01
-"HHS Region 3","Season peak percentage","Bin","percent","7.6","7.7",0.01
-"HHS Region 3","Season peak percentage","Bin","percent","7.7","7.8",0
-"HHS Region 3","Season peak percentage","Bin","percent","7.8","7.9",0
-"HHS Region 3","Season peak percentage","Bin","percent","7.9","8",0
-"HHS Region 3","Season peak percentage","Bin","percent","8","8.1",0
-"HHS Region 3","Season peak percentage","Bin","percent","8.1","8.2",0
-"HHS Region 3","Season peak percentage","Bin","percent","8.2","8.3",0
+"HHS Region 3","Season peak percentage","Bin","percent","7.4","7.5",0.001
+"HHS Region 3","Season peak percentage","Bin","percent","7.5","7.6",0.002
+"HHS Region 3","Season peak percentage","Bin","percent","7.6","7.7",0
+"HHS Region 3","Season peak percentage","Bin","percent","7.7","7.8",0.001
+"HHS Region 3","Season peak percentage","Bin","percent","7.8","7.9",0.001
+"HHS Region 3","Season peak percentage","Bin","percent","7.9","8",0.001
+"HHS Region 3","Season peak percentage","Bin","percent","8","8.1",0.002
+"HHS Region 3","Season peak percentage","Bin","percent","8.1","8.2",0.001
+"HHS Region 3","Season peak percentage","Bin","percent","8.2","8.3",0.001
 "HHS Region 3","Season peak percentage","Bin","percent","8.3","8.4",0
 "HHS Region 3","Season peak percentage","Bin","percent","8.4","8.5",0
 "HHS Region 3","Season peak percentage","Bin","percent","8.5","8.6",0
-"HHS Region 3","Season peak percentage","Bin","percent","8.6","8.7",0
+"HHS Region 3","Season peak percentage","Bin","percent","8.6","8.7",0.001
 "HHS Region 3","Season peak percentage","Bin","percent","8.7","8.8",0
-"HHS Region 3","Season peak percentage","Bin","percent","8.8","8.9",0
-"HHS Region 3","Season peak percentage","Bin","percent","8.9","9",0
-"HHS Region 3","Season peak percentage","Bin","percent","9","9.1",0
-"HHS Region 3","Season peak percentage","Bin","percent","9.1","9.2",0
-"HHS Region 3","Season peak percentage","Bin","percent","9.2","9.3",0
+"HHS Region 3","Season peak percentage","Bin","percent","8.8","8.9",0.001
+"HHS Region 3","Season peak percentage","Bin","percent","8.9","9",0.002
+"HHS Region 3","Season peak percentage","Bin","percent","9","9.1",0.002
+"HHS Region 3","Season peak percentage","Bin","percent","9.1","9.2",0.001
+"HHS Region 3","Season peak percentage","Bin","percent","9.2","9.3",0.001
 "HHS Region 3","Season peak percentage","Bin","percent","9.3","9.4",0
 "HHS Region 3","Season peak percentage","Bin","percent","9.4","9.5",0
 "HHS Region 3","Season peak percentage","Bin","percent","9.5","9.6",0
-"HHS Region 3","Season peak percentage","Bin","percent","9.6","9.7",0
+"HHS Region 3","Season peak percentage","Bin","percent","9.6","9.7",0.001
 "HHS Region 3","Season peak percentage","Bin","percent","9.7","9.8",0
 "HHS Region 3","Season peak percentage","Bin","percent","9.8","9.9",0
 "HHS Region 3","Season peak percentage","Bin","percent","9.9","10",0
-"HHS Region 3","Season peak percentage","Bin","percent","10","10.1",0
+"HHS Region 3","Season peak percentage","Bin","percent","10","10.1",0.001
 "HHS Region 3","Season peak percentage","Bin","percent","10.1","10.2",0
 "HHS Region 3","Season peak percentage","Bin","percent","10.2","10.3",0
-"HHS Region 3","Season peak percentage","Bin","percent","10.3","10.4",0
+"HHS Region 3","Season peak percentage","Bin","percent","10.3","10.4",0.001
 "HHS Region 3","Season peak percentage","Bin","percent","10.4","10.5",0
 "HHS Region 3","Season peak percentage","Bin","percent","10.5","10.6",0
 "HHS Region 3","Season peak percentage","Bin","percent","10.6","10.7",0
@@ -2371,7 +2371,7 @@
 "HHS Region 3","Season peak percentage","Bin","percent","11.2","11.3",0
 "HHS Region 3","Season peak percentage","Bin","percent","11.3","11.4",0
 "HHS Region 3","Season peak percentage","Bin","percent","11.4","11.5",0
-"HHS Region 3","Season peak percentage","Bin","percent","11.5","11.6",0
+"HHS Region 3","Season peak percentage","Bin","percent","11.5","11.6",0.001
 "HHS Region 3","Season peak percentage","Bin","percent","11.6","11.7",0
 "HHS Region 3","Season peak percentage","Bin","percent","11.7","11.8",0
 "HHS Region 3","Season peak percentage","Bin","percent","11.8","11.9",0
@@ -2973,17 +2973,17 @@
 "HHS Region 4","Season peak week","Bin","week","7","8",0
 "HHS Region 4","Season peak week","Bin","week","8","9",0
 "HHS Region 4","Season peak week","Bin","week","9","10",0
-"HHS Region 4","Season peak week","Bin","week","10","11",0.940594059405941
-"HHS Region 4","Season peak week","Bin","week","11","12",0.0396039603960396
-"HHS Region 4","Season peak week","Bin","week","12","13",0
-"HHS Region 4","Season peak week","Bin","week","13","14",0.0198019801980198
-"HHS Region 4","Season peak week","Bin","week","14","15",0
+"HHS Region 4","Season peak week","Bin","week","10","11",0.927794263105836
+"HHS Region 4","Season peak week","Bin","week","11","12",0.0267062314540059
+"HHS Region 4","Season peak week","Bin","week","12","13",0.0247279920870425
+"HHS Region 4","Season peak week","Bin","week","13","14",0.0168150346191889
+"HHS Region 4","Season peak week","Bin","week","14","15",0.000989119683481701
 "HHS Region 4","Season peak week","Bin","week","15","16",0
-"HHS Region 4","Season peak week","Bin","week","16","17",0
+"HHS Region 4","Season peak week","Bin","week","16","17",0.000989119683481701
 "HHS Region 4","Season peak week","Bin","week","17","18",0
 "HHS Region 4","Season peak week","Bin","week","18","19",0
 "HHS Region 4","Season peak week","Bin","week","19","20",0
-"HHS Region 4","Season peak week","Bin","week","20","21",0
+"HHS Region 4","Season peak week","Bin","week","20","21",0.0019782393669634
 "HHS Region 4","Season peak percentage","Point","percent",NA,NA,3.8
 "HHS Region 4","Season peak percentage","Bin","percent","0","0.1",0
 "HHS Region 4","Season peak percentage","Bin","percent","0.1","0.2",0
@@ -3023,30 +3023,30 @@
 "HHS Region 4","Season peak percentage","Bin","percent","3.5","3.6",0
 "HHS Region 4","Season peak percentage","Bin","percent","3.6","3.7",0
 "HHS Region 4","Season peak percentage","Bin","percent","3.7","3.8",0
-"HHS Region 4","Season peak percentage","Bin","percent","3.8","3.9",0.95
-"HHS Region 4","Season peak percentage","Bin","percent","3.9","4",0
-"HHS Region 4","Season peak percentage","Bin","percent","4","4.1",0.01
-"HHS Region 4","Season peak percentage","Bin","percent","4.1","4.2",0.01
-"HHS Region 4","Season peak percentage","Bin","percent","4.2","4.3",0
-"HHS Region 4","Season peak percentage","Bin","percent","4.3","4.4",0
-"HHS Region 4","Season peak percentage","Bin","percent","4.4","4.5",0.01
-"HHS Region 4","Season peak percentage","Bin","percent","4.5","4.6",0
-"HHS Region 4","Season peak percentage","Bin","percent","4.6","4.7",0
-"HHS Region 4","Season peak percentage","Bin","percent","4.7","4.8",0
-"HHS Region 4","Season peak percentage","Bin","percent","4.8","4.9",0
-"HHS Region 4","Season peak percentage","Bin","percent","4.9","5",0
+"HHS Region 4","Season peak percentage","Bin","percent","3.8","3.9",0.938
+"HHS Region 4","Season peak percentage","Bin","percent","3.9","4",0.008
+"HHS Region 4","Season peak percentage","Bin","percent","4","4.1",0.00900000000000001
+"HHS Region 4","Season peak percentage","Bin","percent","4.1","4.2",0.013
+"HHS Region 4","Season peak percentage","Bin","percent","4.2","4.3",0.003
+"HHS Region 4","Season peak percentage","Bin","percent","4.3","4.4",0.006
+"HHS Region 4","Season peak percentage","Bin","percent","4.4","4.5",0.006
+"HHS Region 4","Season peak percentage","Bin","percent","4.5","4.6",0.003
+"HHS Region 4","Season peak percentage","Bin","percent","4.6","4.7",0.002
+"HHS Region 4","Season peak percentage","Bin","percent","4.7","4.8",0.001
+"HHS Region 4","Season peak percentage","Bin","percent","4.8","4.9",0.001
+"HHS Region 4","Season peak percentage","Bin","percent","4.9","5",0.001
 "HHS Region 4","Season peak percentage","Bin","percent","5","5.1",0
-"HHS Region 4","Season peak percentage","Bin","percent","5.1","5.2",0
-"HHS Region 4","Season peak percentage","Bin","percent","5.2","5.3",0
-"HHS Region 4","Season peak percentage","Bin","percent","5.3","5.4",0.01
-"HHS Region 4","Season peak percentage","Bin","percent","5.4","5.5",0.01
-"HHS Region 4","Season peak percentage","Bin","percent","5.5","5.6",0
+"HHS Region 4","Season peak percentage","Bin","percent","5.1","5.2",0.002
+"HHS Region 4","Season peak percentage","Bin","percent","5.2","5.3",0.001
+"HHS Region 4","Season peak percentage","Bin","percent","5.3","5.4",0
+"HHS Region 4","Season peak percentage","Bin","percent","5.4","5.5",0.001
+"HHS Region 4","Season peak percentage","Bin","percent","5.5","5.6",0.002
 "HHS Region 4","Season peak percentage","Bin","percent","5.6","5.7",0
 "HHS Region 4","Season peak percentage","Bin","percent","5.7","5.8",0
 "HHS Region 4","Season peak percentage","Bin","percent","5.8","5.9",0
 "HHS Region 4","Season peak percentage","Bin","percent","5.9","6",0
 "HHS Region 4","Season peak percentage","Bin","percent","6","6.1",0
-"HHS Region 4","Season peak percentage","Bin","percent","6.1","6.2",0
+"HHS Region 4","Season peak percentage","Bin","percent","6.1","6.2",0.001
 "HHS Region 4","Season peak percentage","Bin","percent","6.2","6.3",0
 "HHS Region 4","Season peak percentage","Bin","percent","6.3","6.4",0
 "HHS Region 4","Season peak percentage","Bin","percent","6.4","6.5",0
@@ -3054,10 +3054,10 @@
 "HHS Region 4","Season peak percentage","Bin","percent","6.6","6.7",0
 "HHS Region 4","Season peak percentage","Bin","percent","6.7","6.8",0
 "HHS Region 4","Season peak percentage","Bin","percent","6.8","6.9",0
-"HHS Region 4","Season peak percentage","Bin","percent","6.9","7",0
+"HHS Region 4","Season peak percentage","Bin","percent","6.9","7",0.001
 "HHS Region 4","Season peak percentage","Bin","percent","7","7.1",0
 "HHS Region 4","Season peak percentage","Bin","percent","7.1","7.2",0
-"HHS Region 4","Season peak percentage","Bin","percent","7.2","7.3",0
+"HHS Region 4","Season peak percentage","Bin","percent","7.2","7.3",0.001
 "HHS Region 4","Season peak percentage","Bin","percent","7.3","7.4",0
 "HHS Region 4","Season peak percentage","Bin","percent","7.4","7.5",0
 "HHS Region 4","Season peak percentage","Bin","percent","7.5","7.6",0
@@ -3702,17 +3702,17 @@
 "HHS Region 5","Season peak week","Bin","week","7","8",0
 "HHS Region 5","Season peak week","Bin","week","8","9",0
 "HHS Region 5","Season peak week","Bin","week","9","10",0
-"HHS Region 5","Season peak week","Bin","week","10","11",0.267857142857143
-"HHS Region 5","Season peak week","Bin","week","11","12",0.25
-"HHS Region 5","Season peak week","Bin","week","12","13",0.258928571428571
-"HHS Region 5","Season peak week","Bin","week","13","14",0.107142857142857
-"HHS Region 5","Season peak week","Bin","week","14","15",0.0803571428571429
-"HHS Region 5","Season peak week","Bin","week","15","16",0
-"HHS Region 5","Season peak week","Bin","week","16","17",0
-"HHS Region 5","Season peak week","Bin","week","17","18",0.0178571428571429
-"HHS Region 5","Season peak week","Bin","week","18","19",0
-"HHS Region 5","Season peak week","Bin","week","19","20",0.00892857142857143
-"HHS Region 5","Season peak week","Bin","week","20","21",0.00892857142857143
+"HHS Region 5","Season peak week","Bin","week","10","11",0.23539668700959
+"HHS Region 5","Season peak week","Bin","week","11","12",0.279860505666957
+"HHS Region 5","Season peak week","Bin","week","12","13",0.24411508282476
+"HHS Region 5","Season peak week","Bin","week","13","14",0.116826503923278
+"HHS Region 5","Season peak week","Bin","week","14","15",0.057541412380122
+"HHS Region 5","Season peak week","Bin","week","15","16",0.013949433304272
+"HHS Region 5","Season peak week","Bin","week","16","17",0.00697471665213601
+"HHS Region 5","Season peak week","Bin","week","17","18",0.014821272885789
+"HHS Region 5","Season peak week","Bin","week","18","19",0.00959023539668702
+"HHS Region 5","Season peak week","Bin","week","19","20",0.012205754141238
+"HHS Region 5","Season peak week","Bin","week","20","21",0.00871839581517002
 "HHS Region 5","Season peak percentage","Point","percent",NA,NA,3.6
 "HHS Region 5","Season peak percentage","Bin","percent","0","0.1",0
 "HHS Region 5","Season peak percentage","Bin","percent","0.1","0.2",0
@@ -3746,63 +3746,63 @@
 "HHS Region 5","Season peak percentage","Bin","percent","2.9","3",0
 "HHS Region 5","Season peak percentage","Bin","percent","3","3.1",0
 "HHS Region 5","Season peak percentage","Bin","percent","3.1","3.2",0
-"HHS Region 5","Season peak percentage","Bin","percent","3.2","3.3",0.3
-"HHS Region 5","Season peak percentage","Bin","percent","3.3","3.4",0.06
-"HHS Region 5","Season peak percentage","Bin","percent","3.4","3.5",0.08
-"HHS Region 5","Season peak percentage","Bin","percent","3.5","3.6",0.05
-"HHS Region 5","Season peak percentage","Bin","percent","3.6","3.7",0.05
-"HHS Region 5","Season peak percentage","Bin","percent","3.7","3.8",0.03
-"HHS Region 5","Season peak percentage","Bin","percent","3.8","3.9",0.04
-"HHS Region 5","Season peak percentage","Bin","percent","3.9","4",0.04
-"HHS Region 5","Season peak percentage","Bin","percent","4","4.1",0.03
-"HHS Region 5","Season peak percentage","Bin","percent","4.1","4.2",0.04
-"HHS Region 5","Season peak percentage","Bin","percent","4.2","4.3",0.01
-"HHS Region 5","Season peak percentage","Bin","percent","4.3","4.4",0.03
-"HHS Region 5","Season peak percentage","Bin","percent","4.4","4.5",0.02
-"HHS Region 5","Season peak percentage","Bin","percent","4.5","4.6",0.04
-"HHS Region 5","Season peak percentage","Bin","percent","4.6","4.7",0.02
-"HHS Region 5","Season peak percentage","Bin","percent","4.7","4.8",0.04
-"HHS Region 5","Season peak percentage","Bin","percent","4.8","4.9",0.02
-"HHS Region 5","Season peak percentage","Bin","percent","4.9","5",0.01
-"HHS Region 5","Season peak percentage","Bin","percent","5","5.1",0
-"HHS Region 5","Season peak percentage","Bin","percent","5.1","5.2",0.02
-"HHS Region 5","Season peak percentage","Bin","percent","5.2","5.3",0.02
-"HHS Region 5","Season peak percentage","Bin","percent","5.3","5.4",0.01
-"HHS Region 5","Season peak percentage","Bin","percent","5.4","5.5",0.01
-"HHS Region 5","Season peak percentage","Bin","percent","5.5","5.6",0
-"HHS Region 5","Season peak percentage","Bin","percent","5.6","5.7",0
-"HHS Region 5","Season peak percentage","Bin","percent","5.7","5.8",0
-"HHS Region 5","Season peak percentage","Bin","percent","5.8","5.9",0
-"HHS Region 5","Season peak percentage","Bin","percent","5.9","6",0.01
-"HHS Region 5","Season peak percentage","Bin","percent","6","6.1",0
-"HHS Region 5","Season peak percentage","Bin","percent","6.1","6.2",0
-"HHS Region 5","Season peak percentage","Bin","percent","6.2","6.3",0
-"HHS Region 5","Season peak percentage","Bin","percent","6.3","6.4",0
-"HHS Region 5","Season peak percentage","Bin","percent","6.4","6.5",0.01
+"HHS Region 5","Season peak percentage","Bin","percent","3.2","3.3",0.27
+"HHS Region 5","Season peak percentage","Bin","percent","3.3","3.4",0.059
+"HHS Region 5","Season peak percentage","Bin","percent","3.4","3.5",0.057
+"HHS Region 5","Season peak percentage","Bin","percent","3.5","3.6",0.058
+"HHS Region 5","Season peak percentage","Bin","percent","3.6","3.7",0.073
+"HHS Region 5","Season peak percentage","Bin","percent","3.7","3.8",0.059
+"HHS Region 5","Season peak percentage","Bin","percent","3.8","3.9",0.047
+"HHS Region 5","Season peak percentage","Bin","percent","3.9","4",0.045
+"HHS Region 5","Season peak percentage","Bin","percent","4","4.1",0.038
+"HHS Region 5","Season peak percentage","Bin","percent","4.1","4.2",0.041
+"HHS Region 5","Season peak percentage","Bin","percent","4.2","4.3",0.031
+"HHS Region 5","Season peak percentage","Bin","percent","4.3","4.4",0.026
+"HHS Region 5","Season peak percentage","Bin","percent","4.4","4.5",0.021
+"HHS Region 5","Season peak percentage","Bin","percent","4.5","4.6",0.02
+"HHS Region 5","Season peak percentage","Bin","percent","4.6","4.7",0.022
+"HHS Region 5","Season peak percentage","Bin","percent","4.7","4.8",0.016
+"HHS Region 5","Season peak percentage","Bin","percent","4.8","4.9",0.014
+"HHS Region 5","Season peak percentage","Bin","percent","4.9","5",0.017
+"HHS Region 5","Season peak percentage","Bin","percent","5","5.1",0.011
+"HHS Region 5","Season peak percentage","Bin","percent","5.1","5.2",0.00900000000000001
+"HHS Region 5","Season peak percentage","Bin","percent","5.2","5.3",0.007
+"HHS Region 5","Season peak percentage","Bin","percent","5.3","5.4",0.006
+"HHS Region 5","Season peak percentage","Bin","percent","5.4","5.5",0.005
+"HHS Region 5","Season peak percentage","Bin","percent","5.5","5.6",0.003
+"HHS Region 5","Season peak percentage","Bin","percent","5.6","5.7",0.001
+"HHS Region 5","Season peak percentage","Bin","percent","5.7","5.8",0.003
+"HHS Region 5","Season peak percentage","Bin","percent","5.8","5.9",0.005
+"HHS Region 5","Season peak percentage","Bin","percent","5.9","6",0.002
+"HHS Region 5","Season peak percentage","Bin","percent","6","6.1",0.005
+"HHS Region 5","Season peak percentage","Bin","percent","6.1","6.2",0.004
+"HHS Region 5","Season peak percentage","Bin","percent","6.2","6.3",0.001
+"HHS Region 5","Season peak percentage","Bin","percent","6.3","6.4",0.004
+"HHS Region 5","Season peak percentage","Bin","percent","6.4","6.5",0.001
 "HHS Region 5","Season peak percentage","Bin","percent","6.5","6.6",0
-"HHS Region 5","Season peak percentage","Bin","percent","6.6","6.7",0
-"HHS Region 5","Season peak percentage","Bin","percent","6.7","6.8",0
+"HHS Region 5","Season peak percentage","Bin","percent","6.6","6.7",0.001
+"HHS Region 5","Season peak percentage","Bin","percent","6.7","6.8",0.002
 "HHS Region 5","Season peak percentage","Bin","percent","6.8","6.9",0
 "HHS Region 5","Season peak percentage","Bin","percent","6.9","7",0
 "HHS Region 5","Season peak percentage","Bin","percent","7","7.1",0
 "HHS Region 5","Season peak percentage","Bin","percent","7.1","7.2",0
-"HHS Region 5","Season peak percentage","Bin","percent","7.2","7.3",0
-"HHS Region 5","Season peak percentage","Bin","percent","7.3","7.4",0
+"HHS Region 5","Season peak percentage","Bin","percent","7.2","7.3",0.001
+"HHS Region 5","Season peak percentage","Bin","percent","7.3","7.4",0.001
 "HHS Region 5","Season peak percentage","Bin","percent","7.4","7.5",0
 "HHS Region 5","Season peak percentage","Bin","percent","7.5","7.6",0
 "HHS Region 5","Season peak percentage","Bin","percent","7.6","7.7",0
 "HHS Region 5","Season peak percentage","Bin","percent","7.7","7.8",0
-"HHS Region 5","Season peak percentage","Bin","percent","7.8","7.9",0
+"HHS Region 5","Season peak percentage","Bin","percent","7.8","7.9",0.003
 "HHS Region 5","Season peak percentage","Bin","percent","7.9","8",0
-"HHS Region 5","Season peak percentage","Bin","percent","8","8.1",0
-"HHS Region 5","Season peak percentage","Bin","percent","8.1","8.2",0
-"HHS Region 5","Season peak percentage","Bin","percent","8.2","8.3",0
-"HHS Region 5","Season peak percentage","Bin","percent","8.3","8.4",0.01
-"HHS Region 5","Season peak percentage","Bin","percent","8.4","8.5",0
+"HHS Region 5","Season peak percentage","Bin","percent","8","8.1",0.002
+"HHS Region 5","Season peak percentage","Bin","percent","8.1","8.2",0.001
+"HHS Region 5","Season peak percentage","Bin","percent","8.2","8.3",0.001
+"HHS Region 5","Season peak percentage","Bin","percent","8.3","8.4",0
+"HHS Region 5","Season peak percentage","Bin","percent","8.4","8.5",0.001
 "HHS Region 5","Season peak percentage","Bin","percent","8.5","8.6",0
-"HHS Region 5","Season peak percentage","Bin","percent","8.6","8.7",0
-"HHS Region 5","Season peak percentage","Bin","percent","8.7","8.8",0
-"HHS Region 5","Season peak percentage","Bin","percent","8.8","8.9",0
+"HHS Region 5","Season peak percentage","Bin","percent","8.6","8.7",0.001
+"HHS Region 5","Season peak percentage","Bin","percent","8.7","8.8",0.001
+"HHS Region 5","Season peak percentage","Bin","percent","8.8","8.9",0.002
 "HHS Region 5","Season peak percentage","Bin","percent","8.9","9",0
 "HHS Region 5","Season peak percentage","Bin","percent","9","9.1",0
 "HHS Region 5","Season peak percentage","Bin","percent","9.1","9.2",0
@@ -3810,7 +3810,7 @@
 "HHS Region 5","Season peak percentage","Bin","percent","9.3","9.4",0
 "HHS Region 5","Season peak percentage","Bin","percent","9.4","9.5",0
 "HHS Region 5","Season peak percentage","Bin","percent","9.5","9.6",0
-"HHS Region 5","Season peak percentage","Bin","percent","9.6","9.7",0
+"HHS Region 5","Season peak percentage","Bin","percent","9.6","9.7",0.001
 "HHS Region 5","Season peak percentage","Bin","percent","9.7","9.8",0
 "HHS Region 5","Season peak percentage","Bin","percent","9.8","9.9",0
 "HHS Region 5","Season peak percentage","Bin","percent","9.9","10",0
@@ -3825,7 +3825,7 @@
 "HHS Region 5","Season peak percentage","Bin","percent","10.8","10.9",0
 "HHS Region 5","Season peak percentage","Bin","percent","10.9","11",0
 "HHS Region 5","Season peak percentage","Bin","percent","11","11.1",0
-"HHS Region 5","Season peak percentage","Bin","percent","11.1","11.2",0
+"HHS Region 5","Season peak percentage","Bin","percent","11.1","11.2",0.001
 "HHS Region 5","Season peak percentage","Bin","percent","11.2","11.3",0
 "HHS Region 5","Season peak percentage","Bin","percent","11.3","11.4",0
 "HHS Region 5","Season peak percentage","Bin","percent","11.4","11.5",0
@@ -4428,20 +4428,20 @@
 "HHS Region 6","Season peak week","Bin","week","4","5",0
 "HHS Region 6","Season peak week","Bin","week","5","6",0
 "HHS Region 6","Season peak week","Bin","week","6","7",0
-"HHS Region 6","Season peak week","Bin","week","7","8",0.607476635514019
+"HHS Region 6","Season peak week","Bin","week","7","8",0.542253521126761
 "HHS Region 6","Season peak week","Bin","week","8","9",0
 "HHS Region 6","Season peak week","Bin","week","9","10",0
 "HHS Region 6","Season peak week","Bin","week","10","11",0
-"HHS Region 6","Season peak week","Bin","week","11","12",0.0654205607476636
-"HHS Region 6","Season peak week","Bin","week","12","13",0.0467289719626168
-"HHS Region 6","Season peak week","Bin","week","13","14",0.0560747663551402
-"HHS Region 6","Season peak week","Bin","week","14","15",0.0654205607476636
-"HHS Region 6","Season peak week","Bin","week","15","16",0.0373831775700935
-"HHS Region 6","Season peak week","Bin","week","16","17",0
-"HHS Region 6","Season peak week","Bin","week","17","18",0.0467289719626168
-"HHS Region 6","Season peak week","Bin","week","18","19",0.0280373831775701
-"HHS Region 6","Season peak week","Bin","week","19","20",0.0280373831775701
-"HHS Region 6","Season peak week","Bin","week","20","21",0.0186915887850467
+"HHS Region 6","Season peak week","Bin","week","11","12",0.0580985915492958
+"HHS Region 6","Season peak week","Bin","week","12","13",0.0519366197183099
+"HHS Region 6","Season peak week","Bin","week","13","14",0.0686619718309859
+"HHS Region 6","Season peak week","Bin","week","14","15",0.051056338028169
+"HHS Region 6","Season peak week","Bin","week","15","16",0.0572183098591549
+"HHS Region 6","Season peak week","Bin","week","16","17",0.0132042253521127
+"HHS Region 6","Season peak week","Bin","week","17","18",0.0325704225352113
+"HHS Region 6","Season peak week","Bin","week","18","19",0.0290492957746479
+"HHS Region 6","Season peak week","Bin","week","19","20",0.0475352112676056
+"HHS Region 6","Season peak week","Bin","week","20","21",0.0484154929577465
 "HHS Region 6","Season peak percentage","Point","percent",NA,NA,5.6
 "HHS Region 6","Season peak percentage","Bin","percent","0","0.1",0
 "HHS Region 6","Season peak percentage","Bin","percent","0.1","0.2",0
@@ -4499,81 +4499,81 @@
 "HHS Region 6","Season peak percentage","Bin","percent","5.3","5.4",0
 "HHS Region 6","Season peak percentage","Bin","percent","5.4","5.5",0
 "HHS Region 6","Season peak percentage","Bin","percent","5.5","5.6",0
-"HHS Region 6","Season peak percentage","Bin","percent","5.6","5.7",0.65
-"HHS Region 6","Season peak percentage","Bin","percent","5.7","5.8",0.03
-"HHS Region 6","Season peak percentage","Bin","percent","5.8","5.9",0
-"HHS Region 6","Season peak percentage","Bin","percent","5.9","6",0.02
-"HHS Region 6","Season peak percentage","Bin","percent","6","6.1",0.01
-"HHS Region 6","Season peak percentage","Bin","percent","6.1","6.2",0.02
-"HHS Region 6","Season peak percentage","Bin","percent","6.2","6.3",0.01
-"HHS Region 6","Season peak percentage","Bin","percent","6.3","6.4",0
-"HHS Region 6","Season peak percentage","Bin","percent","6.4","6.5",0
-"HHS Region 6","Season peak percentage","Bin","percent","6.5","6.6",0.01
-"HHS Region 6","Season peak percentage","Bin","percent","6.6","6.7",0.02
-"HHS Region 6","Season peak percentage","Bin","percent","6.7","6.8",0.01
-"HHS Region 6","Season peak percentage","Bin","percent","6.8","6.9",0.01
-"HHS Region 6","Season peak percentage","Bin","percent","6.9","7",0.02
-"HHS Region 6","Season peak percentage","Bin","percent","7","7.1",0.01
-"HHS Region 6","Season peak percentage","Bin","percent","7.1","7.2",0.01
-"HHS Region 6","Season peak percentage","Bin","percent","7.2","7.3",0.02
-"HHS Region 6","Season peak percentage","Bin","percent","7.3","7.4",0
-"HHS Region 6","Season peak percentage","Bin","percent","7.4","7.5",0
-"HHS Region 6","Season peak percentage","Bin","percent","7.5","7.6",0
-"HHS Region 6","Season peak percentage","Bin","percent","7.6","7.7",0
-"HHS Region 6","Season peak percentage","Bin","percent","7.7","7.8",0
-"HHS Region 6","Season peak percentage","Bin","percent","7.8","7.9",0
-"HHS Region 6","Season peak percentage","Bin","percent","7.9","8",0
-"HHS Region 6","Season peak percentage","Bin","percent","8","8.1",0.01
-"HHS Region 6","Season peak percentage","Bin","percent","8.1","8.2",0.01
-"HHS Region 6","Season peak percentage","Bin","percent","8.2","8.3",0.01
-"HHS Region 6","Season peak percentage","Bin","percent","8.3","8.4",0
-"HHS Region 6","Season peak percentage","Bin","percent","8.4","8.5",0
-"HHS Region 6","Season peak percentage","Bin","percent","8.5","8.6",0.01
-"HHS Region 6","Season peak percentage","Bin","percent","8.6","8.7",0
-"HHS Region 6","Season peak percentage","Bin","percent","8.7","8.8",0.01
-"HHS Region 6","Season peak percentage","Bin","percent","8.8","8.9",0
-"HHS Region 6","Season peak percentage","Bin","percent","8.9","9",0
-"HHS Region 6","Season peak percentage","Bin","percent","9","9.1",0
-"HHS Region 6","Season peak percentage","Bin","percent","9.1","9.2",0
-"HHS Region 6","Season peak percentage","Bin","percent","9.2","9.3",0
-"HHS Region 6","Season peak percentage","Bin","percent","9.3","9.4",0.01
-"HHS Region 6","Season peak percentage","Bin","percent","9.4","9.5",0
-"HHS Region 6","Season peak percentage","Bin","percent","9.5","9.6",0
-"HHS Region 6","Season peak percentage","Bin","percent","9.6","9.7",0
-"HHS Region 6","Season peak percentage","Bin","percent","9.7","9.8",0
-"HHS Region 6","Season peak percentage","Bin","percent","9.8","9.9",0
-"HHS Region 6","Season peak percentage","Bin","percent","9.9","10",0.01
-"HHS Region 6","Season peak percentage","Bin","percent","10","10.1",0.01
-"HHS Region 6","Season peak percentage","Bin","percent","10.1","10.2",0
-"HHS Region 6","Season peak percentage","Bin","percent","10.2","10.3",0.01
-"HHS Region 6","Season peak percentage","Bin","percent","10.3","10.4",0
-"HHS Region 6","Season peak percentage","Bin","percent","10.4","10.5",0.01
+"HHS Region 6","Season peak percentage","Bin","percent","5.6","5.7",0.616
+"HHS Region 6","Season peak percentage","Bin","percent","5.7","5.8",0.011
+"HHS Region 6","Season peak percentage","Bin","percent","5.8","5.9",0.008
+"HHS Region 6","Season peak percentage","Bin","percent","5.9","6",0.014
+"HHS Region 6","Season peak percentage","Bin","percent","6","6.1",0.00900000000000001
+"HHS Region 6","Season peak percentage","Bin","percent","6.1","6.2",0.006
+"HHS Region 6","Season peak percentage","Bin","percent","6.2","6.3",0.004
+"HHS Region 6","Season peak percentage","Bin","percent","6.3","6.4",0.014
+"HHS Region 6","Season peak percentage","Bin","percent","6.4","6.5",0.00900000000000001
+"HHS Region 6","Season peak percentage","Bin","percent","6.5","6.6",0.00900000000000001
+"HHS Region 6","Season peak percentage","Bin","percent","6.6","6.7",0.007
+"HHS Region 6","Season peak percentage","Bin","percent","6.7","6.8",0.013
+"HHS Region 6","Season peak percentage","Bin","percent","6.8","6.9",0.007
+"HHS Region 6","Season peak percentage","Bin","percent","6.9","7",0.004
+"HHS Region 6","Season peak percentage","Bin","percent","7","7.1",0.012
+"HHS Region 6","Season peak percentage","Bin","percent","7.1","7.2",0.011
+"HHS Region 6","Season peak percentage","Bin","percent","7.2","7.3",0.003
+"HHS Region 6","Season peak percentage","Bin","percent","7.3","7.4",0.006
+"HHS Region 6","Season peak percentage","Bin","percent","7.4","7.5",0.004
+"HHS Region 6","Season peak percentage","Bin","percent","7.5","7.6",0.002
+"HHS Region 6","Season peak percentage","Bin","percent","7.6","7.7",0.005
+"HHS Region 6","Season peak percentage","Bin","percent","7.7","7.8",0.006
+"HHS Region 6","Season peak percentage","Bin","percent","7.8","7.9",0.004
+"HHS Region 6","Season peak percentage","Bin","percent","7.9","8",0.006
+"HHS Region 6","Season peak percentage","Bin","percent","8","8.1",0.005
+"HHS Region 6","Season peak percentage","Bin","percent","8.1","8.2",0.001
+"HHS Region 6","Season peak percentage","Bin","percent","8.2","8.3",0.006
+"HHS Region 6","Season peak percentage","Bin","percent","8.3","8.4",0.004
+"HHS Region 6","Season peak percentage","Bin","percent","8.4","8.5",0.004
+"HHS Region 6","Season peak percentage","Bin","percent","8.5","8.6",0.007
+"HHS Region 6","Season peak percentage","Bin","percent","8.6","8.7",0.004
+"HHS Region 6","Season peak percentage","Bin","percent","8.7","8.8",0.001
+"HHS Region 6","Season peak percentage","Bin","percent","8.8","8.9",0.006
+"HHS Region 6","Season peak percentage","Bin","percent","8.9","9",0.003
+"HHS Region 6","Season peak percentage","Bin","percent","9","9.1",0.002
+"HHS Region 6","Season peak percentage","Bin","percent","9.1","9.2",0.002
+"HHS Region 6","Season peak percentage","Bin","percent","9.2","9.3",0.006
+"HHS Region 6","Season peak percentage","Bin","percent","9.3","9.4",0.002
+"HHS Region 6","Season peak percentage","Bin","percent","9.4","9.5",0.002
+"HHS Region 6","Season peak percentage","Bin","percent","9.5","9.6",0.002
+"HHS Region 6","Season peak percentage","Bin","percent","9.6","9.7",0.003
+"HHS Region 6","Season peak percentage","Bin","percent","9.7","9.8",0.004
+"HHS Region 6","Season peak percentage","Bin","percent","9.8","9.9",0.003
+"HHS Region 6","Season peak percentage","Bin","percent","9.9","10",0.002
+"HHS Region 6","Season peak percentage","Bin","percent","10","10.1",0.006
+"HHS Region 6","Season peak percentage","Bin","percent","10.1","10.2",0.002
+"HHS Region 6","Season peak percentage","Bin","percent","10.2","10.3",0
+"HHS Region 6","Season peak percentage","Bin","percent","10.3","10.4",0.001
+"HHS Region 6","Season peak percentage","Bin","percent","10.4","10.5",0.001
 "HHS Region 6","Season peak percentage","Bin","percent","10.5","10.6",0
-"HHS Region 6","Season peak percentage","Bin","percent","10.6","10.7",0
-"HHS Region 6","Season peak percentage","Bin","percent","10.7","10.8",0
+"HHS Region 6","Season peak percentage","Bin","percent","10.6","10.7",0.005
+"HHS Region 6","Season peak percentage","Bin","percent","10.7","10.8",0.003
 "HHS Region 6","Season peak percentage","Bin","percent","10.8","10.9",0
-"HHS Region 6","Season peak percentage","Bin","percent","10.9","11",0
-"HHS Region 6","Season peak percentage","Bin","percent","11","11.1",0
-"HHS Region 6","Season peak percentage","Bin","percent","11.1","11.2",0
-"HHS Region 6","Season peak percentage","Bin","percent","11.2","11.3",0
-"HHS Region 6","Season peak percentage","Bin","percent","11.3","11.4",0
-"HHS Region 6","Season peak percentage","Bin","percent","11.4","11.5",0
-"HHS Region 6","Season peak percentage","Bin","percent","11.5","11.6",0
-"HHS Region 6","Season peak percentage","Bin","percent","11.6","11.7",0
-"HHS Region 6","Season peak percentage","Bin","percent","11.7","11.8",0
-"HHS Region 6","Season peak percentage","Bin","percent","11.8","11.9",0
+"HHS Region 6","Season peak percentage","Bin","percent","10.9","11",0.004
+"HHS Region 6","Season peak percentage","Bin","percent","11","11.1",0.004
+"HHS Region 6","Season peak percentage","Bin","percent","11.1","11.2",0.001
+"HHS Region 6","Season peak percentage","Bin","percent","11.2","11.3",0.002
+"HHS Region 6","Season peak percentage","Bin","percent","11.3","11.4",0.001
+"HHS Region 6","Season peak percentage","Bin","percent","11.4","11.5",0.001
+"HHS Region 6","Season peak percentage","Bin","percent","11.5","11.6",0.003
+"HHS Region 6","Season peak percentage","Bin","percent","11.6","11.7",0.001
+"HHS Region 6","Season peak percentage","Bin","percent","11.7","11.8",0.001
+"HHS Region 6","Season peak percentage","Bin","percent","11.8","11.9",0.001
 "HHS Region 6","Season peak percentage","Bin","percent","11.9","12",0
-"HHS Region 6","Season peak percentage","Bin","percent","12","12.1",0
-"HHS Region 6","Season peak percentage","Bin","percent","12.1","12.2",0
-"HHS Region 6","Season peak percentage","Bin","percent","12.2","12.3",0
-"HHS Region 6","Season peak percentage","Bin","percent","12.3","12.4",0.01
-"HHS Region 6","Season peak percentage","Bin","percent","12.4","12.5",0
-"HHS Region 6","Season peak percentage","Bin","percent","12.5","12.6",0
+"HHS Region 6","Season peak percentage","Bin","percent","12","12.1",0.001
+"HHS Region 6","Season peak percentage","Bin","percent","12.1","12.2",0.001
+"HHS Region 6","Season peak percentage","Bin","percent","12.2","12.3",0.001
+"HHS Region 6","Season peak percentage","Bin","percent","12.3","12.4",0
+"HHS Region 6","Season peak percentage","Bin","percent","12.4","12.5",0.001
+"HHS Region 6","Season peak percentage","Bin","percent","12.5","12.6",0.001
 "HHS Region 6","Season peak percentage","Bin","percent","12.6","12.7",0
-"HHS Region 6","Season peak percentage","Bin","percent","12.7","12.8",0
-"HHS Region 6","Season peak percentage","Bin","percent","12.8","12.9",0
-"HHS Region 6","Season peak percentage","Bin","percent","12.9","13",0
-"HHS Region 6","Season peak percentage","Bin","percent","13","100",0.04
+"HHS Region 6","Season peak percentage","Bin","percent","12.7","12.8",0.001
+"HHS Region 6","Season peak percentage","Bin","percent","12.8","12.9",0.001
+"HHS Region 6","Season peak percentage","Bin","percent","12.9","13",0.003
+"HHS Region 6","Season peak percentage","Bin","percent","13","100",0.094
 "HHS Region 6","1 wk ahead","Point","percent",NA,NA,1.3
 "HHS Region 6","1 wk ahead","Bin","percent","0","0.1",0
 "HHS Region 6","1 wk ahead","Bin","percent","0.1","0.2",0
@@ -5160,15 +5160,15 @@
 "HHS Region 7","Season peak week","Bin","week","7","8",0
 "HHS Region 7","Season peak week","Bin","week","8","9",0
 "HHS Region 7","Season peak week","Bin","week","9","10",0
-"HHS Region 7","Season peak week","Bin","week","10","11",0.586206896551724
-"HHS Region 7","Season peak week","Bin","week","11","12",0.224137931034483
-"HHS Region 7","Season peak week","Bin","week","12","13",0.0517241379310345
-"HHS Region 7","Season peak week","Bin","week","13","14",0.137931034482759
-"HHS Region 7","Season peak week","Bin","week","14","15",0
+"HHS Region 7","Season peak week","Bin","week","10","11",0.58485401459854
+"HHS Region 7","Season peak week","Bin","week","11","12",0.198905109489051
+"HHS Region 7","Season peak week","Bin","week","12","13",0.0501824817518248
+"HHS Region 7","Season peak week","Bin","week","13","14",0.154197080291971
+"HHS Region 7","Season peak week","Bin","week","14","15",0.00547445255474453
 "HHS Region 7","Season peak week","Bin","week","15","16",0
-"HHS Region 7","Season peak week","Bin","week","16","17",0
-"HHS Region 7","Season peak week","Bin","week","17","18",0
-"HHS Region 7","Season peak week","Bin","week","18","19",0
+"HHS Region 7","Season peak week","Bin","week","16","17",0.00456204379562044
+"HHS Region 7","Season peak week","Bin","week","17","18",0.000912408759124088
+"HHS Region 7","Season peak week","Bin","week","18","19",0.000912408759124088
 "HHS Region 7","Season peak week","Bin","week","19","20",0
 "HHS Region 7","Season peak week","Bin","week","20","21",0
 "HHS Region 7","Season peak percentage","Point","percent",NA,NA,2.6
@@ -5198,36 +5198,36 @@
 "HHS Region 7","Season peak percentage","Bin","percent","2.3","2.4",0
 "HHS Region 7","Season peak percentage","Bin","percent","2.4","2.5",0
 "HHS Region 7","Season peak percentage","Bin","percent","2.5","2.6",0
-"HHS Region 7","Season peak percentage","Bin","percent","2.6","2.7",0.68
-"HHS Region 7","Season peak percentage","Bin","percent","2.7","2.8",0.04
-"HHS Region 7","Season peak percentage","Bin","percent","2.8","2.9",0.1
-"HHS Region 7","Season peak percentage","Bin","percent","2.9","3",0.01
-"HHS Region 7","Season peak percentage","Bin","percent","3","3.1",0.02
-"HHS Region 7","Season peak percentage","Bin","percent","3.1","3.2",0.04
-"HHS Region 7","Season peak percentage","Bin","percent","3.2","3.3",0.04
-"HHS Region 7","Season peak percentage","Bin","percent","3.3","3.4",0.01
-"HHS Region 7","Season peak percentage","Bin","percent","3.4","3.5",0.03
-"HHS Region 7","Season peak percentage","Bin","percent","3.5","3.6",0.02
-"HHS Region 7","Season peak percentage","Bin","percent","3.6","3.7",0
-"HHS Region 7","Season peak percentage","Bin","percent","3.7","3.8",0
-"HHS Region 7","Season peak percentage","Bin","percent","3.8","3.9",0
-"HHS Region 7","Season peak percentage","Bin","percent","3.9","4",0.01
-"HHS Region 7","Season peak percentage","Bin","percent","4","4.1",0
-"HHS Region 7","Season peak percentage","Bin","percent","4.1","4.2",0
-"HHS Region 7","Season peak percentage","Bin","percent","4.2","4.3",0
-"HHS Region 7","Season peak percentage","Bin","percent","4.3","4.4",0
-"HHS Region 7","Season peak percentage","Bin","percent","4.4","4.5",0
-"HHS Region 7","Season peak percentage","Bin","percent","4.5","4.6",0
+"HHS Region 7","Season peak percentage","Bin","percent","2.6","2.7",0.641
+"HHS Region 7","Season peak percentage","Bin","percent","2.7","2.8",0.06
+"HHS Region 7","Season peak percentage","Bin","percent","2.8","2.9",0.05
+"HHS Region 7","Season peak percentage","Bin","percent","2.9","3",0.044
+"HHS Region 7","Season peak percentage","Bin","percent","3","3.1",0.051
+"HHS Region 7","Season peak percentage","Bin","percent","3.1","3.2",0.038
+"HHS Region 7","Season peak percentage","Bin","percent","3.2","3.3",0.034
+"HHS Region 7","Season peak percentage","Bin","percent","3.3","3.4",0.015
+"HHS Region 7","Season peak percentage","Bin","percent","3.4","3.5",0.019
+"HHS Region 7","Season peak percentage","Bin","percent","3.5","3.6",0.011
+"HHS Region 7","Season peak percentage","Bin","percent","3.6","3.7",0.008
+"HHS Region 7","Season peak percentage","Bin","percent","3.7","3.8",0.007
+"HHS Region 7","Season peak percentage","Bin","percent","3.8","3.9",0.003
+"HHS Region 7","Season peak percentage","Bin","percent","3.9","4",0.006
+"HHS Region 7","Season peak percentage","Bin","percent","4","4.1",0.003
+"HHS Region 7","Season peak percentage","Bin","percent","4.1","4.2",0.002
+"HHS Region 7","Season peak percentage","Bin","percent","4.2","4.3",0.001
+"HHS Region 7","Season peak percentage","Bin","percent","4.3","4.4",0.001
+"HHS Region 7","Season peak percentage","Bin","percent","4.4","4.5",0.003
+"HHS Region 7","Season peak percentage","Bin","percent","4.5","4.6",0.001
 "HHS Region 7","Season peak percentage","Bin","percent","4.6","4.7",0
 "HHS Region 7","Season peak percentage","Bin","percent","4.7","4.8",0
-"HHS Region 7","Season peak percentage","Bin","percent","4.8","4.9",0
+"HHS Region 7","Season peak percentage","Bin","percent","4.8","4.9",0.001
 "HHS Region 7","Season peak percentage","Bin","percent","4.9","5",0
 "HHS Region 7","Season peak percentage","Bin","percent","5","5.1",0
 "HHS Region 7","Season peak percentage","Bin","percent","5.1","5.2",0
 "HHS Region 7","Season peak percentage","Bin","percent","5.2","5.3",0
 "HHS Region 7","Season peak percentage","Bin","percent","5.3","5.4",0
 "HHS Region 7","Season peak percentage","Bin","percent","5.4","5.5",0
-"HHS Region 7","Season peak percentage","Bin","percent","5.5","5.6",0
+"HHS Region 7","Season peak percentage","Bin","percent","5.5","5.6",0.001
 "HHS Region 7","Season peak percentage","Bin","percent","5.6","5.7",0
 "HHS Region 7","Season peak percentage","Bin","percent","5.7","5.8",0
 "HHS Region 7","Season peak percentage","Bin","percent","5.8","5.9",0
@@ -5886,20 +5886,20 @@
 "HHS Region 8","Season peak week","Bin","week","4","5",0
 "HHS Region 8","Season peak week","Bin","week","5","6",0
 "HHS Region 8","Season peak week","Bin","week","6","7",0
-"HHS Region 8","Season peak week","Bin","week","7","8",0.227722772277228
-"HHS Region 8","Season peak week","Bin","week","8","9",0.227722772277228
+"HHS Region 8","Season peak week","Bin","week","7","8",0.233285233285233
+"HHS Region 8","Season peak week","Bin","week","8","9",0.233285233285233
 "HHS Region 8","Season peak week","Bin","week","9","10",0
-"HHS Region 8","Season peak week","Bin","week","10","11",0.227722772277228
-"HHS Region 8","Season peak week","Bin","week","11","12",0.118811881188119
-"HHS Region 8","Season peak week","Bin","week","12","13",0.0346534653465347
-"HHS Region 8","Season peak week","Bin","week","13","14",0.0396039603960396
-"HHS Region 8","Season peak week","Bin","week","14","15",0.0346534653465347
-"HHS Region 8","Season peak week","Bin","week","15","16",0.0198019801980198
-"HHS Region 8","Season peak week","Bin","week","16","17",0.0396039603960396
-"HHS Region 8","Season peak week","Bin","week","17","18",0.00495049504950495
-"HHS Region 8","Season peak week","Bin","week","18","19",0.0099009900990099
-"HHS Region 8","Season peak week","Bin","week","19","20",0.00495049504950495
-"HHS Region 8","Season peak week","Bin","week","20","21",0.0099009900990099
+"HHS Region 8","Season peak week","Bin","week","10","11",0.233285233285233
+"HHS Region 8","Season peak week","Bin","week","11","12",0.115440115440115
+"HHS Region 8","Season peak week","Bin","week","12","13",0.0254930254930255
+"HHS Region 8","Season peak week","Bin","week","13","14",0.0495430495430496
+"HHS Region 8","Season peak week","Bin","week","14","15",0.0187590187590188
+"HHS Region 8","Season peak week","Bin","week","15","16",0.0158730158730159
+"HHS Region 8","Season peak week","Bin","week","16","17",0.0418470418470419
+"HHS Region 8","Season peak week","Bin","week","17","18",0.012025012025012
+"HHS Region 8","Season peak week","Bin","week","18","19",0.00721500721500722
+"HHS Region 8","Season peak week","Bin","week","19","20",0.00721500721500722
+"HHS Region 8","Season peak week","Bin","week","20","21",0.00673400673400673
 "HHS Region 8","Season peak percentage","Point","percent",NA,NA,2.3
 "HHS Region 8","Season peak percentage","Bin","percent","0","0.1",0
 "HHS Region 8","Season peak percentage","Bin","percent","0.1","0.2",0
@@ -5923,61 +5923,61 @@
 "HHS Region 8","Season peak percentage","Bin","percent","1.9","2",0
 "HHS Region 8","Season peak percentage","Bin","percent","2","2.1",0
 "HHS Region 8","Season peak percentage","Bin","percent","2.1","2.2",0
-"HHS Region 8","Season peak percentage","Bin","percent","2.2","2.3",0.46
-"HHS Region 8","Season peak percentage","Bin","percent","2.3","2.4",0.05
-"HHS Region 8","Season peak percentage","Bin","percent","2.4","2.5",0.03
-"HHS Region 8","Season peak percentage","Bin","percent","2.5","2.6",0.03
-"HHS Region 8","Season peak percentage","Bin","percent","2.6","2.7",0.03
-"HHS Region 8","Season peak percentage","Bin","percent","2.7","2.8",0.06
-"HHS Region 8","Season peak percentage","Bin","percent","2.8","2.9",0.06
-"HHS Region 8","Season peak percentage","Bin","percent","2.9","3",0.04
-"HHS Region 8","Season peak percentage","Bin","percent","3","3.1",0.04
-"HHS Region 8","Season peak percentage","Bin","percent","3.1","3.2",0.03
-"HHS Region 8","Season peak percentage","Bin","percent","3.2","3.3",0.01
-"HHS Region 8","Season peak percentage","Bin","percent","3.3","3.4",0
-"HHS Region 8","Season peak percentage","Bin","percent","3.4","3.5",0.01
-"HHS Region 8","Season peak percentage","Bin","percent","3.5","3.6",0.03
-"HHS Region 8","Season peak percentage","Bin","percent","3.6","3.7",0.02
-"HHS Region 8","Season peak percentage","Bin","percent","3.7","3.8",0
-"HHS Region 8","Season peak percentage","Bin","percent","3.8","3.9",0.01
-"HHS Region 8","Season peak percentage","Bin","percent","3.9","4",0
-"HHS Region 8","Season peak percentage","Bin","percent","4","4.1",0.03
-"HHS Region 8","Season peak percentage","Bin","percent","4.1","4.2",0
-"HHS Region 8","Season peak percentage","Bin","percent","4.2","4.3",0.01
-"HHS Region 8","Season peak percentage","Bin","percent","4.3","4.4",0.01
-"HHS Region 8","Season peak percentage","Bin","percent","4.4","4.5",0
-"HHS Region 8","Season peak percentage","Bin","percent","4.5","4.6",0.02
-"HHS Region 8","Season peak percentage","Bin","percent","4.6","4.7",0
-"HHS Region 8","Season peak percentage","Bin","percent","4.7","4.8",0
-"HHS Region 8","Season peak percentage","Bin","percent","4.8","4.9",0
-"HHS Region 8","Season peak percentage","Bin","percent","4.9","5",0
-"HHS Region 8","Season peak percentage","Bin","percent","5","5.1",0
-"HHS Region 8","Season peak percentage","Bin","percent","5.1","5.2",0
-"HHS Region 8","Season peak percentage","Bin","percent","5.2","5.3",0
+"HHS Region 8","Season peak percentage","Bin","percent","2.2","2.3",0.485
+"HHS Region 8","Season peak percentage","Bin","percent","2.3","2.4",0.049
+"HHS Region 8","Season peak percentage","Bin","percent","2.4","2.5",0.049
+"HHS Region 8","Season peak percentage","Bin","percent","2.5","2.6",0.05
+"HHS Region 8","Season peak percentage","Bin","percent","2.6","2.7",0.05
+"HHS Region 8","Season peak percentage","Bin","percent","2.7","2.8",0.042
+"HHS Region 8","Season peak percentage","Bin","percent","2.8","2.9",0.028
+"HHS Region 8","Season peak percentage","Bin","percent","2.9","3",0.028
+"HHS Region 8","Season peak percentage","Bin","percent","3","3.1",0.022
+"HHS Region 8","Season peak percentage","Bin","percent","3.1","3.2",0.028
+"HHS Region 8","Season peak percentage","Bin","percent","3.2","3.3",0.018
+"HHS Region 8","Season peak percentage","Bin","percent","3.3","3.4",0.018
+"HHS Region 8","Season peak percentage","Bin","percent","3.4","3.5",0.018
+"HHS Region 8","Season peak percentage","Bin","percent","3.5","3.6",0.013
+"HHS Region 8","Season peak percentage","Bin","percent","3.6","3.7",0.01
+"HHS Region 8","Season peak percentage","Bin","percent","3.7","3.8",0.008
+"HHS Region 8","Season peak percentage","Bin","percent","3.8","3.9",0.004
+"HHS Region 8","Season peak percentage","Bin","percent","3.9","4",0.004
+"HHS Region 8","Season peak percentage","Bin","percent","4","4.1",0.013
+"HHS Region 8","Season peak percentage","Bin","percent","4.1","4.2",0.007
+"HHS Region 8","Season peak percentage","Bin","percent","4.2","4.3",0.005
+"HHS Region 8","Season peak percentage","Bin","percent","4.3","4.4",0.007
+"HHS Region 8","Season peak percentage","Bin","percent","4.4","4.5",0.004
+"HHS Region 8","Season peak percentage","Bin","percent","4.5","4.6",0.005
+"HHS Region 8","Season peak percentage","Bin","percent","4.6","4.7",0.005
+"HHS Region 8","Season peak percentage","Bin","percent","4.7","4.8",0.002
+"HHS Region 8","Season peak percentage","Bin","percent","4.8","4.9",0.001
+"HHS Region 8","Season peak percentage","Bin","percent","4.9","5",0.002
+"HHS Region 8","Season peak percentage","Bin","percent","5","5.1",0.001
+"HHS Region 8","Season peak percentage","Bin","percent","5.1","5.2",0.003
+"HHS Region 8","Season peak percentage","Bin","percent","5.2","5.3",0.002
 "HHS Region 8","Season peak percentage","Bin","percent","5.3","5.4",0
-"HHS Region 8","Season peak percentage","Bin","percent","5.4","5.5",0
-"HHS Region 8","Season peak percentage","Bin","percent","5.5","5.6",0.01
-"HHS Region 8","Season peak percentage","Bin","percent","5.6","5.7",0
-"HHS Region 8","Season peak percentage","Bin","percent","5.7","5.8",0.01
+"HHS Region 8","Season peak percentage","Bin","percent","5.4","5.5",0.001
+"HHS Region 8","Season peak percentage","Bin","percent","5.5","5.6",0.004
+"HHS Region 8","Season peak percentage","Bin","percent","5.6","5.7",0.002
+"HHS Region 8","Season peak percentage","Bin","percent","5.7","5.8",0.002
 "HHS Region 8","Season peak percentage","Bin","percent","5.8","5.9",0
-"HHS Region 8","Season peak percentage","Bin","percent","5.9","6",0
+"HHS Region 8","Season peak percentage","Bin","percent","5.9","6",0.002
 "HHS Region 8","Season peak percentage","Bin","percent","6","6.1",0
-"HHS Region 8","Season peak percentage","Bin","percent","6.1","6.2",0
+"HHS Region 8","Season peak percentage","Bin","percent","6.1","6.2",0.001
 "HHS Region 8","Season peak percentage","Bin","percent","6.2","6.3",0
 "HHS Region 8","Season peak percentage","Bin","percent","6.3","6.4",0
-"HHS Region 8","Season peak percentage","Bin","percent","6.4","6.5",0
+"HHS Region 8","Season peak percentage","Bin","percent","6.4","6.5",0.001
 "HHS Region 8","Season peak percentage","Bin","percent","6.5","6.6",0
 "HHS Region 8","Season peak percentage","Bin","percent","6.6","6.7",0
 "HHS Region 8","Season peak percentage","Bin","percent","6.7","6.8",0
 "HHS Region 8","Season peak percentage","Bin","percent","6.8","6.9",0
-"HHS Region 8","Season peak percentage","Bin","percent","6.9","7",0
+"HHS Region 8","Season peak percentage","Bin","percent","6.9","7",0.003
 "HHS Region 8","Season peak percentage","Bin","percent","7","7.1",0
 "HHS Region 8","Season peak percentage","Bin","percent","7.1","7.2",0
 "HHS Region 8","Season peak percentage","Bin","percent","7.2","7.3",0
 "HHS Region 8","Season peak percentage","Bin","percent","7.3","7.4",0
 "HHS Region 8","Season peak percentage","Bin","percent","7.4","7.5",0
 "HHS Region 8","Season peak percentage","Bin","percent","7.5","7.6",0
-"HHS Region 8","Season peak percentage","Bin","percent","7.6","7.7",0
+"HHS Region 8","Season peak percentage","Bin","percent","7.6","7.7",0.001
 "HHS Region 8","Season peak percentage","Bin","percent","7.7","7.8",0
 "HHS Region 8","Season peak percentage","Bin","percent","7.8","7.9",0
 "HHS Region 8","Season peak percentage","Bin","percent","7.9","8",0
@@ -5991,7 +5991,7 @@
 "HHS Region 8","Season peak percentage","Bin","percent","8.7","8.8",0
 "HHS Region 8","Season peak percentage","Bin","percent","8.8","8.9",0
 "HHS Region 8","Season peak percentage","Bin","percent","8.9","9",0
-"HHS Region 8","Season peak percentage","Bin","percent","9","9.1",0
+"HHS Region 8","Season peak percentage","Bin","percent","9","9.1",0.001
 "HHS Region 8","Season peak percentage","Bin","percent","9.1","9.2",0
 "HHS Region 8","Season peak percentage","Bin","percent","9.2","9.3",0
 "HHS Region 8","Season peak percentage","Bin","percent","9.3","9.4",0
@@ -6031,7 +6031,7 @@
 "HHS Region 8","Season peak percentage","Bin","percent","12.7","12.8",0
 "HHS Region 8","Season peak percentage","Bin","percent","12.8","12.9",0
 "HHS Region 8","Season peak percentage","Bin","percent","12.9","13",0
-"HHS Region 8","Season peak percentage","Bin","percent","13","100",0
+"HHS Region 8","Season peak percentage","Bin","percent","13","100",0.001
 "HHS Region 8","1 wk ahead","Point","percent",NA,NA,0.5
 "HHS Region 8","1 wk ahead","Bin","percent","0","0.1",0
 "HHS Region 8","1 wk ahead","Bin","percent","0.1","0.2",0
@@ -6615,21 +6615,21 @@
 "HHS Region 9","Season peak week","Bin","week","4","5",0
 "HHS Region 9","Season peak week","Bin","week","5","6",0
 "HHS Region 9","Season peak week","Bin","week","6","7",0
-"HHS Region 9","Season peak week","Bin","week","7","8",0.495412844036697
+"HHS Region 9","Season peak week","Bin","week","7","8",0.43235831809872
 "HHS Region 9","Season peak week","Bin","week","8","9",0
 "HHS Region 9","Season peak week","Bin","week","9","10",0
 "HHS Region 9","Season peak week","Bin","week","10","11",0
-"HHS Region 9","Season peak week","Bin","week","11","12",0.110091743119266
-"HHS Region 9","Season peak week","Bin","week","12","13",0.073394495412844
-"HHS Region 9","Season peak week","Bin","week","13","14",0.0458715596330275
-"HHS Region 9","Season peak week","Bin","week","14","15",0.0275229357798165
-"HHS Region 9","Season peak week","Bin","week","15","16",0.073394495412844
-"HHS Region 9","Season peak week","Bin","week","16","17",0.0275229357798165
-"HHS Region 9","Season peak week","Bin","week","17","18",0.055045871559633
-"HHS Region 9","Season peak week","Bin","week","18","19",0.0275229357798165
-"HHS Region 9","Season peak week","Bin","week","19","20",0.0275229357798165
-"HHS Region 9","Season peak week","Bin","week","20","21",0.036697247706422
-"HHS Region 9","Season peak percentage","Point","percent",NA,NA,4.4
+"HHS Region 9","Season peak week","Bin","week","11","12",0.119744058500914
+"HHS Region 9","Season peak week","Bin","week","12","13",0.0539305301645339
+"HHS Region 9","Season peak week","Bin","week","13","14",0.0630712979890311
+"HHS Region 9","Season peak week","Bin","week","14","15",0.050274223034735
+"HHS Region 9","Season peak week","Bin","week","15","16",0.0447897623400366
+"HHS Region 9","Season peak week","Bin","week","16","17",0.0347349177330896
+"HHS Region 9","Season peak week","Bin","week","17","18",0.0356489945155393
+"HHS Region 9","Season peak week","Bin","week","18","19",0.0374771480804388
+"HHS Region 9","Season peak week","Bin","week","19","20",0.0548446069469836
+"HHS Region 9","Season peak week","Bin","week","20","21",0.0731261425959781
+"HHS Region 9","Season peak percentage","Point","percent",NA,NA,4.6
 "HHS Region 9","Season peak percentage","Bin","percent","0","0.1",0
 "HHS Region 9","Season peak percentage","Bin","percent","0.1","0.2",0
 "HHS Region 9","Season peak percentage","Bin","percent","0.2","0.3",0
@@ -6674,93 +6674,93 @@
 "HHS Region 9","Season peak percentage","Bin","percent","4.1","4.2",0
 "HHS Region 9","Season peak percentage","Bin","percent","4.2","4.3",0
 "HHS Region 9","Season peak percentage","Bin","percent","4.3","4.4",0
-"HHS Region 9","Season peak percentage","Bin","percent","4.4","4.5",0.54
-"HHS Region 9","Season peak percentage","Bin","percent","4.5","4.6",0.02
-"HHS Region 9","Season peak percentage","Bin","percent","4.6","4.7",0
-"HHS Region 9","Season peak percentage","Bin","percent","4.7","4.8",0.05
-"HHS Region 9","Season peak percentage","Bin","percent","4.8","4.9",0.01
-"HHS Region 9","Season peak percentage","Bin","percent","4.9","5",0
-"HHS Region 9","Season peak percentage","Bin","percent","5","5.1",0.01
-"HHS Region 9","Season peak percentage","Bin","percent","5.1","5.2",0
-"HHS Region 9","Season peak percentage","Bin","percent","5.2","5.3",0.02
-"HHS Region 9","Season peak percentage","Bin","percent","5.3","5.4",0
-"HHS Region 9","Season peak percentage","Bin","percent","5.4","5.5",0.02
-"HHS Region 9","Season peak percentage","Bin","percent","5.5","5.6",0
-"HHS Region 9","Season peak percentage","Bin","percent","5.6","5.7",0.01
-"HHS Region 9","Season peak percentage","Bin","percent","5.7","5.8",0.02
-"HHS Region 9","Season peak percentage","Bin","percent","5.8","5.9",0.01
-"HHS Region 9","Season peak percentage","Bin","percent","5.9","6",0
-"HHS Region 9","Season peak percentage","Bin","percent","6","6.1",0.02
-"HHS Region 9","Season peak percentage","Bin","percent","6.1","6.2",0.02
-"HHS Region 9","Season peak percentage","Bin","percent","6.2","6.3",0
-"HHS Region 9","Season peak percentage","Bin","percent","6.3","6.4",0
-"HHS Region 9","Season peak percentage","Bin","percent","6.4","6.5",0
-"HHS Region 9","Season peak percentage","Bin","percent","6.5","6.6",0
-"HHS Region 9","Season peak percentage","Bin","percent","6.6","6.7",0.01
-"HHS Region 9","Season peak percentage","Bin","percent","6.7","6.8",0
-"HHS Region 9","Season peak percentage","Bin","percent","6.8","6.9",0
-"HHS Region 9","Season peak percentage","Bin","percent","6.9","7",0.01
-"HHS Region 9","Season peak percentage","Bin","percent","7","7.1",0
-"HHS Region 9","Season peak percentage","Bin","percent","7.1","7.2",0.01
-"HHS Region 9","Season peak percentage","Bin","percent","7.2","7.3",0
-"HHS Region 9","Season peak percentage","Bin","percent","7.3","7.4",0
-"HHS Region 9","Season peak percentage","Bin","percent","7.4","7.5",0
-"HHS Region 9","Season peak percentage","Bin","percent","7.5","7.6",0
-"HHS Region 9","Season peak percentage","Bin","percent","7.6","7.7",0
-"HHS Region 9","Season peak percentage","Bin","percent","7.7","7.8",0
-"HHS Region 9","Season peak percentage","Bin","percent","7.8","7.9",0
-"HHS Region 9","Season peak percentage","Bin","percent","7.9","8",0
-"HHS Region 9","Season peak percentage","Bin","percent","8","8.1",0
-"HHS Region 9","Season peak percentage","Bin","percent","8.1","8.2",0
-"HHS Region 9","Season peak percentage","Bin","percent","8.2","8.3",0.02
-"HHS Region 9","Season peak percentage","Bin","percent","8.3","8.4",0.01
-"HHS Region 9","Season peak percentage","Bin","percent","8.4","8.5",0
-"HHS Region 9","Season peak percentage","Bin","percent","8.5","8.6",0.01
-"HHS Region 9","Season peak percentage","Bin","percent","8.6","8.7",0
-"HHS Region 9","Season peak percentage","Bin","percent","8.7","8.8",0
-"HHS Region 9","Season peak percentage","Bin","percent","8.8","8.9",0
-"HHS Region 9","Season peak percentage","Bin","percent","8.9","9",0
-"HHS Region 9","Season peak percentage","Bin","percent","9","9.1",0
-"HHS Region 9","Season peak percentage","Bin","percent","9.1","9.2",0
-"HHS Region 9","Season peak percentage","Bin","percent","9.2","9.3",0
+"HHS Region 9","Season peak percentage","Bin","percent","4.4","4.5",0.473
+"HHS Region 9","Season peak percentage","Bin","percent","4.5","4.6",0.012
+"HHS Region 9","Season peak percentage","Bin","percent","4.6","4.7",0.016
+"HHS Region 9","Season peak percentage","Bin","percent","4.7","4.8",0.01
+"HHS Region 9","Season peak percentage","Bin","percent","4.8","4.9",0.012
+"HHS Region 9","Season peak percentage","Bin","percent","4.9","5",0.01
+"HHS Region 9","Season peak percentage","Bin","percent","5","5.1",0.016
+"HHS Region 9","Season peak percentage","Bin","percent","5.1","5.2",0.016
+"HHS Region 9","Season peak percentage","Bin","percent","5.2","5.3",0.00900000000000001
+"HHS Region 9","Season peak percentage","Bin","percent","5.3","5.4",0.013
+"HHS Region 9","Season peak percentage","Bin","percent","5.4","5.5",0.011
+"HHS Region 9","Season peak percentage","Bin","percent","5.5","5.6",0.012
+"HHS Region 9","Season peak percentage","Bin","percent","5.6","5.7",0.015
+"HHS Region 9","Season peak percentage","Bin","percent","5.7","5.8",0.008
+"HHS Region 9","Season peak percentage","Bin","percent","5.8","5.9",0.008
+"HHS Region 9","Season peak percentage","Bin","percent","5.9","6",0.008
+"HHS Region 9","Season peak percentage","Bin","percent","6","6.1",0.004
+"HHS Region 9","Season peak percentage","Bin","percent","6.1","6.2",0.00900000000000001
+"HHS Region 9","Season peak percentage","Bin","percent","6.2","6.3",0.007
+"HHS Region 9","Season peak percentage","Bin","percent","6.3","6.4",0.007
+"HHS Region 9","Season peak percentage","Bin","percent","6.4","6.5",0.005
+"HHS Region 9","Season peak percentage","Bin","percent","6.5","6.6",0.003
+"HHS Region 9","Season peak percentage","Bin","percent","6.6","6.7",0.006
+"HHS Region 9","Season peak percentage","Bin","percent","6.7","6.8",0.005
+"HHS Region 9","Season peak percentage","Bin","percent","6.8","6.9",0.005
+"HHS Region 9","Season peak percentage","Bin","percent","6.9","7",0.003
+"HHS Region 9","Season peak percentage","Bin","percent","7","7.1",0.008
+"HHS Region 9","Season peak percentage","Bin","percent","7.1","7.2",0.005
+"HHS Region 9","Season peak percentage","Bin","percent","7.2","7.3",0.003
+"HHS Region 9","Season peak percentage","Bin","percent","7.3","7.4",0.007
+"HHS Region 9","Season peak percentage","Bin","percent","7.4","7.5",0.005
+"HHS Region 9","Season peak percentage","Bin","percent","7.5","7.6",0.002
+"HHS Region 9","Season peak percentage","Bin","percent","7.6","7.7",0.005
+"HHS Region 9","Season peak percentage","Bin","percent","7.7","7.8",0.005
+"HHS Region 9","Season peak percentage","Bin","percent","7.8","7.9",0.004
+"HHS Region 9","Season peak percentage","Bin","percent","7.9","8",0.006
+"HHS Region 9","Season peak percentage","Bin","percent","8","8.1",0.005
+"HHS Region 9","Season peak percentage","Bin","percent","8.1","8.2",0.005
+"HHS Region 9","Season peak percentage","Bin","percent","8.2","8.3",0.002
+"HHS Region 9","Season peak percentage","Bin","percent","8.3","8.4",0.004
+"HHS Region 9","Season peak percentage","Bin","percent","8.4","8.5",0.004
+"HHS Region 9","Season peak percentage","Bin","percent","8.5","8.6",0.004
+"HHS Region 9","Season peak percentage","Bin","percent","8.6","8.7",0.004
+"HHS Region 9","Season peak percentage","Bin","percent","8.7","8.8",0.002
+"HHS Region 9","Season peak percentage","Bin","percent","8.8","8.9",0.002
+"HHS Region 9","Season peak percentage","Bin","percent","8.9","9",0.002
+"HHS Region 9","Season peak percentage","Bin","percent","9","9.1",0.001
+"HHS Region 9","Season peak percentage","Bin","percent","9.1","9.2",0.002
+"HHS Region 9","Season peak percentage","Bin","percent","9.2","9.3",0.005
 "HHS Region 9","Season peak percentage","Bin","percent","9.3","9.4",0
-"HHS Region 9","Season peak percentage","Bin","percent","9.4","9.5",0
-"HHS Region 9","Season peak percentage","Bin","percent","9.5","9.6",0
-"HHS Region 9","Season peak percentage","Bin","percent","9.6","9.7",0
-"HHS Region 9","Season peak percentage","Bin","percent","9.7","9.8",0
-"HHS Region 9","Season peak percentage","Bin","percent","9.8","9.9",0
-"HHS Region 9","Season peak percentage","Bin","percent","9.9","10",0
-"HHS Region 9","Season peak percentage","Bin","percent","10","10.1",0.01
-"HHS Region 9","Season peak percentage","Bin","percent","10.1","10.2",0.01
-"HHS Region 9","Season peak percentage","Bin","percent","10.2","10.3",0
-"HHS Region 9","Season peak percentage","Bin","percent","10.3","10.4",0
-"HHS Region 9","Season peak percentage","Bin","percent","10.4","10.5",0
-"HHS Region 9","Season peak percentage","Bin","percent","10.5","10.6",0
-"HHS Region 9","Season peak percentage","Bin","percent","10.6","10.7",0
-"HHS Region 9","Season peak percentage","Bin","percent","10.7","10.8",0
-"HHS Region 9","Season peak percentage","Bin","percent","10.8","10.9",0
-"HHS Region 9","Season peak percentage","Bin","percent","10.9","11",0
-"HHS Region 9","Season peak percentage","Bin","percent","11","11.1",0
-"HHS Region 9","Season peak percentage","Bin","percent","11.1","11.2",0
-"HHS Region 9","Season peak percentage","Bin","percent","11.2","11.3",0
-"HHS Region 9","Season peak percentage","Bin","percent","11.3","11.4",0
-"HHS Region 9","Season peak percentage","Bin","percent","11.4","11.5",0
-"HHS Region 9","Season peak percentage","Bin","percent","11.5","11.6",0
-"HHS Region 9","Season peak percentage","Bin","percent","11.6","11.7",0
-"HHS Region 9","Season peak percentage","Bin","percent","11.7","11.8",0.01
-"HHS Region 9","Season peak percentage","Bin","percent","11.8","11.9",0
+"HHS Region 9","Season peak percentage","Bin","percent","9.4","9.5",0.001
+"HHS Region 9","Season peak percentage","Bin","percent","9.5","9.6",0.002
+"HHS Region 9","Season peak percentage","Bin","percent","9.6","9.7",0.004
+"HHS Region 9","Season peak percentage","Bin","percent","9.7","9.8",0.003
+"HHS Region 9","Season peak percentage","Bin","percent","9.8","9.9",0.002
+"HHS Region 9","Season peak percentage","Bin","percent","9.9","10",0.003
+"HHS Region 9","Season peak percentage","Bin","percent","10","10.1",0.004
+"HHS Region 9","Season peak percentage","Bin","percent","10.1","10.2",0.001
+"HHS Region 9","Season peak percentage","Bin","percent","10.2","10.3",0.002
+"HHS Region 9","Season peak percentage","Bin","percent","10.3","10.4",0.002
+"HHS Region 9","Season peak percentage","Bin","percent","10.4","10.5",0.002
+"HHS Region 9","Season peak percentage","Bin","percent","10.5","10.6",0.003
+"HHS Region 9","Season peak percentage","Bin","percent","10.6","10.7",0.001
+"HHS Region 9","Season peak percentage","Bin","percent","10.7","10.8",0.004
+"HHS Region 9","Season peak percentage","Bin","percent","10.8","10.9",0.002
+"HHS Region 9","Season peak percentage","Bin","percent","10.9","11",0.001
+"HHS Region 9","Season peak percentage","Bin","percent","11","11.1",0.002
+"HHS Region 9","Season peak percentage","Bin","percent","11.1","11.2",0.001
+"HHS Region 9","Season peak percentage","Bin","percent","11.2","11.3",0.002
+"HHS Region 9","Season peak percentage","Bin","percent","11.3","11.4",0.001
+"HHS Region 9","Season peak percentage","Bin","percent","11.4","11.5",0.002
+"HHS Region 9","Season peak percentage","Bin","percent","11.5","11.6",0.002
+"HHS Region 9","Season peak percentage","Bin","percent","11.6","11.7",0.001
+"HHS Region 9","Season peak percentage","Bin","percent","11.7","11.8",0.003
+"HHS Region 9","Season peak percentage","Bin","percent","11.8","11.9",0.002
 "HHS Region 9","Season peak percentage","Bin","percent","11.9","12",0
 "HHS Region 9","Season peak percentage","Bin","percent","12","12.1",0
-"HHS Region 9","Season peak percentage","Bin","percent","12.1","12.2",0
-"HHS Region 9","Season peak percentage","Bin","percent","12.2","12.3",0
-"HHS Region 9","Season peak percentage","Bin","percent","12.3","12.4",0.01
+"HHS Region 9","Season peak percentage","Bin","percent","12.1","12.2",0.001
+"HHS Region 9","Season peak percentage","Bin","percent","12.2","12.3",0.001
+"HHS Region 9","Season peak percentage","Bin","percent","12.3","12.4",0.002
 "HHS Region 9","Season peak percentage","Bin","percent","12.4","12.5",0
-"HHS Region 9","Season peak percentage","Bin","percent","12.5","12.6",0
-"HHS Region 9","Season peak percentage","Bin","percent","12.6","12.7",0
+"HHS Region 9","Season peak percentage","Bin","percent","12.5","12.6",0.002
+"HHS Region 9","Season peak percentage","Bin","percent","12.6","12.7",0.001
 "HHS Region 9","Season peak percentage","Bin","percent","12.7","12.8",0
-"HHS Region 9","Season peak percentage","Bin","percent","12.8","12.9",0
-"HHS Region 9","Season peak percentage","Bin","percent","12.9","13",0.01
-"HHS Region 9","Season peak percentage","Bin","percent","13","100",0.13
+"HHS Region 9","Season peak percentage","Bin","percent","12.8","12.9",0.001
+"HHS Region 9","Season peak percentage","Bin","percent","12.9","13",0.001
+"HHS Region 9","Season peak percentage","Bin","percent","13","100",0.143
 "HHS Region 9","1 wk ahead","Point","percent",NA,NA,1
 "HHS Region 9","1 wk ahead","Bin","percent","0","0.1",0
 "HHS Region 9","1 wk ahead","Bin","percent","0.1","0.2",0
@@ -7344,20 +7344,20 @@
 "HHS Region 10","Season peak week","Bin","week","4","5",0
 "HHS Region 10","Season peak week","Bin","week","5","6",0
 "HHS Region 10","Season peak week","Bin","week","6","7",0
-"HHS Region 10","Season peak week","Bin","week","7","8",0.535087719298246
+"HHS Region 10","Season peak week","Bin","week","7","8",0.550044286979628
 "HHS Region 10","Season peak week","Bin","week","8","9",0
 "HHS Region 10","Season peak week","Bin","week","9","10",0
 "HHS Region 10","Season peak week","Bin","week","10","11",0
-"HHS Region 10","Season peak week","Bin","week","11","12",0.350877192982456
-"HHS Region 10","Season peak week","Bin","week","12","13",0.0263157894736842
-"HHS Region 10","Season peak week","Bin","week","13","14",0.0350877192982456
-"HHS Region 10","Season peak week","Bin","week","14","15",0
-"HHS Region 10","Season peak week","Bin","week","15","16",0.0175438596491228
-"HHS Region 10","Season peak week","Bin","week","16","17",0.0263157894736842
-"HHS Region 10","Season peak week","Bin","week","17","18",0
-"HHS Region 10","Season peak week","Bin","week","18","19",0
-"HHS Region 10","Season peak week","Bin","week","19","20",0.0087719298245614
-"HHS Region 10","Season peak week","Bin","week","20","21",0
+"HHS Region 10","Season peak week","Bin","week","11","12",0.320637732506643
+"HHS Region 10","Season peak week","Bin","week","12","13",0.0106288751107174
+"HHS Region 10","Season peak week","Bin","week","13","14",0.0584588131089459
+"HHS Region 10","Season peak week","Bin","week","14","15",0.00177147918511957
+"HHS Region 10","Season peak week","Bin","week","15","16",0.0212577502214349
+"HHS Region 10","Season peak week","Bin","week","16","17",0.0283436669619132
+"HHS Region 10","Season peak week","Bin","week","17","18",0.000885739592559787
+"HHS Region 10","Season peak week","Bin","week","18","19",0.00354295837023915
+"HHS Region 10","Season peak week","Bin","week","19","20",0.00354295837023915
+"HHS Region 10","Season peak week","Bin","week","20","21",0.000885739592559787
 "HHS Region 10","Season peak percentage","Point","percent",NA,NA,2.4
 "HHS Region 10","Season peak percentage","Bin","percent","0","0.1",0
 "HHS Region 10","Season peak percentage","Bin","percent","0.1","0.2",0
@@ -7383,37 +7383,37 @@
 "HHS Region 10","Season peak percentage","Bin","percent","2.1","2.2",0
 "HHS Region 10","Season peak percentage","Bin","percent","2.2","2.3",0
 "HHS Region 10","Season peak percentage","Bin","percent","2.3","2.4",0
-"HHS Region 10","Season peak percentage","Bin","percent","2.4","2.5",0.61
-"HHS Region 10","Season peak percentage","Bin","percent","2.5","2.6",0.09
-"HHS Region 10","Season peak percentage","Bin","percent","2.6","2.7",0.07
-"HHS Region 10","Season peak percentage","Bin","percent","2.7","2.8",0.05
-"HHS Region 10","Season peak percentage","Bin","percent","2.8","2.9",0.03
-"HHS Region 10","Season peak percentage","Bin","percent","2.9","3",0.06
-"HHS Region 10","Season peak percentage","Bin","percent","3","3.1",0.02
-"HHS Region 10","Season peak percentage","Bin","percent","3.1","3.2",0.04
-"HHS Region 10","Season peak percentage","Bin","percent","3.2","3.3",0.01
-"HHS Region 10","Season peak percentage","Bin","percent","3.3","3.4",0
-"HHS Region 10","Season peak percentage","Bin","percent","3.4","3.5",0
-"HHS Region 10","Season peak percentage","Bin","percent","3.5","3.6",0.02
-"HHS Region 10","Season peak percentage","Bin","percent","3.6","3.7",0
-"HHS Region 10","Season peak percentage","Bin","percent","3.7","3.8",0
-"HHS Region 10","Season peak percentage","Bin","percent","3.8","3.9",0
-"HHS Region 10","Season peak percentage","Bin","percent","3.9","4",0
-"HHS Region 10","Season peak percentage","Bin","percent","4","4.1",0
-"HHS Region 10","Season peak percentage","Bin","percent","4.1","4.2",0
-"HHS Region 10","Season peak percentage","Bin","percent","4.2","4.3",0
+"HHS Region 10","Season peak percentage","Bin","percent","2.4","2.5",0.621
+"HHS Region 10","Season peak percentage","Bin","percent","2.5","2.6",0.096
+"HHS Region 10","Season peak percentage","Bin","percent","2.6","2.7",0.073
+"HHS Region 10","Season peak percentage","Bin","percent","2.7","2.8",0.052
+"HHS Region 10","Season peak percentage","Bin","percent","2.8","2.9",0.035
+"HHS Region 10","Season peak percentage","Bin","percent","2.9","3",0.03
+"HHS Region 10","Season peak percentage","Bin","percent","3","3.1",0.025
+"HHS Region 10","Season peak percentage","Bin","percent","3.1","3.2",0.019
+"HHS Region 10","Season peak percentage","Bin","percent","3.2","3.3",0.014
+"HHS Region 10","Season peak percentage","Bin","percent","3.3","3.4",0.008
+"HHS Region 10","Season peak percentage","Bin","percent","3.4","3.5",0.005
+"HHS Region 10","Season peak percentage","Bin","percent","3.5","3.6",0.004
+"HHS Region 10","Season peak percentage","Bin","percent","3.6","3.7",0.002
+"HHS Region 10","Season peak percentage","Bin","percent","3.7","3.8",0.003
+"HHS Region 10","Season peak percentage","Bin","percent","3.8","3.9",0.003
+"HHS Region 10","Season peak percentage","Bin","percent","3.9","4",0.003
+"HHS Region 10","Season peak percentage","Bin","percent","4","4.1",0.001
+"HHS Region 10","Season peak percentage","Bin","percent","4.1","4.2",0.003
+"HHS Region 10","Season peak percentage","Bin","percent","4.2","4.3",0.001
 "HHS Region 10","Season peak percentage","Bin","percent","4.3","4.4",0
 "HHS Region 10","Season peak percentage","Bin","percent","4.4","4.5",0
 "HHS Region 10","Season peak percentage","Bin","percent","4.5","4.6",0
 "HHS Region 10","Season peak percentage","Bin","percent","4.6","4.7",0
-"HHS Region 10","Season peak percentage","Bin","percent","4.7","4.8",0
+"HHS Region 10","Season peak percentage","Bin","percent","4.7","4.8",0.001
 "HHS Region 10","Season peak percentage","Bin","percent","4.8","4.9",0
 "HHS Region 10","Season peak percentage","Bin","percent","4.9","5",0
 "HHS Region 10","Season peak percentage","Bin","percent","5","5.1",0
 "HHS Region 10","Season peak percentage","Bin","percent","5.1","5.2",0
 "HHS Region 10","Season peak percentage","Bin","percent","5.2","5.3",0
 "HHS Region 10","Season peak percentage","Bin","percent","5.3","5.4",0
-"HHS Region 10","Season peak percentage","Bin","percent","5.4","5.5",0
+"HHS Region 10","Season peak percentage","Bin","percent","5.4","5.5",0.001
 "HHS Region 10","Season peak percentage","Bin","percent","5.5","5.6",0
 "HHS Region 10","Season peak percentage","Bin","percent","5.6","5.7",0
 "HHS Region 10","Season peak percentage","Bin","percent","5.7","5.8",0
