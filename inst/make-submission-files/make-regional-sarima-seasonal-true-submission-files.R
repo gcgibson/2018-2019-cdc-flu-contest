@@ -29,7 +29,7 @@ get_previous_point_forecast <- function(analysis_time_season,test_week_formatted
   model_csv <-read.csv(paste0("./inst/submissions/region-sarima_seasonal_difference_TRUE/EW",test_week_formatted,"-",season,"-ReichLab_sarima_seasonal_difference_TRUE-delay-FSMOOTHED.csv"))
   return (model_csv[model_csv$Target == "1 wk ahead" & model_csv$Type == "Point",])
 }
-
+  
 
 
 
@@ -57,14 +57,14 @@ lm_fit_hierarchical <- lmer(X0~Incidence +season_week + (1|Region), data=subset_
 fully_observed_data <- as.data.frame(readRDS("./data/fully_observed_data_formatted.rds"))
 
 
-for (analysis_time_season in c("2015/2016")){
+for (analysis_time_season in c("2016/2017")){
   for (delay_adjustment in delay_adjustment_list){
     if(analysis_time_season == "2017/2018"){
       end_week <- 20
     }else{
       end_week <- 20
     }
-    foreach (test_week_formatted = c(seq(6,end_week))) %dopar%{
+    foreach (test_week_formatted = c(seq(40,52),seq(1,end_week))) %dopar%{
       if (test_week_formatted < 40){
         test_season_formatted <- substr(analysis_time_season,6,9)
       } else{
