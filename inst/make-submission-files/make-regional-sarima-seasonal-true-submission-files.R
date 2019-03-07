@@ -35,7 +35,7 @@ get_previous_point_forecast <- function(analysis_time_season,test_week_formatted
 
 registerDoMC(cores=8)
 seasonal_difference <- TRUE
-delay_adjustment_list <- c("M2")#M4","M5","M6")
+delay_adjustment_list <- c("FSMOOTHED")#M4","M5","M6")
 
 
 region_str_array_eval <- c("National",paste0("Region ",1:10))
@@ -57,7 +57,7 @@ lm_fit_hierarchical <- lmer(X0~Incidence +season_week + (1|Region), data=subset_
 fully_observed_data <- as.data.frame(readRDS("./data/fully_observed_data_formatted.rds"))
 
 
-for (analysis_time_season in c("2015/2016")){
+for (analysis_time_season in c("2015/2016","2016/2017")){
   for (delay_adjustment in delay_adjustment_list){
     if(analysis_time_season == "2017/2018"){
       end_week <- 20
@@ -133,11 +133,10 @@ for (analysis_time_season in c("2015/2016")){
          var_scale_up <- var(lag_0_by_week$X0,na.rm = T)
          var_process_model <- sarima_fit$sigma2
          diff_ <- var_scale_up - var_process_model
-         weight_part_1 <-log(var_process_model/(var_process_model +var_scale_up) ) +
-           as.numeric(as.character(previous_point_forecast_by_region[previous_point_forecast_by_region$Location == region_str[match(region_local,region_str_array_eval)],]$Value)) -current_observed_data[current_observed_data$epiweek ==paste0(test_season_formatted,test_week_formatted) & current_observed_data$region == region_local,]$weighted_ili
+         weight <-var_process_model/(var_process_model +var_scale_up)  #+
+           #as.numeric(as.character(previous_point_forecast_by_region[previous_point_forecast_by_region$Location == region_str[match(region_local,region_str_array_eval)],]$Value)) -current_observed_data[current_observed_data$epiweek ==paste0(test_season_formatted,test_week_formatted) & current_observed_data$region == region_local,]$weighted_ili
          
-        weight <- exp(-(weight_part_1^2))
-         current_observed_data[current_observed_data$epiweek ==paste0(test_season_formatted,test_week_formatted) & current_observed_data$region == region_local,]$weighted_ili <- weight*current_observed_data[current_observed_data$epiweek ==paste0(test_season_formatted,test_week_formatted) & current_observed_data$region == region_local,]$weighted_ili +  (1-weight)*previous_point_forecast_by_region[previous_point_forecast_by_region$Location==region_str[match(region_local,region_str_array_eval)],]$Value
+         current_observed_data[current_observed_data$epiweek ==paste0(test_season_formatted,test_week_formatted) & current_observed_data$region == region_local,]$weighted_ili <- weight*(current_observed_data[current_observed_data$epiweek ==paste0(test_season_formatted,test_week_formatted) & current_observed_data$region == region_local,]$weighted_ili/mean(lag_0_by_week$X0,na.rm = T)) +  (1-weight)*previous_point_forecast_by_region[previous_point_forecast_by_region$Location==region_str[match(region_local,region_str_array_eval)],]$Value
           
         }
         
