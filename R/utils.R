@@ -1338,7 +1338,7 @@ get_submission_one_region_via_trajectory_simulation <- function(
   ## 0.05 -> 0.1
   ## (...?  We should see how they round?  Maybe this never comes up?
   ## I have a feeling I'm fretting over a probability 0 event.)
-  trajectory_samples <- apply(
+  trajectory_samples_blah <- apply(
     trajectory_samples,
     c(1, 2),
     function(inc_val) {

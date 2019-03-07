@@ -35,7 +35,7 @@ get_previous_point_forecast <- function(analysis_time_season,test_week_formatted
 
 registerDoMC(cores=8)
 seasonal_difference <- TRUE
-delay_adjustment_list <- c("FSMOOTHED")#M4","M5","M6")
+delay_adjustment_list <- c("M2")#M4","M5","M6")
 
 
 region_str_array_eval <- c("National",paste0("Region ",1:10))
@@ -57,14 +57,14 @@ lm_fit_hierarchical <- lmer(X0~Incidence +season_week + (1|Region), data=subset_
 fully_observed_data <- as.data.frame(readRDS("./data/fully_observed_data_formatted.rds"))
 
 
-for (analysis_time_season in c("2016/2017")){
+for (analysis_time_season in c("2015/2016")){
   for (delay_adjustment in delay_adjustment_list){
     if(analysis_time_season == "2017/2018"){
       end_week <- 20
     }else{
       end_week <- 20
     }
-    for (test_week_formatted in c(seq(41,52),seq(1,end_week))) {
+    foreach  (test_week_formatted = c(seq(41,52),seq(20))) %dopar% {
       if (test_week_formatted < 40){
         test_season_formatted <- substr(analysis_time_season,6,9)
       } else{
