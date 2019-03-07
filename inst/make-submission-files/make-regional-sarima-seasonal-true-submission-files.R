@@ -133,7 +133,10 @@ for (analysis_time_season in c("2016/2017")){
          var_scale_up <- var(lag_0_by_week$X0,na.rm = T)
          var_process_model <- sarima_fit$sigma2
          diff_ <- var_scale_up - var_process_model
-         weight <-var_process_model/(var_process_model +var_scale_up) #exp(-(diff_^2))
+         weight_part_1 <-log(var_process_model/(var_process_model +var_scale_up) ) +
+           as.numeric(as.character(previous_point_forecast_by_region[previous_point_forecast_by_region$Location == region_str[match(region_local,region_str_array_eval)],]$Value)) -current_observed_data[current_observed_data$epiweek ==paste0(test_season_formatted,test_week_formatted) & current_observed_data$region == region_local,]$weighted_ili
+         
+        weight <- exp(-(weight_part_1^2))
          current_observed_data[current_observed_data$epiweek ==paste0(test_season_formatted,test_week_formatted) & current_observed_data$region == region_local,]$weighted_ili <- weight*current_observed_data[current_observed_data$epiweek ==paste0(test_season_formatted,test_week_formatted) & current_observed_data$region == region_local,]$weighted_ili +  (1-weight)*previous_point_forecast_by_region[previous_point_forecast_by_region$Location==region_str[match(region_local,region_str_array_eval)],]$Value
           
         }
