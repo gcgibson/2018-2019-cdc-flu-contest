@@ -64,7 +64,7 @@ for (analysis_time_season in c("2015/2016","2016/2017")){
     }else{
       end_week <- 20
     }
-    foreach  (test_week_formatted = c(seq(41,52),seq(20))) %dopar% {
+    foreach  (test_week_formatted = c(seq(10,20))) %dopar% {
       if (test_week_formatted < 40){
         test_season_formatted <- substr(analysis_time_season,6,9)
       } else{
@@ -103,6 +103,9 @@ for (analysis_time_season in c("2015/2016","2016/2017")){
         lag_0_by_week <- lag_df %>% group_by(season_week,Region) %>% summarize(X0=var(X0,na.rm = T))
         lag_0_by_week <- data.frame(lag_0_by_week)
         
+        lag_0_by_week_mean <- lag_df %>% group_by(season_week,Region) %>% summarize(X0=mean(X0,na.rm = T))
+        lag_0_by_week_mean <- data.frame(lag_0_by_week)
+        
         
         simulate_trajectories_sarima_params <- list(
           fits_filepath = paste0("inst/estimation/region-sarima/",
@@ -133,10 +136,10 @@ for (analysis_time_season in c("2015/2016","2016/2017")){
          var_scale_up <- var(lag_0_by_week$X0,na.rm = T)
          var_process_model <- sarima_fit$sigma2
          diff_ <- var_scale_up - var_process_model
-         weight <-var_scale_up/(var_process_model +var_scale_up)  #+
+         weight <-var_process_model/(var_process_model +var_scale_up)  #+
            #as.numeric(as.character(previous_point_forecast_by_region[previous_point_forecast_by_region$Location == region_str[match(region_local,region_str_array_eval)],]$Value)) -current_observed_data[current_observed_data$epiweek ==paste0(test_season_formatted,test_week_formatted) & current_observed_data$region == region_local,]$weighted_ili
          
-         current_observed_data[current_observed_data$epiweek ==paste0(test_season_formatted,test_week_formatted) & current_observed_data$region == region_local,]$weighted_ili <- weight*(current_observed_data[current_observed_data$epiweek ==paste0(test_season_formatted,test_week_formatted) & current_observed_data$region == region_local,]$weighted_ili/mean(lag_0_by_week$X0,na.rm = T)) +  (1-weight)*previous_point_forecast_by_region[previous_point_forecast_by_region$Location==region_str[match(region_local,region_str_array_eval)],]$Value
+         current_observed_data[current_observed_data$epiweek ==paste0(test_season_formatted,test_week_formatted) & current_observed_data$region == region_local,]$weighted_ili <- weight*(current_observed_data[current_observed_data$epiweek ==paste0(test_season_formatted,test_week_formatted) & current_observed_data$region == region_local,]$weighted_ili/mean(lag_0_by_week_mean$X0,na.rm = T)) +  (1-weight)*previous_point_forecast_by_region[previous_point_forecast_by_region$Location==region_str[match(region_local,region_str_array_eval)],]$Value
           
         }
         

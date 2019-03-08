@@ -87,7 +87,7 @@ region_str_true <- c("nat",paste0("hhs",1:10))
 
 targets <- c("Season onset","1 wk ahead","2 wk ahead","3 wk ahead","4 wk ahead")
 test_seasons <-c("2015")
-test_models <- c("M2","TRUE","NONE","M1")
+test_models <- c("FSMOOTHED","TRUE","NONE","M1")
 test_regions <- region_str_data_set
 
 result_df <- matrix(NA,ncol= 10)
