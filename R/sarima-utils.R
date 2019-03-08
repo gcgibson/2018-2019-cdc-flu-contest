@@ -43,30 +43,30 @@ sample_predictive_trajectories_arima_wrapper <- function(
   reg_str <- gsub(" ", "_", region)
   
   if (regional_switch != "Hosp"){
-  fit_filepath <- file.path(
-    params$fits_filepath,
-    paste0(
-      "sarima-",
-      reg_str,
-      "-seasonal_difference_", params$seasonal_difference,
-      "-transformation_", params$transformation,
-      "-first_test_season_",
-      gsub("/", "_", params$first_test_season),
-      ".rds"))
-  
+    fit_filepath <- file.path(
+      params$fits_filepath,
+      paste0(
+        "sarima-",
+        reg_str,
+        "-seasonal_difference_", params$seasonal_difference,
+        "-transformation_", params$transformation,
+        "-first_test_season_",
+        gsub("/", "_", params$first_test_season),
+        ".rds"))
+    
   }
   else{
-  fit_filepath <- file.path(
-    params$fits_filepath,
-    paste0(
-      "sarima-",
-      reg_str,
-      "-age-",age,
-      "-seasonal_difference_", params$seasonal_difference,
-      "-transformation_", params$transformation,
-      "-first_test_season_",
-      gsub("/", "_", params$first_test_season),
-      ".rds"))
+    fit_filepath <- file.path(
+      params$fits_filepath,
+      paste0(
+        "sarima-",
+        reg_str,
+        "-age-",age,
+        "-seasonal_difference_", params$seasonal_difference,
+        "-transformation_", params$transformation,
+        "-first_test_season_",
+        gsub("/", "_", params$first_test_season),
+        ".rds"))
   }
   ## If no SARIMA fit, exit early by returning a matrix of NAs
   if(!file.exists(fit_filepath)) {
@@ -86,27 +86,27 @@ sample_predictive_trajectories_arima_wrapper <- function(
     
     test_week_formatted <- tail(data$week,1)
     if (test_week_formatted >=40){
-    test_season_formatted <- substr(analysis_time_season,1,4)
+      test_season_formatted <- substr(analysis_time_season,1,4)
     }else{
       test_season_formatted <- substr(analysis_time_season,6,9)
     }
     test_season_formatted <- as.numeric(test_season_formatted)
     
     if (test_week_formatted >=40){
-      for (samp_idx in 1:100){
+      for (samp_idx in 1:10){
         current_observed_data_local <- data
         for (lag_itr in seq(40,test_week_formatted)){
           current_lag <- as.numeric(test_week_formatted) -lag_itr
           prop_estimate_sample_data <- lag_df[lag_df$Region == region & lag_df$week < 201540, paste0("X",0)]
           prop_estimate_sample_data <- prop_estimate_sample_data[!is.na(prop_estimate_sample_data)]
           if (length(prop_estimate_sample_data) > 0){
-            prop_estimate_sample <- sample(quantile(prop_estimate_sample_data[!is.na(prop_estimate_sample_data)],.1,.9),1)
+            prop_estimate_sample <- sample(prop_estimate_sample_data[!is.na(prop_estimate_sample_data)],1)
           } else{
             prop_estimate_sample <- 1
           }
           
-          current_observed_data_local[current_observed_data_local$epiweek == paste0(test_season_formatted,lag_itr),]$wili <-
-            current_observed_data_local[current_observed_data_local$epiweek == paste0(test_season_formatted,lag_itr),]$wili/prop_estimate_sample
+          current_observed_data_local[current_observed_data_local$epiweek == paste0(test_season_formatted,lag_itr),]$weighted_ili <-
+            current_observed_data_local[current_observed_data_local$epiweek == paste0(test_season_formatted,lag_itr),]$weighted_ili/prop_estimate_sample
         }
         current_observed_data_local <- as.data.frame(current_observed_data_local)
         current_observed_data_total <- rbind(current_observed_data_total,as.matrix(current_observed_data_local))
@@ -121,35 +121,41 @@ sample_predictive_trajectories_arima_wrapper <- function(
       }
     } else{
       
-      for (samp_idx in 1:100){
+      for (samp_idx in 1:10){
         current_observed_data_local <- data
         for (lag_itr in seq(40,52)){
           current_lag <- 52 -lag_itr
-          prop_estimate_sample_data <- lag_df[lag_df$Region == region & lag_df$week < 201540, paste0("X",0)]
+          prop_estimate_sample_data <- lag_df[ lag_df$week < 201540, paste0("X",0)]
           prop_estimate_sample_data <- prop_estimate_sample_data[!is.na(prop_estimate_sample_data)]
           if (length(prop_estimate_sample_data) > 0){
-            prop_estimate_sample <- sample(quantile(prop_estimate_sample_data[!is.na(prop_estimate_sample_data)],.1,.9),1)
+            prop_estimate_sample <- sample(prop_estimate_sample_data[!is.na(prop_estimate_sample_data)],1)
           } else{
             prop_estimate_sample <- 1
           }
-          current_observed_data_local[current_observed_data_local$epiweek == paste0(test_season_formatted-1,lag_itr),]$wili <-
-            current_observed_data_local[current_observed_data_local$epiweek == paste0(test_season_formatted-1,lag_itr),]$wili/prop_estimate_sample
+          current_observed_data_local[current_observed_data_local$epiweek == paste0(test_season_formatted-1,lag_itr),]$weighted_ili <-
+            current_observed_data_local[current_observed_data_local$epiweek == paste0(test_season_formatted-1,lag_itr),]$weighted_ili/prop_estimate_sample
         }
         for (lag_itr in seq(1,as.numeric(test_week_formatted))){
           current_lag <- as.numeric(test_week_formatted) -lag_itr
-          prop_estimate_sample_data <- lag_df[lag_df$Region == region & lag_df$week < 201540  , paste0("X",0)]
+          prop_estimate_sample_data <- lag_df[ lag_df$week < 201540  , paste0("X",0)]
           prop_estimate_sample_data <- prop_estimate_sample_data[!is.na(prop_estimate_sample_data)]
           
           if (length(prop_estimate_sample_data) > 0){
-            prop_estimate_sample <- sample(quantile(prop_estimate_sample_data[!is.na(prop_estimate_sample_data)],.1,.9),1)
+            prop_estimate_sample <- sample(prop_estimate_sample_data[!is.na(prop_estimate_sample_data)],1)
           } else{
             prop_estimate_sample <- 1
           }
-          current_observed_data_local[current_observed_data_local$epiweek == paste0(test_season_formatted,lag_itr),]$wili <-
-            current_observed_data_local[current_observed_data_local$epiweek == paste0(test_season_formatted,lag_itr),]$wili/prop_estimate_sample
+          
+          if (lag_itr <= 9){
+            formatted_lag_itr <- paste0("0",lag_itr)
+          } else{
+            formatted_lag_itr <- lag_itr
+          }
+          current_observed_data_local[current_observed_data_local$epiweek == paste0(test_season_formatted,formatted_lag_itr),]$weighted_ili <-
+            current_observed_data_local[current_observed_data_local$epiweek == paste0(test_season_formatted,formatted_lag_itr),]$weighted_ili/prop_estimate_sample
         }
         current_observed_data_local <- as.data.frame(current_observed_data_local)
-
+        
         inc_trajectory_samples <- sarimaTD:::simulate.sarimaTD(
           sarima_fit,
           nsim = 1,
@@ -162,10 +168,9 @@ sample_predictive_trajectories_arima_wrapper <- function(
     }
     
     
-    inc_trajectory_samples <- trajectory_samples[2:nrow(trajectory_samples),]
-    return (inc_trajectory_samples)
+    return (trajectory_samples)
   }else{
-  
+    
     inc_trajectory_samples <- sarimaTD:::simulate.sarimaTD(
       sarima_fit,
       nsim = n_sims,
@@ -207,19 +212,19 @@ fit_region_sarima <- function(
   transformation = c("none", "box-cox", "log"),
   prediction_target_var = "weighted_ili",
   path) {
-    
+  
   transformation <- match.arg(transformation)
-    
+  
   require(sarimaTD)
   
   ## subset data to be only the region of interest
   data <- data[data$region == region,]
-
+  
   ## Subset data to do estimation using only data up to (and not including)
   ## first_test_season.  remainder are held out
   first_ind_test_season <- min(which(data$season == first_test_season))
   data <- data[seq_len(first_ind_test_season - 1), , drop = FALSE]
-
+  
   sarima_fit <- fit_sarima(
     y = data[, prediction_target_var],
     ts_frequency = 52,
@@ -227,7 +232,7 @@ fit_region_sarima <- function(
     seasonal_difference = seasonal_difference,
     d = d,
     D = D)
-
+  
   filename <- paste0(
     path,
     "sarima-",
