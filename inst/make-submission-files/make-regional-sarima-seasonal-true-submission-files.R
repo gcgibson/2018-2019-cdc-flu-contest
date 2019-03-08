@@ -35,7 +35,7 @@ get_previous_point_forecast <- function(analysis_time_season,test_week_formatted
 
 registerDoMC(cores=8)
 seasonal_difference <- TRUE
-delay_adjustment_list <- c("M2")#M4","M5","M6")
+delay_adjustment_list <- c("FSMOOTHED")#M4","M5","M6")
 
 
 region_str_array_eval <- c("National",paste0("Region ",1:10))

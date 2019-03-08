@@ -87,7 +87,7 @@ region_str_true <- c("nat",paste0("hhs",1:10))
 
 targets <- c("Season onset","1 wk ahead","2 wk ahead","3 wk ahead","4 wk ahead")
 test_seasons <-c("2015")
-test_models <- c("FSMOOTHED","TRUE","NONE")
+test_models <- c("M2","TRUE","NONE","M1")
 test_regions <- region_str_data_set
 
 result_df <- matrix(NA,ncol= 10)
@@ -102,9 +102,9 @@ for (region in test_regions){
           } else{
             top_level_season_formatted <- as.numeric(top_level_season) + 1
           }
-           model_prob_and_truth <- get_model_prob(top_level_season_formatted,week,target,model,region) 
-
-           result_df <- rbind(result_df,c(top_level_season,week,target,model,region,model_prob_and_truth))
+          model_prob_and_truth <- get_model_prob(top_level_season_formatted,week,target,model,region) 
+          
+          result_df <- rbind(result_df,c(top_level_season,week,target,model,region,model_prob_and_truth))
         }
       }   
     }
@@ -126,13 +126,14 @@ result_df$total_prob <- result_df$p_c +result_df$p_r +result_df$p_l
 result_df$total_log_prob <- pmax(log(result_df$total_prob),-10)
 result_df$ll <- rep(NA, nrow(result_df))
 
-mean(result_df[result_df$model=="TRUE"  ,]$total_log_prob,na.rm = TRUE)
-mean(result_df[result_df$model=="NONE",]$total_log_prob,na.rm = TRUE)
-#mean(result_df[result_df$model=="M1",]$total_log_prob,na.rm = TRUE)
+mean(result_df[result_df$model=="TRUE" & result_df$target == "1 wk ahead"  ,]$total_log_prob,na.rm = TRUE)
+mean(result_df[result_df$model=="NONE" & result_df$target == "1 wk ahead",]$total_log_prob,na.rm = TRUE)
+mean(result_df[result_df$model=="FSMOOTHED" & result_df$target == "1 wk ahead",]$total_log_prob,na.rm = TRUE)
+mean(result_df[result_df$model=="M1" & result_df$target == "1 wk ahead",]$total_log_prob,na.rm = TRUE)
 
 library(ggplot2)
 library(dplyr)
-ggplot(result_df[result_df$Season == "2013"  & result_df$target == "1 wk ahead",],aes(x=week,y=total_log_prob,col=region)) + geom_point() + facet_grid(model ~.)
+ggplot(result_df[(result_df$model == "TRUE" | result_df$model == "NONE" | result_df$model == "M1"  ) & result_df$Season == "2015"  & result_df$target == "1 wk ahead" ,],aes(x=week,y=total_log_prob,col=region)) + geom_point() + facet_grid(model ~.)
 
 ggplot(result_df[result_df$Season == "2013"  & result_df$target == "1 wk ahead",],aes(x=week,y=total_log_prob,col=region)) + geom_point() + facet_grid(model ~.)
 
@@ -142,7 +143,7 @@ current_observed_data <- data.frame(current_observed_data[order(current_observed
 
 
 data_for_plot <- rbind(current_observed_data,fully_observed_data)
-  
+
 data_for_plot$f <- c(rep("Currently Observed",nrow(current_observed_data)),rep("Fully Observed",nrow(fully_observed_data)))
 lag_0_by_week <- lag_df %>% group_by(season_week,Region) %>% summarize(X0=var(X0,na.rm = T))
 lag_0_by_week <- data.frame(lag_0_by_week)
@@ -153,18 +154,39 @@ ggplot(data_for_plot[data_for_plot$region == "Region 7" & data_for_plot$season =
 
 
 
-for (region in unique(result_df$region)){
-  for (season in unique(result_df$Season)){
-    for (week in unique(result_df$week)){
-      for (model in unique(result_df$model)){
-        for (target in unique(result_df$target)){
-          
-          formatted_season <- paste0(season,"/",as.numeric(season)+1)
-          l_0 <- data[data$region == region_str_array_eval[match(region,region_str_data_set)] & data$season == formatted_season & data$week == week & data$lag == 0,]$weighted_ili
-          l_infty <- data[data$region == region_str_array_eval[match(region,region_str_data_set)] & data$season == formatted_season & data$week == week & data$lag == max(data[data$region == region_str_array_eval[match(region,region_str_data_set)] & data$season == formatted_season & data$week == week,]$lag),]$weighted_ili
-          result_df[result_df$Season ==season &result_df$target == target & result_df$week == week & result_df$region == region & result_df$model==model,]$ll <-l_0-l_infty 
-        }
-      }
-    }
-  }
-}
+# for (region in unique(result_df$region)){
+#   for (season in unique(result_df$Season)){
+#     for (week in unique(result_df$week)){
+#       for (model in unique(result_df$model)){
+#         for (target in unique(result_df$target)){
+#           
+#           formatted_season <- paste0(season,"/",as.numeric(season)+1)
+#           l_0 <- data[data$region == region_str_array_eval[match(region,region_str_data_set)] & data$season == formatted_season & data$week == week & data$lag == 0,]$weighted_ili
+#           l_infty <- data[data$region == region_str_array_eval[match(region,region_str_data_set)] & data$season == formatted_season & data$week == week & data$lag == max(data[data$region == region_str_array_eval[match(region,region_str_data_set)] & data$season == formatted_season & data$week == week,]$lag),]$weighted_ili
+#           result_df[result_df$Season ==season &result_df$target == target & result_df$week == week & result_df$region == region & result_df$model==model,]$ll <-l_0-l_infty 
+#         }
+#       }
+#     }
+#   }
+# }
+
+
+
+## Exploration plots
+model_csv_1 <- read.csv(paste0("./inst/submissions/region-sarima_seasonal_difference_TRUE/EW04-",2016,"-ReichLab_sarima_seasonal_difference_TRUE-delay-","NONE",".csv"))
+model_csv_2 <- read.csv(paste0("./inst/submissions/region-sarima_seasonal_difference_TRUE/EW04-",2016,"-ReichLab_sarima_seasonal_difference_TRUE-delay-","M2",".csv"))
+
+model_csv <- rbind(model_csv_1,model_csv_2)
+model_csv$m <-c( rep("1",nrow(model_csv_1)),rep("2",nrow(model_csv_2)))
+library(forcats)
+library(dplyr)
+model_csv$Bin_start_incl <- as.factor(model_csv$Bin_start_incl)
+
+model_csv_plot <- model_csv[model_csv$Location == "HHS Region 2" &model_csv$Target == "Season onset" & model_csv$Type == "Bin",] %>% 
+  dplyr::mutate(Bin_start_incl = factor(Bin_start_incl, 
+                                        levels = c(seq(40,52),seq(20)))) 
+
+p1 <- ggplot(data_for_plot[data_for_plot$region == "Region 2" & data_for_plot$season == "2015/2016",],aes(x=season_week,y=weighted_ili,col=f)) + geom_point() + theme_bw() + geom_abline(intercept=get_onset_baseline("National",season="2015/2016"),slope=0) 
+p2 <- ggplot(model_csv_plot,aes(x=Bin_start_incl,y=Value,color=m)) + geom_point() + theme_bw() 
+
+
