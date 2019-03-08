@@ -57,7 +57,7 @@ lm_fit_hierarchical <- lmer(X0~Incidence +season_week + (1|Region), data=subset_
 fully_observed_data <- as.data.frame(readRDS("./data/fully_observed_data_formatted.rds"))
 
 
-for (analysis_time_season in c("2015/2016","2016/2017")){
+for (analysis_time_season in c("2015/2016")){
   for (delay_adjustment in delay_adjustment_list){
     if(analysis_time_season == "2017/2018"){
       end_week <- 20
@@ -65,6 +65,8 @@ for (analysis_time_season in c("2015/2016","2016/2017")){
       end_week <- 20
     }
     foreach  (test_week_formatted = c(seq(10,20))) %dopar% {
+    #for  (test_week_formatted in c(seq(10,20))){
+        
       if (test_week_formatted < 40){
         test_season_formatted <- substr(analysis_time_season,6,9)
       } else{
@@ -104,7 +106,7 @@ for (analysis_time_season in c("2015/2016","2016/2017")){
         lag_0_by_week <- data.frame(lag_0_by_week)
         
         lag_0_by_week_mean <- lag_df %>% group_by(season_week,Region) %>% summarize(X0=mean(X0,na.rm = T))
-        lag_0_by_week_mean <- data.frame(lag_0_by_week)
+        lag_0_by_week_mean <- data.frame(lag_0_by_week_mean)
         
         
         simulate_trajectories_sarima_params <- list(
