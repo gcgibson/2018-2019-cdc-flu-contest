@@ -1446,15 +1446,21 @@ get_submission_one_region_via_trajectory_simulation <- function(
     
     ## get peak week by sim ind
     ## note that some sim inds may have more than 1 peak week...
-    peak_weeks_by_sim_ind <- unlist(lapply(
-      seq_len(nrow(subset_trajectory_samples)),
-      function(sim_ind) {
-        bin_val <- peak_inc_bin_by_sim_ind[sim_ind]
-        peak_season_weeks <- which(
-          binned_subset_trajectory_samples[sim_ind, ] == bin_val)
-        return(peak_season_weeks)
-      }
-    ))
+    if (analysis_time_season_week <37){
+      peak_weeks_by_sim_ind <- unlist(lapply(
+        seq_len(nrow(subset_trajectory_samples)),
+        function(sim_ind) {
+          bin_val <- peak_inc_bin_by_sim_ind[sim_ind]
+          peak_season_weeks <- which(
+            binned_subset_trajectory_samples[sim_ind, ] == bin_val)
+          return(peak_season_weeks)
+        }
+      ))
+    } else{
+      observed_peak_week <- which.max(current_observed_data[current_observed_data$region == region,]$weighted_ili[first_season_obs_ind:length(current_observed_data[current_observed_data$region == region,]$weighted_ili)])
+      
+      peak_weeks_by_sim_ind <- c(rep(observed_peak_week,80),rep(observed_peak_week-2,10),rep(observed_peak_week+2,10))
+    }
     
     ## Get bin probabilities and add to region template
     if(regional_switch == "Country") {

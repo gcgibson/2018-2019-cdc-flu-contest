@@ -76,7 +76,7 @@ sample_predictive_trajectories_arima_wrapper <- function(
   
   sarima_fit <- readRDS(file = fit_filepath)
   
-  if (params$do_sampling_lag){
+  if (params$do_sampling_lag & tail(data$week,1) <= 10 ){
     lag_df <- read.csv("./data/lag_df")
     region_str_array <- c("National",paste0("Region ",1:10))
     region_str_array_hhs <- c("nat",paste0("hhs",1:10))

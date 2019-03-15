@@ -13,7 +13,7 @@ library(forecast)
 library(FluSight)
 library(gridExtra)
 library(foreach)
-library(doMC)
+#library(doMC)
 library(nnet)
 library(lme4)
 
@@ -33,9 +33,9 @@ get_previous_point_forecast <- function(analysis_time_season,test_week_formatted
 
 
 
-registerDoMC(cores=8)
+#registerDoMC(cores=2)
 seasonal_difference <- TRUE
-delay_adjustment_list <- c("FSMOOTHED")#M4","M5","M6")
+delay_adjustment_list <- c("M1")#M4","M5","M6")
 
 
 region_str_array_eval <- c("National",paste0("Region ",1:10))
@@ -57,24 +57,26 @@ lm_fit_hierarchical <- lmer(X0~Incidence +season_week + (1|Region), data=subset_
 fully_observed_data <- as.data.frame(readRDS("./data/fully_observed_data_formatted.rds"))
 
 
-for (analysis_time_season in c("2015/2016")){
+for (analysis_time_season in c("2016/2017")){
   for (delay_adjustment in delay_adjustment_list){
     if(analysis_time_season == "2017/2018"){
       end_week <- 20
     }else{
       end_week <- 20
     }
-    foreach  (test_week_formatted = c(seq(10,20))) %dopar% {
-    #for  (test_week_formatted in c(seq(10,20))){
+    #foreach  (test_week_formatted = c(seq(10,20))) %dopar% {
+    for  (test_week_unformatted in c(seq(15,20))){
         
-      if (test_week_formatted < 40){
+      if (test_week_unformatted < 40){
         test_season_formatted <- substr(analysis_time_season,6,9)
       } else{
         test_season_formatted <- substr(analysis_time_season,1,4)
         
       }
-      if (test_week_formatted <=9){
-        test_week_formatted <- paste0("0",test_week_formatted)
+      if (test_week_unformatted <=9){
+        test_week_formatted <- paste0("0",test_week_unformatted)
+      }else{
+        test_week_formatted <- test_week_unformatted
       }
       
       
@@ -135,14 +137,12 @@ for (analysis_time_season in c("2015/2016")){
               ".rds"))
           
           sarima_fit <- readRDS(file = fit_filepath)
-         var_scale_up <- var(lag_0_by_week$X0,na.rm = T)
+         var_scale_up <- .1*lag_0_by_week[lag_0_by_week$Region == region_local & lag_0_by_week$season_week == test_week_unformatted,]$X0
          var_process_model <- sarima_fit$sigma2
-         diff_ <- var_scale_up - var_process_model
-         weight <-var_process_model/(var_process_model +var_scale_up)  #+
-           #as.numeric(as.character(previous_point_forecast_by_region[previous_point_forecast_by_region$Location == region_str[match(region_local,region_str_array_eval)],]$Value)) -current_observed_data[current_observed_data$epiweek ==paste0(test_season_formatted,test_week_formatted) & current_observed_data$region == region_local,]$weighted_ili
+         curr <- current_observed_data[current_observed_data$epiweek ==paste0(test_season_formatted,test_week_formatted) & current_observed_data$region == region_local,]$weighted_ili
          
-         current_observed_data[current_observed_data$epiweek ==paste0(test_season_formatted,test_week_formatted) & current_observed_data$region == region_local,]$weighted_ili <- weight*(current_observed_data[current_observed_data$epiweek ==paste0(test_season_formatted,test_week_formatted) & current_observed_data$region == region_local,]$weighted_ili/mean(lag_0_by_week_mean$X0,na.rm = T)) +  (1-weight)*previous_point_forecast_by_region[previous_point_forecast_by_region$Location==region_str[match(region_local,region_str_array_eval)],]$Value
-          
+        current_observed_data[current_observed_data$epiweek ==paste0(test_season_formatted,test_week_formatted) & current_observed_data$region == region_local,]$weighted_ili <-current_observed_data[current_observed_data$epiweek ==paste0(test_season_formatted,test_week_formatted) & current_observed_data$region == region_local,]$weighted_ili/median(long[long$variable == "X0"  & long$Region == region_local ,]$value,na.rm=T)
+         
         }
         
         

@@ -2,7 +2,9 @@
 make_plots <- function(){
   lag_df <- read.csv("./data/lag_df")
   lag_df0 <- read.csv("./data/lag_df0")
-  
+  fully_observed <- readRDS("./data/fully_observed_data_formatted.rds")
+  delayed_data <- readRDS("./data/flu_data_with_backfill_edit.rds")
+  library(dplyr)
   library(ggplot2)
   
   epw <- lag_df[lag_df$Region == "National" & lag_df$week == 201502,paste0("X",0:51)]
@@ -106,6 +108,33 @@ make_plots <- function(){
     ggsave(paste0("2015_",epiweek,".png"),plot=p)
   }
   
+  data <- readRDS("./data/flu_data_with_backfill_edit.rds")
+  current_observed_data <- data %>% group_by(region,epiweek) %>%
+    filter(lag == 0)
+  current_observed_data <- data.frame(current_observed_data[order(current_observed_data$epiweek),])
+  
+  
+  data_for_plot <- rbind(current_observed_data,fully_observed_data)
+  
+  data_for_plot$Data <- c(rep("Currently Observed",nrow(current_observed_data)),rep("Fully Observed",nrow(fully_observed_data)))
+  season_onsets <- c()
+  for (row in 1:nrow(data_for_plot)){
+    season_onsets <- c(season_onsets,get_onset_baseline(data_for_plot[row,]$region,data_for_plot[row,]$season))
+  }
+  data_for_plot$season_onsets <- season_onsets
+  ggplot(data_for_plot[(data_for_plot$region=="National" |data_for_plot$region=="Region 9" |data_for_plot$region=="Region 5" | data_for_plot$region=="Region 2"   ) & (data_for_plot$season == "2012/2013" |data_for_plot$season == "2014/2015" |data_for_plot$season == "2013/2014") ,],aes(x=season_week,y=weighted_ili,col=Data)) + geom_line() + geom_hline(aes(yintercept=season_onsets),linetype="dashed",alpha=.4) + facet_grid(season~region) + theme_bw() +  theme(axis.text.x = element_text(angle = 90, hjust = 1)) + ylab("wILI") + xlab("Season Week")
+  ggplot(data_for_plot[data_for_plot$region == "Region 8" & data_for_plot$season == "2015/2016",],aes(x=season_week,y=weighted_ili,col=Data)) + geom_line() + geom_hline(aes(yintercept=season_onsets),linetype="dashed",alpha=.4) + facet_grid(season~region) + theme_bw() +  theme(axis.text.x = element_text(angle = 90, hjust = 1)) + ylab("wILI") + xlab("Season Week")
+  
+  
+  
+  ggplot(fully_observed[fully_observed_data$season >= "2010/2011" & fully_observed_data$season < "2018/2019",],aes(x=season_week,y=weighted_ili,col=region)) + geom_line() + facet_grid(~season) + theme_bw() +  theme(axis.text.x = element_text(angle = 90, hjust = 1)) + ylab("wILI") + xlab("Season Week")
+
+  long <- melt(lag_df[lag_df$week <=201540, ], id.vars = c("Region","season_we"))
+  ggplot(long[(long$variable == "X0" |long$variable == "X5" |long$variable == "X15" |long$variable == "X52"|long$variable == "X10"|long$variable == "X30") & (long$Region == "National" | long$Region == "Region 1" | long$Region == "Region 5" | long$Region == "Region 10")    ,],aes(x=value))  + geom_histogram() + facet_grid(Region~variable) + xlab("a_{r,s,w,0}") + theme_bw()
+  
+  ggplot(long[(long$variable == "X0" |long$variable == "X5" |long$variable == "X15" |long$variable == "X52"|long$variable == "X10"|long$variable == "X30") & (long$Region == "National" | long$Region == "Region 1" | long$Region == "Region 5" | long$Region == "Region 10")    ,],aes(x=season_week,y=value))  + geom_point() + facet_grid(Region~variable) + xlab("a_{r,s,w,0}") + theme_bw()
+  
+  ggplot(long[long$variable == "X0"   ,],aes(x=value))  + geom_histogram() + facet_grid(Region~variable) + xlab("a_{r,s,w,0}") + theme_bw()
   
 }
   
