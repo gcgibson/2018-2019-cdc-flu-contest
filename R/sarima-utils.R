@@ -76,7 +76,7 @@ sample_predictive_trajectories_arima_wrapper <- function(
   
   sarima_fit <- readRDS(file = fit_filepath)
   
-  if (params$do_sampling_lag & tail(data$week,1) <= 10 ){
+  if (params$do_sampling_lag & tail(data$week,1) <= 20 ){
     lag_df <- read.csv("./data/lag_df")
     region_str_array <- c("National",paste0("Region ",1:10))
     region_str_array_hhs <- c("nat",paste0("hhs",1:10))
@@ -93,7 +93,7 @@ sample_predictive_trajectories_arima_wrapper <- function(
     test_season_formatted <- as.numeric(test_season_formatted)
     
     if (test_week_formatted >=40){
-      for (samp_idx in 1:10){
+      for (samp_idx in 1:1000){
         current_observed_data_local <- data
         for (lag_itr in seq(40,test_week_formatted)){
           current_lag <- as.numeric(test_week_formatted) -lag_itr
@@ -121,7 +121,7 @@ sample_predictive_trajectories_arima_wrapper <- function(
       }
     } else{
       
-      for (samp_idx in 1:10){
+      for (samp_idx in 1:1000){
         current_observed_data_local <- data
         for (lag_itr in seq(40,52)){
           current_lag <- 52 -lag_itr
