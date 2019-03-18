@@ -211,10 +211,10 @@ result_df$total_prob <- result_df$p_c +result_df$p_r +result_df$p_l
 result_df$total_log_prob <- pmax(log(result_df$total_prob),-10)
 result_df$ll <- rep(NA, nrow(result_df))
 
-mean(result_df[result_df$model=="TRUE" &  result_df$region == "HHS Region 9" &  result_df$target == "1 wk ahead"   ,]$total_log_prob,na.rm = TRUE)
-mean(result_df[result_df$model=="NONE" &result_df$region == "HHS Region 9" &  result_df$target == "1 wk ahead",]$total_log_prob,na.rm = TRUE)
-mean(result_df[result_df$model=="M1" & result_df$region == "HHS Region 9" & result_df$target == "1 wk ahead",]$total_log_prob,na.rm = TRUE)
-mean(result_df[result_df$model=="M2" & result_df$region == "HHS Region 9" & result_df$target == "1 wk ahead",]$total_log_prob,na.rm = TRUE)
+mean(result_df[result_df$model=="TRUE" &  result_df$target == "Season peak percentage"   ,]$total_log_prob,na.rm = TRUE)
+mean(result_df[result_df$model=="NONE" &  result_df$target =="Season peak percentage",]$total_log_prob,na.rm = TRUE)
+mean(result_df[result_df$model=="M1" & result_df$target == "Season peak week",]$total_log_prob,na.rm = TRUE)
+mean(result_df[result_df$model=="M2"& result_df$target == "Season peak week",]$total_log_prob,na.rm = TRUE)
 
 library(ggplot2)
 library(dplyr)
