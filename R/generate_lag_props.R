@@ -33,21 +33,21 @@ download_backfill_data <- function(){
 create_lag_df <- function(){
   data <- readRDS("./data/flu_data_with_backfill_edit.rds")
   
-  lag_df <- matrix(NA,ncol=4)
+  lag_df <- matrix(NA,ncol=55)
   
   for (region in unique(data$region)){
     for (week in unique(data[data$region == region,]$epiweek)){
       tmp_data <- data[data$region == region & data$epiweek == week,]
       tmp_row <- c()
-      for (lag in c(0)){
+      for (lag in seq(0,51)){
         current_observed_data <- tmp_data[tmp_data$lag == lag,]$wili
         finally_observed_data <- tmp_data[tmp_data$lag == max(tmp_data$lag),]$wili
-        prop <- current_observed_data/finally_observed_data
+        prop <- current_observed_data-finally_observed_data
         tmp_row <- c(tmp_row,prop)
       }
-      # while (length(tmp_row) < 52){
-      #   tmp_row <- c(tmp_row, NA)
-      # }
+       while (length(tmp_row) < 52){
+         tmp_row <- c(tmp_row, NA)
+       }
       if (length(prop) ){
         lag_df <- rbind(lag_df,c(region,week,tmp_row,current_observed_data))
       }
@@ -59,7 +59,7 @@ create_lag_df <- function(){
   colnames(lag_df) <- c("Region","week",0,"Incidence")
   lag_df$season_week <- unlist(lapply(lag_df$week,function(x) {return (substr(x,5,7))}))
   
-  write.csv(lag_df,"./data/lag_df0")
+  write.csv(lag_df,"./data/lag_df_difference")
 }
 
 

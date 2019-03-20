@@ -46,7 +46,7 @@ region_str <- c("US National",paste0("HHS Region ",1:10))
 method <- paste0("sarima_seasonal_difference_", seasonal_difference)
 submissions_save_path <- paste0("inst/submissions/region-", method)
 data <-readRDS("./data/flu_data_with_backfill_edit.rds")
-lag_df <- read.csv("./data/lag_df")
+lag_df <- read.csv("./data/lag_df_difference")
 lag_df0 <- read.csv("./data/lag_df0")
 subset_lag_df <- lag_df0[lag_df0$week < 201540,]
 
@@ -57,7 +57,7 @@ lm_fit_hierarchical <- lmer(X0~Incidence +season_week + (1|Region), data=subset_
 fully_observed_data <- as.data.frame(readRDS("./data/fully_observed_data_formatted.rds"))
 
 
-for (analysis_time_season in c("2017/2018")){
+for (analysis_time_season in c("2015/2016")){
   for (delay_adjustment in delay_adjustment_list){
     if(analysis_time_season == "2017/2018"){
       end_week <- 20
@@ -65,7 +65,7 @@ for (analysis_time_season in c("2017/2018")){
       end_week <- 20
     }
     #foreach  (test_week_formatted = c(seq(10,20))) %dopar% {
-    for  (test_week_unformatted in c(seq(12,20))){
+    for  (test_week_unformatted in c(seq(41,52),seq(20))){
         
       if (test_week_unformatted < 40){
         test_season_formatted <- substr(analysis_time_season,6,9)

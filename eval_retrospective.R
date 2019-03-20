@@ -171,8 +171,8 @@ region_str_true <- c("nat",paste0("hhs",1:10))
 
 
 targets <- c("Season peak percentage","Season peak week","Season onset","1 wk ahead","2 wk ahead","3 wk ahead","4 wk ahead")
-test_seasons <-c("2015","2016")
-test_models <- c("FSMOOTHED","TRUE","NONE","M1","M2","M3","M4","M5","M6")
+test_seasons <-c("2015")
+test_models <-c("FSMOOTHED","TRUE","NONE","M1","M2","M3","M4","M5","M6")
 test_regions <- region_str_data_set
 
 result_df <- matrix(NA,ncol= 10)
@@ -211,10 +211,10 @@ result_df$total_prob <- result_df$p_c +result_df$p_r +result_df$p_l
 result_df$total_log_prob <- pmax(log(result_df$total_prob),-10)
 result_df$ll <- rep(NA, nrow(result_df))
 
-mean(result_df[result_df$model=="TRUE" &  result_df$target == "Season peak percentage"   ,]$total_log_prob,na.rm = TRUE)
-mean(result_df[result_df$model=="NONE"  &    result_df$target == "Season peak percentage" ,]$total_log_prob,na.rm = TRUE)
-mean(result_df[result_df$model=="M1" &  result_df$target == "Season peak percentage" ,]$total_log_prob,na.rm = TRUE)
-mean(result_df[result_df$model=="M2" &   result_df$target == "Season peak percentage" ,]$total_log_prob,na.rm = TRUE)
+mean(result_df[result_df$model=="TRUE" &  result_df$target == "Season onset"   ,]$total_log_prob,na.rm = TRUE)
+mean(result_df[result_df$model=="NONE"  &    result_df$target == "Season onset" ,]$total_log_prob,na.rm = TRUE)
+mean(result_df[result_df$model=="M1" &  result_df$target == "Season onset" ,]$total_log_prob,na.rm = TRUE)
+mean(result_df[result_df$model=="M2" &   result_df$target == "Season onset" ,]$total_log_prob,na.rm = TRUE)
 
 library(ggplot2)
 library(dplyr)
@@ -223,18 +223,29 @@ season_week <- c()
 for (i in 1:nrow(result_df)){
   season_week <- c(season_week,year_week_to_season_week(result_df[i,]$week,result_df[i,]$Season))
 }
-result_df$season_week <- season_week
-ggplot(result_df[(result_df$model == "NONE" | result_df$model == "TRUE" | result_df$model == "M2" )  & result_df$target =="Season peak percentage"  & result_df$Season == 2016 ,],aes(x=season_week,y=total_log_prob,col=region)) + geom_point() + facet_grid(model ~.) + theme_bw() + ylab("Log Prob")  + xlab("Season week")
 
-ggplot(result_df[result_df$Season == "2013"  & result_df$target == "1 wk ahead",],aes(x=week,y=total_log_prob,col=region)) + geom_point() + facet_grid(model ~.)
+result_df$season_week <- season_week
+ggplot(result_df[(result_df$model == "NONE" | result_df$model == "TRUE" | result_df$model == "M2" )  & result_df$target =="Season onset"  & result_df$Season == 2015 ,],aes(x=jitter(season_week),y=(total_log_prob),col=region)) + geom_point() + facet_grid(model ~.) + theme_bw() + ylab("Log Prob")  + xlab("Season week")
+
+ggplot(result_df[result_df$Season == "2013"  & result_df$target == "1 wk ahead",],aes(x=week,y=total_log_prob,col=region)) + geom_point() + facet_grid(model ~.) 
 
 
 #levels(result_df$model) <-c("FSMOOTHED","Mean","Sampling","M3","Mean/Season Week","Hierarchical","Nonlinear","None","True") 
 ggplot(result_df[result_df$model != "M3",],aes(x=target,y=total_log_prob,col=model)) +  stat_summary(fun.y="mean", geom="point") + theme_bw() + theme(axis.text.x = element_text(angle = 90, hjust = 1)) + ylab("Average Log Probability") +  xlab("Target") + facet_grid(~Season) 
+#
+levels(result_df$region) <- c("Region 1","Region 10",paste0("Region ",2:9),"National")
+lag_df$region <- lag_df$Region
 
-ggplot(result_df[(result_df$model == "M2" | result_df$model == "NONE" | result_df$model ==  "TRUE")& (result_df$target == "Season onset" | result_df$target == "Season peak percentage"),],aes(x=target,y=total_log_prob,col=model)) +  stat_summary(fun.y="mean", geom="point") + theme_bw() + theme(axis.text.x = element_text(angle = 90, hjust = 1)) + ylab("Average Log Probability") +  xlab("Target") + facet_grid(~region) 
+
 ggplot(result_df[(result_df$model == "M1" | result_df$model == "NONE" | result_df$model ==  "TRUE")& (result_df$target == "1 wk ahead" | result_df$target == "2 wk ahead" | result_df$target == "3 wk ahead" | result_df$target == "4 wk ahead"),],aes(x=target,y=total_log_prob,col=model)) +  stat_summary(fun.y="mean", geom="point") + theme_bw() + theme(axis.text.x = element_text(angle = 90, hjust = 1)) + ylab("Average Log Probability") +  xlab("Target") + facet_grid(~region) 
 
+
+result_df_means <- data.frame(result_df %>% group_by(target,model,region,Season) %>% summarize(mt=mean(total_log_prob,na.rm = T)))
+
+
+ggplot(result_df[(result_df$model == "M2" | result_df$model == "NONE" | result_df$model ==  "TRUE")& (result_df$target == "Season onset" | result_df$target == "Season peak percentage"),],aes(x=target,y=total_log_prob,col=model)) +  stat_summary(fun.y="mean", geom="point") + theme_bw() + theme(axis.text.x = element_text(angle = 90, hjust = 1)) + ylab("Average Log Probability") +  xlab("Target")  +
+  geom_point(data=lag_df,aes(x=as.factor("Variance of X0"),y=min(X0,na.rm = T)),col='black') + facet_grid(~region)
+ggplot(result_df_means[result_df_means$target == "1 wk ahead",],aes(x=model,y=mt,group=1)) + geom_line()+ facet_grid(Season~region) + theme_bw()
 
 #print ("hello")
  # for (region in unique(result_df$region)){
