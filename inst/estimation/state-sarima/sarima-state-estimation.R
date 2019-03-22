@@ -28,7 +28,7 @@ state_names <- state_names[-which(state_names %in% c("Florida"))]
 region_seasons <- expand.grid(
   region = state_names,
   #first_test_season = paste0(2011:2018, "/", 2012:2019), 
-  first_test_season = "2018/2019", # uncomment this line if you only want one season as test
+  first_test_season = "2010/2011", # uncomment this line if you only want one season as test
   stringsAsFactors = FALSE
 )
 
