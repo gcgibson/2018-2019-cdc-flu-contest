@@ -13,7 +13,7 @@ library(forecast)
 library(FluSight)
 library(gridExtra)
 library(foreach)
-library(doMC)
+#library(doMC)
 library(nnet)
 library(lme4)
 
@@ -33,9 +33,9 @@ get_previous_point_forecast <- function(analysis_time_season,test_week_formatted
 
 
 
-registerDoMC(cores=6)
+#registerDoMC(cores=6)
 seasonal_difference <- TRUE
-delay_adjustment_list <- c("NONE","TRUE")#M4","M5","M6")
+delay_adjustment_list <- c("TRUE")#M4","M5","M6")
 
 
 region_str_array_eval <- c("National",paste0("Region ",1:10))
@@ -64,7 +64,7 @@ for (analysis_time_season in c("2014/2015")){
     }else{
       end_week <- 20
     }
-    foreach (test_week_unformatted = c(seq(41,52),seq(1,20))) %dopar% {
+    for (test_week_unformatted in c(18)) {
     #for (test_week_unformatted in c(20)){    
       if (test_week_unformatted < 40){
         test_season_formatted <- substr(analysis_time_season,6,9)

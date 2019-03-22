@@ -1,6 +1,6 @@
 library(EnvStats)
 library(ggplot2)
-do_eval <- function(){
+#do_eval_retro <- function(){
   get_model_prob <- function(season,week,target,model,region) {
     model_csv <- read.csv(paste0("./inst/submissions/region-sarima_seasonal_difference_TRUE/EW",week,"-",season,"-ReichLab_sarima_seasonal_difference_TRUE-delay-",model,".csv"))
     if(target == "1 wk ahead" | target == "2 wk ahead" | target == "3 wk ahead" | target == "4 wk ahead"){
@@ -57,23 +57,30 @@ do_eval <- function(){
     baseline <- get_onset_baseline(region = formatted_region, season = analysis_time_season)
     
     onset_week <- get_onset_week(round(trajectory,1),baseline = baseline,3,first_season_week = 31, get_num_MMWR_weeks_in_first_season_year(analysis_time_season))
-    truth <- season_week_to_year_week(onset_week,first_season_week = 31,weeks_in_first_season_year =get_num_MMWR_weeks_in_first_season_year(analysis_time_season) )
+
+    if (onset_week != "none"){
+      truth <- season_week_to_year_week(onset_week,first_season_week = 31,weeks_in_first_season_year =get_num_MMWR_weeks_in_first_season_year(analysis_time_season) )
     
-    if (truth == 52){
-      truth_l <- 51
-      truth_r <- 1
-    } else if(truth == 1){
-      truth_l <- 52
-      truth_r <- 2
-    } else if (truth == 40){
-      truth_l <- 40
-      truth_r <- 41
-    } else if (truth == 20){
-      truth_l <- 19
-      truth_r <- 20
+      if (truth == 52){
+        truth_l <- 51
+        truth_r <- 1
+      } else if(truth == 1){
+        truth_l <- 52
+        truth_r <- 2
+      } else if (truth == 40){
+        truth_l <- 40
+        truth_r <- 41
+      } else if (truth == 20){
+        truth_l <- 19
+        truth_r <- 20
+      }else{
+        truth_l <- truth -1
+        truth_r <- truth + 1
+      }
     }else{
-      truth_l <- truth -1
-      truth_r <- truth + 1
+      truth <- onset_week
+      truth_l <-onset_week
+      truth_r <- onset_week
     }
     
     
@@ -169,7 +176,7 @@ do_eval <- function(){
   
   
   targets <- c("Season peak percentage","Season peak week","Season onset","1 wk ahead","2 wk ahead","3 wk ahead","4 wk ahead")
-  test_seasons <-c("2014")
+  test_seasons <-c("2011","2012","2013", "2014")
   test_models <- c("NONE","TRUE")#c("FSMOOTHED","TRUE","NONE","M1","M2","M3","M4","M5","M6")
   test_regions <- region_str_data_set
   
@@ -185,6 +192,7 @@ do_eval <- function(){
             } else{
               top_level_season_formatted <- as.numeric(top_level_season) + 1
             }
+           # print (c(top_level_season_formatted,week,target,model,region))
             model_prob_and_truth <- get_model_prob(top_level_season_formatted,week,target,model,region) 
             
             train_result_df <- rbind(train_result_df,c(top_level_season,week,target,model,region,model_prob_and_truth))
@@ -297,4 +305,4 @@ do_eval <- function(){
   train_result_df$truth <- as.numeric(as.character(train_result_df$truth))
   ggplot(train_result_df[train_result_df$target == "1 wk ahead" & train_result_df$Season == 2016 ,],aes(x=season_week,y=point,col=model)) + geom_line() +
     geom_line(data=train_result_df[train_result_df$target == "1 wk ahead" & train_result_df$Season == 2016,],aes(x=season_week,y=truth),col='blue') + facet_grid(~region) + theme_bw()
-}
+#}

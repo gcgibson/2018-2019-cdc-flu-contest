@@ -1,7 +1,7 @@
 library(EnvStats)
 library(ggplot2)
 
-do_eval <- function(){
+#do_eval <- function(){
   get_model_prob_k_week_ahead <- function(season,week,model,region,model_csv,target){
   formatted_region <- region_str_array_eval[match(region,region_str_data_set)]
   if (as.numeric(week) == 52){
@@ -283,4 +283,4 @@ result_df$point <- as.numeric(as.character(result_df$point))
 result_df$truth <- as.numeric(as.character(result_df$truth))
 ggplot(result_df[result_df$target == "1 wk ahead" & result_df$Season == 2016 ,],aes(x=season_week,y=point,col=model)) + geom_line() +
   geom_line(data=result_df[result_df$target == "1 wk ahead" & result_df$Season == 2016,],aes(x=season_week,y=truth),col='blue') + facet_grid(~region) + theme_bw()
-}
+#}
