@@ -1,7 +1,7 @@
 library(EnvStats)
 library(ggplot2)
 
-#do_eval <- function(){
+do_eval <- function(){
   get_model_prob_k_week_ahead <- function(season,week,model,region,model_csv,target){
   formatted_region <- region_str_array_eval[match(region,region_str_data_set)]
   if (as.numeric(week) == 52){
@@ -155,8 +155,8 @@ region_str_true <- c("nat",paste0("hhs",1:10))
 
 
 targets <- c("Season peak percentage","Season peak week","Season onset","1 wk ahead","2 wk ahead","3 wk ahead","4 wk ahead")
-test_seasons <-c("2015","2016")
-test_models <- c("FSMOOTHED","TRUE","NONE","M1","M2","M3","M4","M5","M6")
+test_seasons <-c("2015","2016","2017")
+test_models <- c("TRUE","NONE","M1","M2","M3","M4","M5","M6")
 test_regions <- region_str_data_set
 
 result_df <- matrix(NA,ncol= 10)
@@ -194,11 +194,12 @@ result_df$total_prob <- result_df$p_c +result_df$p_r +result_df$p_l
 
 result_df$total_log_prob <- pmax(log(result_df$total_prob),-10)
 result_df$ll <- rep(NA, nrow(result_df))
+levels(result_df$model) <- c("Naive","Sampling","Naive (Week)","Naive (Region)","Hierarchical Regression","Non-linear","Unrevised","Revised")
 
-mean(result_df[result_df$model=="TRUE" &  result_df$target == "Season peak week"   ,]$total_log_prob,na.rm = TRUE)
-mean(result_df[result_df$model=="NONE"  &    result_df$target == "Season peak week" ,]$total_log_prob,na.rm = TRUE)
-mean(result_df[result_df$model=="M1" &  result_df$target == "Season peak percentage" ,]$total_log_prob,na.rm = TRUE)
-mean(result_df[result_df$model=="M2" &   result_df$target == "Season peak week" ,]$total_log_prob,na.rm = TRUE)
+mean(result_df[result_df$model=="Revised" &  result_df$target == "Season onset"   ,]$total_log_prob,na.rm = TRUE)
+mean(result_df[result_df$model=="Unrevised"  &    result_df$target == "Season onset" ,]$total_log_prob,na.rm = TRUE)
+mean(result_df[result_df$model=="Naive (Week)" &  result_df$target == "Season onset" ,]$total_log_prob,na.rm = TRUE)
+mean(result_df[result_df$model=="Sampling" &   result_df$target == "Season onset" ,]$total_log_prob,na.rm = TRUE)
 
 library(ggplot2)
 library(dplyr)
@@ -209,15 +210,17 @@ for (i in 1:nrow(result_df)){
 }
 
 result_df$season_week <- season_week
-ggplot(result_df[(result_df$model == "NONE" | result_df$model == "TRUE" | result_df$model == "M2" )  & result_df$target =="Season peak percentage"  & result_df$Season == 2016 ,],aes(x=jitter(season_week),y=(total_log_prob),col=region)) + geom_point() + facet_grid(model ~.) + theme_bw() + ylab("Log Prob")  + xlab("Season week")
+ggplot(result_df[(result_df$model == "NONE" | result_df$model == "TRUE" | result_df$model == "M2" )  & result_df$target =="Season onset"  & result_df$Season == 2016 ,],aes(x=jitter(season_week),y=(total_log_prob),col=region)) + geom_point() + facet_grid(model ~.) + theme_bw() + ylab("Log Prob")  + xlab("Season week")
 
 ggplot(result_df[result_df$Season == "2013"  & result_df$target == "1 wk ahead",],aes(x=week,y=total_log_prob,col=region)) + geom_point() + facet_grid(model ~.) 
 
+result_df$Model <- result_df$model
+result_df[result_df$model == "Sampling" & (result_df$target == "1 wk ahead" |result_df$target == "2 wk ahead" | result_df$target == "3 wk ahead" | result_df$target == "4 wk ahead"  ),]$total_log_prob <- NA
 
-#levels(result_df$model) <-c("FSMOOTHED","Mean","Sampling","M3","Mean/Season Week","Hierarchical","Nonlinear","None","True") 
-ggplot(result_df[result_df$model != "M3",],aes(x=target,y=total_log_prob,col=model)) +  stat_summary(fun.y="mean", geom="point") + theme_bw() + theme(axis.text.x = element_text(angle = 90, hjust = 1)) + ylab("Average Log Probability") +  xlab("Target") + facet_grid(~Season) 
-#
-levels(result_df$region) <- c("Region 1","Region 10",paste0("Region ",2:9),"National")
+ggplot(result_df,aes(x=target,y=total_log_prob,col=model)) +  stat_summary(fun.y="mean", geom="point") + theme_bw() + theme(axis.text.x = element_text(angle = 90, hjust = 1)) + ylab("Average Log Probability") +  xlab("Target") + facet_grid(~Season) 
+ggplot(result_df[(result_df$target!= "1 wk ahead" &result_df$target!= "2 wk ahead"& result_df$target!= "3 wk ahead"& result_df$target!= "4 wk ahead" ) & (result_df$model == "Unrevised" & result_df$model == "Revised" & result_df$model == "Sampling"),],aes(x=target,y=total_log_prob,col=model)) +  stat_summary(fun.y="mean", geom="point") + theme_bw() + theme(axis.text.x = element_text(angle = 90, hjust = 1)) + ylab("Average Log Probability") +  xlab("Target") + facet_wrap(~region,ncol=4) 
+
+#levels(result_df$region) <- c("Region 1","Region 10",paste0("Region ",2:9),"National")
 lag_df$region <- lag_df$Region
 
 
@@ -283,4 +286,4 @@ result_df$point <- as.numeric(as.character(result_df$point))
 result_df$truth <- as.numeric(as.character(result_df$truth))
 ggplot(result_df[result_df$target == "1 wk ahead" & result_df$Season == 2016 ,],aes(x=season_week,y=point,col=model)) + geom_line() +
   geom_line(data=result_df[result_df$target == "1 wk ahead" & result_df$Season == 2016,],aes(x=season_week,y=truth),col='blue') + facet_grid(~region) + theme_bw()
-#}
+}

@@ -1,6 +1,6 @@
 library(EnvStats)
 library(ggplot2)
-#do_eval_retro <- function(){
+do_eval_retro <- function(){
   get_model_prob <- function(season,week,target,model,region) {
     model_csv <- read.csv(paste0("./inst/submissions/region-sarima_seasonal_difference_TRUE/EW",week,"-",season,"-ReichLab_sarima_seasonal_difference_TRUE-delay-",model,".csv"))
     if(target == "1 wk ahead" | target == "2 wk ahead" | target == "3 wk ahead" | target == "4 wk ahead"){
@@ -239,7 +239,7 @@ library(ggplot2)
   #levels(train_result_df$model) <-c("FSMOOTHED","Mean","Sampling","M3","Mean/Season Week","Hierarchical","Nonlinear","None","True") 
   ggplot(train_result_df[train_result_df$model != "M3",],aes(x=target,y=total_log_prob,col=model)) +  stat_summary(fun.y="mean", geom="point") + theme_bw() + theme(axis.text.x = element_text(angle = 90, hjust = 1)) + ylab("Average Log Probability") +  xlab("Target") + facet_grid(~Season) 
   #
-  levels(train_result_df$region) <- c("Region 1","Region 10",paste0("Region ",2:9),"National")
+  #levels(train_result_df$region) <- c("Region 1","Region 10",paste0("Region ",2:9),"National")
   lag_df$region <- lag_df$Region
   
   
@@ -305,4 +305,4 @@ library(ggplot2)
   train_result_df$truth <- as.numeric(as.character(train_result_df$truth))
   ggplot(train_result_df[train_result_df$target == "1 wk ahead" & train_result_df$Season == 2016 ,],aes(x=season_week,y=point,col=model)) + geom_line() +
     geom_line(data=train_result_df[train_result_df$target == "1 wk ahead" & train_result_df$Season == 2016,],aes(x=season_week,y=truth),col='blue') + facet_grid(~region) + theme_bw()
-#}
+}
