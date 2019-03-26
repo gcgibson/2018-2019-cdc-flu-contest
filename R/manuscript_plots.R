@@ -28,7 +28,7 @@ make_plots <- function(){
   
   
   
-  ggplot(fully_observed[fully_observed_data$season >= "2010/2011" & fully_observed_data$season < "2018/2019",],aes(x=season_week,y=weighted_ili,col=region)) + geom_line() + facet_grid(~season) + theme_bw() +  theme(axis.text.x = element_text(angle = 90, hjust = 1)) + ylab("wILI") + xlab("Season Week")
+  ggplot(fully_observed[fully_observed_data$season >= "2010/2011" & fully_observed_data$season < "2017/2018",],aes(x=season_week,y=weighted_ili,col=region)) + geom_line() + facet_grid(~season) + theme_bw() +  theme(axis.text.x = element_text(angle = 90, hjust = 1)) + ylab("wILI") + xlab("Season Week") +ggtitle("Revised Data")+ theme(plot.title = element_text(hjust = 0.5))
 
   long <- melt(lag_df[lag_df$week <=201540, ], id.vars = c("Region","season_week"))
     
@@ -45,19 +45,24 @@ make_plots <- function(){
   
   
   
-  data_sub <- data[data$season == "2015/2016" & data$region == "National" & data$epiweek >="201540",]
+  data_sub <- data[data$season == "2015/2016"  & data$epiweek >="201540",]
  
-
-  ggplot(data_sub[ data_sub$issue <= as.numeric(paste0("2015",50)),] %>% group_by(region,epiweek) %>%
-           filter(lag == max(lag)),aes(x=season_week,y=weighted_ili,col='L 9')) + geom_line() + xlim(10,30) + ylim(.5,3) + theme_bw() +
-    geom_line(data=data_sub[ data_sub$issue <= as.numeric(paste0("2015",52)),] %>% group_by(region,epiweek) %>%
-                filter(lag == max(lag)),aes(x=season_week,y=weighted_ili,col='L 12'))+
-    geom_line(data=data_sub[ data_sub$issue <= as.numeric(paste0("2016",10)),] %>% group_by(region,epiweek) %>%
-                filter(lag == max(lag)),aes(x=season_week,y=weighted_ili,col='L 22')) +
-    geom_line(data=data_sub[ data_sub$issue <= as.numeric(paste0("2015",45)),] %>% group_by(region,epiweek) %>%
-                filter(lag == max(lag)),aes(x=season_week,y=weighted_ili,col="L 5")) +
-    annotate("text", x = c(25), y=1.8, label = c("Y_{r,s,15,7}"))
-  
+   data_frame_for_lag_plot <- matrix(NA,ncol=21)
+   for (i in seq(41,52)){
+     data_frame_for_lag_plot <- rbind(data_frame_for_lag_plot,as.matrix(data_sub[ data_sub$issue <= as.numeric(paste0("2015",i)),] %>% group_by(region,epiweek) %>%
+                filter(lag == max(lag))))
+   }
+   for (i in c(paste0("0",1:9),seq(10,20))){
+     data_frame_for_lag_plot <- rbind(data_frame_for_lag_plot,as.matrix(data_sub[ data_sub$issue <= as.numeric(paste0("2016",i)),] %>% group_by(region,epiweek) %>%
+                                                                          filter(lag == max(lag))))
+   }
+   data_frame_for_lag_plot <- data.frame(data_frame_for_lag_plot[2:nrow(data_frame_for_lag_plot),])
+   data_frame_for_lag_plot$weighted_ili <- as.numeric(as.character(data_frame_for_lag_plot$weighted_ili))
+    #annotate("text", x = c(25), y=1.8, label = c("Y_{r,s,15,7}"))
+   data_frame_for_lag_plot$lag <- as.factor(as.numeric(as.character(data_frame_for_lag_plot$lag)))
+   data_frame_for_lag_plot$season_week <- as.numeric(as.character(data_frame_for_lag_plot$season_week))
+   ggplot(data_frame_for_lag_plot,aes(x=season_week,y=weighted_ili,col=lag)) + geom_point(size=.5) + theme_bw() +facet_wrap(~region) +
+     geom_line(data=fully_observed_data[fully_observed_data$season  == "2015/2016",],aes(x=season_week,y=weighted_ili,col=as.factor("Revised")),color="black") + ylab("wILI") + xlab("Season week")+ggtitle("Revisions to 2015/2016")+ theme(plot.title = element_text(hjust = 0.5))
   
   
     

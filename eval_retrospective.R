@@ -222,6 +222,7 @@ do_eval_retro <- function(){
   mean(train_result_df[train_result_df$model=="M1" &  train_result_df$target == "Season peak percentage" ,]$total_log_prob,na.rm = TRUE)
   mean(train_result_df[train_result_df$model=="M2" &   train_result_df$target == "Season peak week" ,]$total_log_prob,na.rm = TRUE)
   
+  train_result_df <- readRDS("train_result_df")
   library(ggplot2)
   library(dplyr)
   
@@ -231,14 +232,20 @@ do_eval_retro <- function(){
   }
   
   train_result_df$season_week <- season_week
-  ggplot(train_result_df[(train_result_df$model == "NONE" | train_result_df$model == "TRUE" | train_result_df$model == "M2" )  & train_result_df$target =="Season peak percentage"  & train_result_df$Season == 2016 ,],aes(x=jitter(season_week),y=(total_log_prob),col=region)) + geom_point() + facet_grid(model ~.) + theme_bw() + ylab("Log Prob")  + xlab("Season week")
+  ggplot(train_result_df[(train_result_df$model == "Unrevised" | train_result_df$model == "Revised"  )  & train_result_df$target =="Season peak percentage"  & train_result_df$Season == 2016 ,],aes(x=jitter(season_week),y=(total_log_prob),col=region)) + geom_point() + facet_grid(model ~.) + theme_bw() + ylab("Log Prob")  + xlab("Season week")
   
   ggplot(train_result_df[train_result_df$Season == "2013"  & train_result_df$target == "1 wk ahead",],aes(x=week,y=total_log_prob,col=region)) + geom_point() + facet_grid(model ~.) 
   
   
   #levels(train_result_df$model) <-c("FSMOOTHED","Mean","Sampling","M3","Mean/Season Week","Hierarchical","Nonlinear","None","True") 
-  ggplot(train_result_df[train_result_df$model != "M3",],aes(x=target,y=total_log_prob,col=model)) +  stat_summary(fun.y="mean", geom="point") + theme_bw() + theme(axis.text.x = element_text(angle = 90, hjust = 1)) + ylab("Average Log Probability") +  xlab("Target") + facet_grid(~Season) 
-  #
+  
+  train_result_df_means <- data.frame(train_result_df %>% group_by(target,model,region,Season) %>% summarize(mt=mean(total_log_prob,na.rm = T)))
+  long <- melt(train_result_df_means, id.vars = c("region","Season","mt"))
+  
+  levels(train_result_df_means$model) <- c("Unrevised","Revised")
+  train_result_df$diff <- train_result_df[train_result_df$model == "NONE",]$total_log_prob-train_result_df[train_result_df$model == "TRUE",]$total_log_prob
+  ggplot(train_result_df,aes(x=region,y=diff)) + geom_violin() + theme_bw()  +facet_wrap(~target) + theme(axis.text.x = element_text(angle = 90, hjust = 1)) + ylab("Difference in Log Score") +ggtitle("Difference Log-scores for Revised vs Unrevised")+ theme(plot.title = element_text(hjust = 0.5)) 
+    #
   #levels(train_result_df$region) <- c("Region 1","Region 10",paste0("Region ",2:9),"National")
   lag_df$region <- lag_df$Region
   

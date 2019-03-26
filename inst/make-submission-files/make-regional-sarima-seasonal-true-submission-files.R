@@ -35,7 +35,7 @@ get_previous_point_forecast <- function(analysis_time_season,test_week_formatted
 
 #registerDoMC(cores=6)
 seasonal_difference <- TRUE
-delay_adjustment_list <- c("M2")#M4","M5","M6")
+delay_adjustment_list <- c("M1")#M4","M5","M6")
 
 
 region_str_array_eval <- c("National",paste0("Region ",1:10))
@@ -46,7 +46,7 @@ region_str <- c("US National",paste0("HHS Region ",1:10))
 method <- paste0("sarima_seasonal_difference_", seasonal_difference)
 submissions_save_path <- paste0("inst/submissions/region-", method)
 data <-readRDS("./data/flu_data_with_backfill_edit.rds")
-lag_df <- read.csv("./data/lag_df_difference")
+lag_df <- read.csv("./data/lag_df")
 lag_df0 <- read.csv("./data/lag_df0")
 subset_lag_df <- lag_df0[lag_df0$week < 201540,]
 
@@ -57,7 +57,7 @@ lm_fit_hierarchical <- lmer(X0~Incidence +season_week + (1|Region), data=subset_
 fully_observed_data <- as.data.frame(readRDS("./data/fully_observed_data_formatted.rds"))
 
 
-for (analysis_time_season in c("2014/2015")){
+for (analysis_time_season in c("2015/2016")){
   for (delay_adjustment in delay_adjustment_list){
     if(analysis_time_season == "2017/2018"){
       end_week <- 20
@@ -336,7 +336,7 @@ for (analysis_time_season in c("2014/2015")){
           }
         } else{
           for (lag_itr in seq(40,52)){
-            current_lag <- 52 -lag_itr
+            current_lag <- 52 + 20 -lag_itr
             for (test_region in unique(data$region)){
               prop_estimate <- median(lag_df[lag_df$week < 201540 , paste0("X",current_lag)],na.rm = T)
               current_observed_data[current_observed_data$region == test_region & current_observed_data$epiweek == paste0(test_season_formatted,lag_itr),]$wili <-
@@ -347,11 +347,14 @@ for (analysis_time_season in c("2014/2015")){
             current_lag <- as.numeric(test_week_formatted) -lag_itr
             for (test_region in unique(data$region)){
               prop_estimate <- median(lag_df[ lag_df$week < 201540 , paste0("X",current_lag)],na.rm = T)
+            
+              
               current_observed_data[current_observed_data$region == test_region & current_observed_data$epiweek == paste0(test_season_formatted,lag_itr),]$wili <-
                 current_observed_data[current_observed_data$region == test_region &current_observed_data$epiweek == paste0(test_season_formatted,lag_itr),]$wili/prop_estimate
             }
           }
         }
+        
         current_observed_data <- as.data.frame(current_observed_data)
         simulate_trajectories_sarima_params <- list(
           fits_filepath = paste0("inst/estimation/region-sarima/",
